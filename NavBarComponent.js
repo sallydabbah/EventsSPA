@@ -1,6 +1,11 @@
 import React from 'react';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-import { Nav } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
+import { Nav, Button } from "react-bootstrap";
+
+import HomeComponent from './HomeComponent';
+import EventsComponent from './EventsComponent';
+import WishesComponent from './WishesComponent';
+import JoinComponent from './JoinComponent';
 
 export default class NavBarComponent extends React.Component {
     constructor() {
@@ -8,20 +13,10 @@ export default class NavBarComponent extends React.Component {
 
     }
     render() {
-        return (<Router>
-
-            <Nav defaultActiveKey="/home" as="ul">
-                <Nav.Item as="li">
-                    <Nav.Link to="/">Home</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link to="/events">Event</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link to="/wishes">wishes</Nav.Link>
-                </Nav.Item>
-            </Nav>
-        </Router>
-        );
+        return <div>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/events">Events</NavLink>
+        <NavLink to="/wishes">Wishes</NavLink>
+      </div>;
     }
 }
