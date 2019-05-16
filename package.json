@@ -1,0 +1,32 @@
+{
+  "name": "tsofen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-asset-copier": "^1.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
+    "mdbreact": "^4.13.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-bootstrap-date-picker": "^5.1.0",
+    "react-dom": "^16.8.6",
+    "react-native": "^0.59.8",
+    "react-router-dom": "^5.0.0"
+  },
+  "assetsPath": "assets/"
+}
