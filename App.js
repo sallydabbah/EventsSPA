@@ -76,6 +76,10 @@ export default class App extends React.Component {
                             <Route path="/" component={HomeComponent} exact />
                             <Route path="/events" component={EventsComponent} />
                             <Route path="/wishes" component={MyWishes} />
+                            <Route path="/about" component={AboutComponent} />
+                            <Route path="/join" component={JoinComponent} />
+                            <Route path="/login" component={LoginComponent} />
+
                         </Switch>
                     </div>
                 </BrowserRouter> </>);
