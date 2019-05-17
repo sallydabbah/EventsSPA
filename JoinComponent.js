@@ -76,7 +76,6 @@ export default class JoinComponent extends React.Component {
     }
     render() {
         return <>
-            <NavBarComponent />
             <div className="login-box" style={{ height: "620px", width: "500px", marginTop: "80px" }}>
                 <h1>Join Here</h1>
                 <Image src="images/avatar.png" roundedCircle className="avatar" />
