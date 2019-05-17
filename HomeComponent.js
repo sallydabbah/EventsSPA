@@ -185,7 +185,7 @@ export default class HomeComponent extends React.Component {
                             {this.state.AddABestwishe ? <> <EventsComponent /> </> :
 
                                 <>
-                                    <NavBarComponent />
+                                  
                                     <div className="login-box" style={{ width: "790px", height: "300px", top: "40%" }}>
                                         <div className="col"><h3 style={{ color: "#DC143C", textAlign: "center" }} className="font-weight-bold">Welcome to bestWishes</h3></div>
                                         <ButtonToolbar>
