@@ -155,7 +155,6 @@ export default class HomeComponent extends React.Component {
         return <>
 
             {this.state.viewMyEvents ? <>
-                <NavBarComponent />
                 <center>
                     <div className="container" >
                         <div className="row">
