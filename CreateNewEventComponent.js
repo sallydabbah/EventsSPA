@@ -63,7 +63,6 @@ export default class CreateNewEvent extends React.Component {
     render() {
         return <>
             {this.state.myEvents ? <>
-                <NavBarComponent />
                 <center>
                     <div className="container" >
                         <div className="row">
