@@ -9,7 +9,6 @@ export default class AboutComponent extends React.Component {
 
         return <>
 
-            <NavBarComponent/>
 
             <div className="container">
 
