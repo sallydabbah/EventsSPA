@@ -67,7 +67,6 @@ export default class AddABestWishComponent extends React.Component {
 
     render() {
         return <>
-            <NavBarComponent />
             <Container>
                 <Row>
                     <Col>
