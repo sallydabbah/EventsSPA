@@ -13,6 +13,7 @@ import CreateNewEvent from './CreateNewEventComponent';
 import LoginComponent from './LoginComponent';
 import MyEventsComponent from './MyEventsComponent';
 import SearchedEventComponent from './SearchedEventComponent';
+import MyWishes from './MyWishes';
 export default class App extends React.Component {
     constructor() {
         super();
@@ -40,6 +41,30 @@ export default class App extends React.Component {
                 }
             ]);
         }
+        if (!localStorage.userWishes) {
+            localStorage.userWishes = JSON.stringify([
+                    {
+                        "ID": "1",
+                        "from": "Ameer",
+                        "wishContent": "Happy birthday wish you all the best",
+                        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+                        "eventID": "1"
+                    },
+                    {
+                        "ID": "2",
+                        "from": "sally",
+                        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+                        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+                        "eventID": "1"
+                    },
+                    {
+                        "ID": "3",
+                        "from": "Samah seh",
+                        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+                        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+                        "eventID": "1"
+                    }]);
+            }
     }
     render() {
         return (
@@ -50,7 +75,7 @@ export default class App extends React.Component {
                         <Switch>
                             <Route path="/" component={HomeComponent} exact />
                             <Route path="/events" component={EventsComponent} />
-                            <Route path="/wishes" component={WishesComponent} />
+                            <Route path="/wishes" component={MyWishes} />
                         </Switch>
                     </div>
                 </BrowserRouter> </>);
