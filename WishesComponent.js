@@ -35,7 +35,6 @@ export default class WishesComponent extends React.Component {
   render() {
     if (!this.state.AddNewWishClicked || this.props.wishIsAdded) {
       return <>
-        <NavBarComponent />
         <div className="container-fluid">
           <div className="row"><br /></div>
           <div className="row">
