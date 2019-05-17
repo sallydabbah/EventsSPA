@@ -211,7 +211,6 @@ export default class EventsComponent extends React.Component {
         {
             if (!this.state.rowIsClicked) {
                 return <>
-                    <NavBarComponent />
                     <div className="container">
                         <div className="row">
                             <div id="searchingdiv" style={{ width: "900px" }}>
