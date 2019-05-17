@@ -58268,7 +58268,13 @@ function (_React$Component) {
         to: "/events"
       }, "Events"), _react.default.createElement(_reactRouterDom.NavLink, {
         to: "/wishes"
-      }, "Wishes"));
+      }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/about"
+      }, "About"), _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/join"
+      }, "Join"), _react.default.createElement(_reactRouterDom.NavLink, {
+        to: "/Login"
+      }, "Login"));
     }
   }]);
 
@@ -58870,6 +58876,15 @@ function (_React$Component) {
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/wishes",
         component: _MyWishes.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/about",
+        component: _AboutComponent.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/join",
+        component: _JoinComponent.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/login",
+        component: _LoginComponent.default
       })))), " ");
     }
   }]);
