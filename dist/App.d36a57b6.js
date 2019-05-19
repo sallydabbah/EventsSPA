@@ -54870,7 +54870,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, this.state.myEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("center", null, _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, this.state.myEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement("div", {
         className: "row"
@@ -55337,7 +55337,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
         style: {
           height: 250,
           margin: "80px 300px  0px 300px"
@@ -55502,7 +55502,7 @@ function (_React$Component) {
       var _this2 = this;
 
       if (!this.state.AddNewWishClicked || this.props.wishIsAdded) {
-        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
           className: "container-fluid"
         }, _react.default.createElement("div", {
           className: "row"
@@ -55828,7 +55828,7 @@ function (_React$Component) {
 
       {
         if (!this.state.rowIsClicked) {
-          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
             className: "container"
           }, _react.default.createElement("div", {
             className: "row"
@@ -56223,7 +56223,7 @@ function (_React$Component) {
         userEvents: this.state.Users.filter(function (user) {
           return user.userId == _this3.state.userId;
         })[this.state.userId - 1].events
-      }), " ") : _react.default.createElement(_react.default.Fragment, null, this.state.AddABestwishe ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_EventsComponent.default, null), " ") : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      }), " ") : _react.default.createElement(_react.default.Fragment, null, this.state.AddABestwishe ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_EventsComponent.default, null), " ") : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "login-box",
         style: {
           width: "790px",
@@ -58254,20 +58254,27 @@ function (_React$Component) {
   _inherits(NavBarComponent, _React$Component);
 
   function NavBarComponent() {
+    var _this;
+
     _classCallCheck(this, NavBarComponent);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(NavBarComponent).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavBarComponent).call(this));
+    _this.state = {
+      selectedWish: 1
+    };
+    return _this;
   }
 
   _createClass(NavBarComponent, [{
     key: "render",
     value: function render() {
+      var mywish = "/wishes/" + this.state.selectedWish;
       return _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.NavLink, {
         to: "/"
       }, "Home"), _react.default.createElement(_reactRouterDom.NavLink, {
         to: "/events"
       }, "Events"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/wishes"
+        to: mywish
       }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         to: "/about"
       }, "About"), _react.default.createElement(_reactRouterDom.NavLink, {
@@ -58330,7 +58337,7 @@ function (_React$Component) {
   _createClass(AboutComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement("div", {
         className: "row"
@@ -58580,7 +58587,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "login-box",
         style: {
           height: "470px",
@@ -58698,7 +58705,26 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginComponent).call(this));
     _this.state = {
-      wishes: []
+      wishes: [{
+        "ID": "1",
+        "from": "Ameer",
+        "wishContent": "Happy birthday wish you all the best",
+        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+        "eventID": "1"
+      }, {
+        "ID": "2",
+        "from": "sally",
+        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+        "eventID": "1"
+      }, {
+        "ID": "3",
+        "from": "Samah seh",
+        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+        "eventID": "1"
+      }],
+      wishId: ''
     };
     return _this;
   }
@@ -58726,20 +58752,25 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
+      this.state.wishId = this.props.match.params.wishId;
+      console.log('WishID' + this.state.wishId);
+      var selectedWish = {};
+      this.state.wishes.map(function (wish) {
+        if (wish.ID == _this3.state.wishId) {
+          selectedWish = wish;
+        } //if
+
+      });
       return _react.default.createElement("div", {
         className: "row"
-      }, this.state.wishes.map(function (_ref, i) {
-        var eventID = _ref.eventID,
-            from = _ref.from,
-            wishContent = _ref.wishContent,
-            imageURL = _ref.imageURL;
-        return _react.default.createElement(_CardComponent.default, {
-          key: i,
-          eventID: eventID,
-          from: from,
-          wishContent: wishContent,
-          imageURL: imageURL
-        });
+      }, _react.default.createElement(_CardComponent.default, {
+        key: selectedWish.wishId,
+        eventID: selectedWish.eventID,
+        from: selectedWish.from,
+        wishContent: selectedWish.wishContent,
+        imageURL: selectedWish.imageURL
       }));
     }
   }]);
@@ -58838,28 +58869,6 @@ function (_React$Component) {
       }]);
     }
 
-    if (!localStorage.userWishes) {
-      localStorage.userWishes = JSON.stringify([{
-        "ID": "1",
-        "from": "Ameer",
-        "wishContent": "Happy birthday wish you all the best",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "2",
-        "from": "sally",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "3",
-        "from": "Samah seh",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }]);
-    }
-
     return _this;
   }
 
@@ -58874,7 +58883,7 @@ function (_React$Component) {
         path: "/events",
         component: _EventsComponent.default
       }), _react.default.createElement(_reactRouterDom.Route, {
-        path: "/wishes",
+        path: "/wishes/:wishId",
         component: _MyWishes.default
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
@@ -58923,7 +58932,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59086" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
