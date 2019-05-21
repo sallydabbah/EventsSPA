@@ -16,11 +16,11 @@ export default class NavBarComponent extends React.Component {
         return <div>
 
             <Navbar className="navbarBackground">
-                
+
                 <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
                 <NavLink className="navbarClass" to="/events" activeClassName="text-warning">Events</NavLink>
                 <NavLink className="navbarClass" to="/wishes" activeClassName="text-warning">Wishes</NavLink>
-                <NavLink className="navbarClass" to="/about" activeClassName="text-warning">About</NavLink>
+                <NavLink className="navbarClass" to="/about" activeClassName="text-warning" style={{marginRight:"1000px"}}>About</NavLink>
                 <NavLink className="navbarClass" to="/join" activeClassName="text-warning">Join</NavLink>
                 <NavLink className="navbarClass" to="/Login" activeClassName="text-warning">Login</NavLink>
 

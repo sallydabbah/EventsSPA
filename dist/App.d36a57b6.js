@@ -58278,7 +58278,10 @@ function (_React$Component) {
       }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/about",
-        activeClassName: "text-warning"
+        activeClassName: "text-warning",
+        style: {
+          marginRight: "1000px"
+        }
       }, "About"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/join",

@@ -9,6 +9,9 @@
   .bsize{
      width:400px;
   }
+  .hidden{
+    display: none;
+  }
   
   body{
     background-image: linear-gradient(to Right, #a0c9fc,#8cbbf5,#8cbbf5,#8cbbf5,#63a7fa, #4492f1,#4492f1,#4492f1 ); 
