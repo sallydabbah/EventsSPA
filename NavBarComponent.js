@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Nav, Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 import HomeComponent from './HomeComponent';
 import EventsComponent from './EventsComponent';
@@ -14,12 +14,18 @@ export default class NavBarComponent extends React.Component {
     }
     render() {
         return <div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/events">Events</NavLink>
-        <NavLink to="/wishes">Wishes</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/join">Join</NavLink>
-        <NavLink to="/Login">Login</NavLink>
-      </div>;
+
+            <Navbar className="navbarBackground">
+                
+                <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
+                <NavLink className="navbarClass" to="/events" activeClassName="text-warning">Events</NavLink>
+                <NavLink className="navbarClass" to="/wishes" activeClassName="text-warning">Wishes</NavLink>
+                <NavLink className="navbarClass" to="/about" activeClassName="text-warning">About</NavLink>
+                <NavLink className="navbarClass" to="/join" activeClassName="text-warning">Join</NavLink>
+                <NavLink className="navbarClass" to="/Login" activeClassName="text-warning">Login</NavLink>
+
+            </Navbar>
+
+        </div>;
     }
 }

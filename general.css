@@ -12,8 +12,11 @@
   
   body{
     background-image: linear-gradient(to Right, #a0c9fc,#8cbbf5,#8cbbf5,#8cbbf5,#63a7fa, #4492f1,#4492f1,#4492f1 ); 
-   background-size: 'cover';
-   overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-size:auto;
+    background-position: center;
+    font-family: sans-serif;
     } 
   .login-box{
     width: 320px;
@@ -28,7 +31,14 @@
     padding: 70px 30px;
     
   }
-  
+  .navbarClass{
+   padding:10px;
+   color: white;
+   font-size: 20px;
+  }
+  .navbarBackground{
+     background: rgba(0, 0, 0, 0.3);
+  }
   
   .avatar{
     width: 100px;

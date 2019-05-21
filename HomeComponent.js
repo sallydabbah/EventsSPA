@@ -158,7 +158,7 @@ export default class HomeComponent extends React.Component {
                 <center>
                     <div className="container" >
                         <div className="row">
-                            <div className="col"><h1 style={{ color: "red", textAlign: "center", marginTop: "20px" }} className="font-weight-bold">My Events</h1></div>
+                            <div className="col"><h1 style={{ color: "white", textAlign: "center", marginTop: "20px" }} className="font-weight-bold">My Events</h1></div>
                             <Table style={{ textAlign: "center", marginTop: "30px" }} className="table tablebackground tableStyle" id="result">
                                 <thead>
                                     <tr>
@@ -187,7 +187,7 @@ export default class HomeComponent extends React.Component {
                                 <>
                                   
                                     <div className="login-box" style={{ width: "790px", height: "300px", top: "40%" }}>
-                                        <div className="col"><h3 style={{ color: "#DC143C", textAlign: "center" }} className="font-weight-bold">Welcome to bestWishes</h3></div>
+                                        <div className="col"><h3 style={{color:"white", textAlign: "center" }} className="font-weight-bold">Welcome to bestWishes</h3></div>
                                         <ButtonToolbar>
                                             <Button className="font-weight-bold" style={{ border: "2px solid white", marginRight: "25px", marginTop: "100px" }} onClick={this.createNewEventBox} variant="primary" size="lg">
                                                 Create A New Event Box

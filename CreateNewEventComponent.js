@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NavBarComponent from './NavBarComponent';
+
 import { Form, InputGroup, Button, Table } from "react-bootstrap";
 import { faLocationArrow, faCalendar, faTag, faList } from "@fortawesome/free-solid-svg-icons";
 
@@ -85,10 +85,9 @@ export default class CreateNewEvent extends React.Component {
                     </div>
                 </center>
             </> : <>
-                    <NavBarComponent />
                     <div className="container">
                         <Form style={{ height: 250, margin: "80px 300px  0px 300px" }} onSubmit={this.onSubmit} >
-                            <h1 style={{ color: "red" }} className="font-weight-bold">Create New Event</h1>
+                            <h1 style={{ color: "white" }} className="font-weight-bold">Create New Event</h1>
                             <Form.Group>
                                 <Form.Label className="font-weight-bold">Category</Form.Label>
                                 <InputGroup className="mb-3">

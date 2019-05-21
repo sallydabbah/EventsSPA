@@ -214,7 +214,7 @@ export default class EventsComponent extends React.Component {
                     <div className="container">
                         <div className="row">
                             <div id="searchingdiv" style={{ width: "900px" }}>
-                                <div className="row" ><h1 style={{ color: "red", textAlign: "center", marginTop: "20px", marginLeft: "20px", fontWeight: "bold" }}>Searching for event</h1></div>
+                                <div className="row" ><h1 style={{ color: "#001d75", textAlign: "center", marginTop: "20px", marginLeft: "20px", fontWeight: "bold" }}>Searching for event</h1></div>
                                 <div className="row">
                                     <div className="col" style={{ marginLeft: "30px" }}>
                                         <label className="font-weight-bold">Event ID: </label>

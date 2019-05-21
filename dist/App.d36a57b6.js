@@ -54738,8 +54738,6 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
 var _reactBootstrap = require("react-bootstrap");
 
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
@@ -54870,7 +54868,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, this.state.myEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("center", null, _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, this.state.myEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement("div", {
         className: "row"
@@ -54914,7 +54912,7 @@ function (_React$Component) {
           date: date,
           where: where
         });
-      }))))))) : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      }))))))) : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement(_reactBootstrap.Form, {
         style: {
@@ -54924,7 +54922,7 @@ function (_React$Component) {
         onSubmit: this.onSubmit
       }, _react.default.createElement("h1", {
         style: {
-          color: "red"
+          color: "white"
         },
         className: "font-weight-bold"
       }, "Create New Event"), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
@@ -55025,7 +55023,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = CreateNewEvent;
-},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","./NavBarComponent":"NavBarComponent.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./MyEventsComponent":"MyEventsComponent.js"}],"SearchedEventComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./MyEventsComponent":"MyEventsComponent.js"}],"SearchedEventComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55192,7 +55190,7 @@ function (_React$Component) {
         className: "card-header"
       }, _react.default.createElement("label", null, this.props.from)), _react.default.createElement("div", {
         className: "card-body"
-      }, _react.default.createElement("h5", null, _react.default.createElement("label", null, "Happy Birthday")), _react.default.createElement("div", {
+      }, _react.default.createElement("div", {
         id: "cardBody"
       }, _react.default.createElement("div", null, _react.default.createElement("img", {
         style: {
@@ -55337,7 +55335,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
         style: {
           height: 250,
           margin: "80px 300px  0px 300px"
@@ -55502,7 +55500,7 @@ function (_React$Component) {
       var _this2 = this;
 
       if (!this.state.AddNewWishClicked || this.props.wishIsAdded) {
-        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
           className: "container-fluid"
         }, _react.default.createElement("div", {
           className: "row"
@@ -55828,7 +55826,7 @@ function (_React$Component) {
 
       {
         if (!this.state.rowIsClicked) {
-          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
             className: "container"
           }, _react.default.createElement("div", {
             className: "row"
@@ -55841,7 +55839,7 @@ function (_React$Component) {
             className: "row"
           }, _react.default.createElement("h1", {
             style: {
-              color: "red",
+              color: "#001d75",
               textAlign: "center",
               marginTop: "20px",
               marginLeft: "20px",
@@ -56178,7 +56176,7 @@ function (_React$Component) {
         className: "col"
       }, _react.default.createElement("h1", {
         style: {
-          color: "red",
+          color: "white",
           textAlign: "center",
           marginTop: "20px"
         },
@@ -56223,7 +56221,7 @@ function (_React$Component) {
         userEvents: this.state.Users.filter(function (user) {
           return user.userId == _this3.state.userId;
         })[this.state.userId - 1].events
-      }), " ") : _react.default.createElement(_react.default.Fragment, null, this.state.AddABestwishe ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_EventsComponent.default, null), " ") : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      }), " ") : _react.default.createElement(_react.default.Fragment, null, this.state.AddABestwishe ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_EventsComponent.default, null), " ") : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "login-box",
         style: {
           width: "790px",
@@ -56234,7 +56232,7 @@ function (_React$Component) {
         className: "col"
       }, _react.default.createElement("h3", {
         style: {
-          color: "#DC143C",
+          color: "white",
           textAlign: "center"
         },
         className: "font-weight-bold"
@@ -58262,19 +58260,34 @@ function (_React$Component) {
   _createClass(NavBarComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/"
+      return _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Navbar, {
+        className: "navbarBackground"
+      }, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/",
+        exact: true,
+        activeClassName: "text-warning"
       }, "Home"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/events"
+        className: "navbarClass",
+        to: "/events",
+        activeClassName: "text-warning"
       }, "Events"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/wishes"
+        className: "navbarClass",
+        to: "/wishes",
+        activeClassName: "text-warning"
       }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/about"
+        className: "navbarClass",
+        to: "/about",
+        activeClassName: "text-warning"
       }, "About"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/join"
+        className: "navbarClass",
+        to: "/join",
+        activeClassName: "text-warning"
       }, "Join"), _react.default.createElement(_reactRouterDom.NavLink, {
-        to: "/Login"
-      }, "Login"));
+        className: "navbarClass",
+        to: "/Login",
+        activeClassName: "text-warning"
+      }, "Login")));
     }
   }]);
 
@@ -58330,7 +58343,7 @@ function (_React$Component) {
   _createClass(AboutComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement("div", {
         className: "row"
@@ -58580,7 +58593,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement("div", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
         className: "login-box",
         style: {
           height: "470px",
@@ -58923,7 +58936,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59554" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
