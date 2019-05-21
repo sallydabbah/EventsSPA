@@ -3,25 +3,19 @@
     border:2px solid white; 
     width: 300px;
   }
-  .bodycolor{
-    background: #cccccc;
-  }
   nav{
       margin-bottom: 70px;
   }
   .bsize{
      width:400px;
   }
+  
   body{
-margin: 0;
-padding: 0;
-background: #EEE8AA;
-background-size:auto;
-background-position: center;
-font-family: sans-serif;
-
-} 
-.login-box{
+    background-image: linear-gradient(to Right, #a0c9fc,#8cbbf5,#8cbbf5,#8cbbf5,#63a7fa, #4492f1,#4492f1,#4492f1 ); 
+   background-size: 'cover';
+   overflow: hidden;
+    } 
+  .login-box{
     width: 320px;
     height: 420px;
     background: rgba(0, 0, 0, 0.3);
@@ -33,43 +27,44 @@ font-family: sans-serif;
     box-sizing: border-box;
     padding: 70px 30px;
     
-}
-
-.avatar{
+  }
+  
+  
+  .avatar{
     width: 100px;
     height: 100px;
     border-radius: 50%;
     position: absolute;
     top: -50px;
     left: calc(50% - 50px);
-}
-h1{
+  }
+  h1{
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
     font-size: 22px;
-}
-.login-box p{
+  }
+  .login-box p{
     margin: 0;
     padding: 0;
     font-weight: bold;
-}
-.login-box input{
+  }
+  .login-box input{
     width: 100%;
     margin-bottom: 20px;
-}
-.login-box input[type="text"], input[type="password"]
-{
+  }
+  .login-box input[type="text"], input[type="password"]
+  {
     border: none;
     border-bottom: 1px solid #fff;
-
+  
     outline: none;
     height: 40px;
     color:black;
     font-size: 16px;
-}
-.login-box input[type="submit"]
-{
+  }
+  .login-box input[type="submit"]
+  {
     border: none;
     outline: none;
     height: 40px;
@@ -77,33 +72,33 @@ h1{
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
-}
-.login-box input[type="submit"]:hover
-{
+  }
+  .login-box input[type="submit"]:hover
+  {
     cursor: pointer;
     background: #39dc79;
     color: #000;
-}
-#AboutLeft{
+  }
+  #AboutLeft{
     margin-left: 220px ;
-}
-#loginid {
+  }
+  #loginid {
     border: 1px solid;
     padding: 10px;
     box-shadow: 5px 10px #888888;
     width: 80px;
-}
-
-
-label {
+  }
+  
+  
+  label {
     color: black
-}
-#AddABestWishComponentDIV{
+  }
+  #AddABestWishComponentDIV{
     height: 250; 
     margin: 90px 0 0 70px; 
     background-color: rgba(256,256,256, 0.2);
-}
-.cardBody{
+  }
+  .cardBody{
     display: inline-block;
   }
   h5{
@@ -112,52 +107,52 @@ label {
   p{
     color:black
   }
-.secondorycolor{
-background-color: #6c757d
-}
-.table-dark.table-bordered {
-border: 2px solid white;
-}
-.tableStyle{
-width: 1185px;
-}
-#info{
-width: 200px;
-}
-.tablebackground{
-background-color: rgba(256,256,256, 0.5);;
-}
-thead{
-text-align: center
-}
-nav{margin-bottom: 20px}
-label{
-color: black;
-}
-#searchingdiv{
-margin-bottom: 40px;
-}
-#searchingdiv {
-margin:0 auto;
-margin-bottom: 10px;
-background-color:rgba(256,256,256, 0.5);
-}
-.secondorycolor{
-background-color: #6c757d
-}
-.table-dark.table-bordered {
-border: 2px solid white;
-}
-#menueButtons{
+  .secondorycolor{
+  background-color: #6c757d
+  }
+  .table-dark.table-bordered {
+  border: 2px solid white;
+  }
+  .tableStyle{
+  width: 1185px;
+  }
+  #info{
+  width: 200px;
+  }
+  .tablebackground{
+  background-color: rgba(256,256,256, 0.5);;
+  }
+  thead{
+  text-align: center
+  }
+  nav{margin-bottom: 20px}
+  label{
+  color: black;
+  }
+  #searchingdiv{
+  margin-bottom: 40px;
+  }
+  #searchingdiv {
+  margin:0 auto;
+  margin-bottom: 10px;
+  background-color:rgba(256,256,256, 0.5);
+  }
+  .secondorycolor{
+  background-color: #6c757d
+  }
+  .table-dark.table-bordered {
+  border: 2px solid white;
+  }
+  #menueButtons{
     margin-bottom: 50px;
-}
-#searching{
+  }
+  #searching{
      width: 200px;
-}
-#result{
+  }
+  #result{
      width: 1150px;
-}
-.cardBody{
+  }
+  .cardBody{
     display: inline-block;
   }
   h5{
