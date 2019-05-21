@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Image } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 
+import WishContext from './WishContext';
+
 import NavBarComponent from './NavBarComponent';
 import './general.css';
 import * as api from "./api";
@@ -13,7 +15,7 @@ export default class LoginComponent extends React.Component {
     this.state = {
       email: field({ value: '', name: 'email', pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/ }),
       password: field({ value: '', name: 'password', minLength: 2 }),
-      Users: []
+      Users: [],
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -42,7 +44,7 @@ export default class LoginComponent extends React.Component {
     const user = Object.assign({}, this.state);
     const { ValidPassword, ValidUserName, LoginUserNameError, LoginPasswordError } = CheckExistsUsernameAndPassword(this.state.Users, this.state.email.value, this.state.password.value);
     for (let key in user) {
-      if (key != "Users") {
+      if (key != "Users" && key!="login" && key!="name") {
         const { value, validations } = user[key];
         const { valid, errors } = validator(value, key, validations);
         if (!valid) {
@@ -60,6 +62,7 @@ export default class LoginComponent extends React.Component {
     this.setState({ ...user });
     if (this.state.email.errors.length == 0 && this.state.password.errors.length == 0) {
       alert("Welcome..");
+      this.context.login(this.state.email.value, this.state.password.value);
     }
   }
   render() {
@@ -110,3 +113,5 @@ export default class LoginComponent extends React.Component {
     </>;
   }
 }
+
+LoginComponent.contextType = WishContext;

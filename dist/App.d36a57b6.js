@@ -29755,7 +29755,27 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","react-router":"node_modules/react-router/esm/react-router.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"WishContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var WishContext = _react.default.createContext({
+  name: '',
+  login: function login(email, password) {},
+  logout: function logout() {}
+});
+
+var _default = WishContext;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58218,6 +58238,8 @@ var _reactRouterDom = require("react-router-dom");
 
 var _reactBootstrap = require("react-bootstrap");
 
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
 var _HomeComponent = _interopRequireDefault(require("./HomeComponent"));
 
 var _EventsComponent = _interopRequireDefault(require("./EventsComponent"));
@@ -58260,8 +58282,18 @@ function (_React$Component) {
   _createClass(NavBarComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Navbar, {
-        className: "navbarBackground"
+      var _this = this;
+
+      return _react.default.createElement(_reactBootstrap.Navbar, {
+        expand: "lg"
+      }, _react.default.createElement(_reactBootstrap.Navbar.Brand, {
+        href: "#home"
+      }, "Best Wishes!"), _react.default.createElement(_reactBootstrap.Navbar.Toggle, {
+        "aria-controls": "basic-navbar-nav"
+      }), _react.default.createElement(_reactBootstrap.Navbar.Collapse, {
+        id: "basic-navbar-nav"
+      }, _react.default.createElement(_reactBootstrap.Nav, {
+        className: "mr-auto"
       }, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/",
@@ -58278,11 +58310,10 @@ function (_React$Component) {
       }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/about",
-        activeClassName: "text-warning",
-        style: {
-          marginRight: "1000px"
-        }
-      }, "About"), _react.default.createElement(_reactRouterDom.NavLink, {
+        activeClassName: "text-warning"
+      }, "About")), _react.default.createElement(_reactBootstrap.Form, {
+        inline: true
+      }, !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/join",
         activeClassName: "text-warning"
@@ -58290,15 +58321,38 @@ function (_React$Component) {
         className: "navbarClass",
         to: "/Login",
         activeClassName: "text-warning"
-      }, "Login")));
+      }, "Login")) : _react.default.createElement("button", {
+        className: "navbarClass",
+        onClick: function onClick() {
+          return _this.context.logout();
+        }
+      }, "Logout"), this.context.name && _react.default.createElement(_react.default.Fragment, null, "Hi ", _react.default.createElement(_reactBootstrap.Badge, {
+        variant: "secondary"
+      }, this.context.name))))); // <Navbar className="navbarBackground">
+      //     <Row>
+      //         <Col md={8}>
+      //             <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
+      //             <NavLink className="navbarClass" to="/events" activeClassName="text-warning">Events</NavLink>
+      //             <NavLink className="navbarClass" to="/wishes" activeClassName="text-warning">Wishes</NavLink>
+      //             <NavLink className="navbarClass" to="/about" activeClassName="text-warning">About</NavLink>
+      //         </Col>
+      //         <Col md={4}>
+      //             <NavLink className="navbarClass" to="/join" activeClassName="text-warning">Join</NavLink>
+      //             <NavLink className="navbarClass" to="/Login" activeClassName="text-warning">Login</NavLink>
+      //             {/* Hi {this.context.name}! */}
+      //         </Col>
+      //     </Row>
+      // </Navbar>
     }
   }]);
 
   return NavBarComponent;
 }(_react.default.Component);
 
-exports.default = NavBarComponent;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./HomeComponent":"HomeComponent.js","./EventsComponent":"EventsComponent.js","./WishesComponent":"WishesComponent.js","./JoinComponent":"JoinComponent.js"}],"AboutComponent.js":[function(require,module,exports) {
+NavBarComponent.contextType = _WishContext.default;
+var _default = NavBarComponent;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./HomeComponent":"HomeComponent.js","./EventsComponent":"EventsComponent.js","./WishesComponent":"WishesComponent.js","./JoinComponent":"JoinComponent.js"}],"AboutComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58447,6 +58501,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactBootstrap = require("react-bootstrap");
 
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
 var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
 
 require("./general.css");
@@ -58563,7 +58619,7 @@ function (_React$Component) {
           LoginPasswordError = _CheckExistsUsernameA.LoginPasswordError;
 
       for (var key in user) {
-        if (key != "Users") {
+        if (key != "Users" && key != "login" && key != "name") {
           var _user$key = user[key],
               value = _user$key.value,
               validations = _user$key.validations;
@@ -58591,6 +58647,7 @@ function (_React$Component) {
 
       if (this.state.email.errors.length == 0 && this.state.password.errors.length == 0) {
         alert("Welcome..");
+        this.context.login(this.state.email.value, this.state.password.value);
       }
     }
   }, {
@@ -58664,7 +58721,8 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = LoginComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./NavBarComponent":"NavBarComponent.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyWishes.js":[function(require,module,exports) {
+LoginComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyWishes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58778,6 +58836,8 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
 var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
 
 var _HomeComponent = _interopRequireDefault(require("./HomeComponent"));
@@ -58814,9 +58874,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -58833,6 +58893,13 @@ function (_React$Component) {
     _classCallCheck(this, App);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
+    _this.login = _this.login.bind(_assertThisInitialized(_this));
+    _this.logout = _this.logout.bind(_assertThisInitialized(_this));
+    _this.state = {
+      name: 'Ahalan',
+      login: _this.login,
+      logout: _this.logout
+    };
 
     if (!localStorage.users) {
       localStorage.users = JSON.stringify([{
@@ -58880,9 +58947,25 @@ function (_React$Component) {
   }
 
   _createClass(App, [{
+    key: "login",
+    value: function login(email, password) {
+      this.setState({
+        name: email
+      });
+    }
+  }, {
+    key: "logout",
+    value: function logout() {
+      this.setState({
+        name: ''
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_WishContext.default.Provider, {
+        value: this.state
+      }, _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", null, _react.default.createElement(_NavBarComponent.default, null), _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
         path: "/",
         component: _HomeComponent.default,
         exact: true
@@ -58901,7 +58984,7 @@ function (_React$Component) {
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/login",
         component: _LoginComponent.default
-      })))), " ");
+      }))))));
     }
   }]);
 
@@ -58911,7 +58994,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -58939,7 +59022,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59554" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55957" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
