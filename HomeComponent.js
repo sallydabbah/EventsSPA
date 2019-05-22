@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, ButtonToolbar, Table } from "react-bootstrap";
 
 import './general.css'
+import WishContext from './WishContext';
 import NavBarComponent from './NavBarComponent';
 import MyEventsComponent from './MyEventsComponent';
 import CreateNewEvent from './CreateNewEventComponent';
@@ -181,21 +182,20 @@ export default class HomeComponent extends React.Component {
                 <>
                     {this.state.CreateNewEventBox ? <> <CreateNewEvent AddNewEventFunc={this.addNewEvent} lastEventID={this.state.Users[this.state.userId - 1].events[this.state.Users[this.state.userId - 1].events.length - 1].ID} userID={this.userId} userEvents={this.state.Users.filter(user => (user.userId == this.state.userId))[this.state.userId - 1].events} /> </> :
                         <>
-
+                   
                             {this.state.AddABestwishe ? <> <EventsComponent /> </> :
 
                                 <>
-                                  
                                     <div className="login-box" style={{ width: "790px", height: "300px", top: "40%" }}>
                                         <div className="col"><h3 style={{color:"white", textAlign: "center" }} className="font-weight-bold">Welcome to bestWishes</h3></div>
                                         <ButtonToolbar>
-                                            <Button className="font-weight-bold" style={{ border: "2px solid white", marginRight: "25px", marginTop: "100px" }} onClick={this.createNewEventBox} variant="primary" size="lg">
+                                            <Button className="font-weight-bold" disabled={this.context.LoggedIn} style={{ border: "2px solid white", marginRight: "25px", marginTop: "100px" }} onClick={this.createNewEventBox} variant="primary" size="lg">
                                                 Create A New Event Box
                                                     </Button>
                                             <Button className="font-weight-bold" style={{ border: "2px solid white", marginRight: "30px", marginTop: "100px" }} onClick={this.addABestwishe} variant="primary" size="lg">
                                                 Create A Best Wish
                                                     </Button>
-                                            <Button className="font-weight-bold" style={{ border: "2px solid white", marginTop: "100px" }} onClick={this.viewEvents} variant="primary" size="lg">
+                                            <Button className="font-weight-bold" disabled={this.context.LoggedIn} style={{ border: "2px solid white", marginTop: "100px" }} onClick={this.viewEvents} variant="primary" size="lg">
                                                 View My Events
                                                     </Button>
                                         </ButtonToolbar>
@@ -210,3 +210,4 @@ export default class HomeComponent extends React.Component {
         </>;
     }
 }
+HomeComponent.contextType = WishContext;

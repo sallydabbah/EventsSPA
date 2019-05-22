@@ -20,34 +20,35 @@ import MyWishes from './MyWishes';
 export default class App extends React.Component {
     constructor() {
         super();
-        this.login=this.login.bind(this);
+        this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-
+        this.updateLoggedIn=this.updateLoggedIn.bind(this);
         this.state = {
-            name: 'Ahalan',
+            name: '',
+            LoggedIn:true,
+            updateLoggedIn:this.updateLoggedIn,
             login: this.login,
             logout: this.logout
         };
-
         if (!localStorage.users) {
             localStorage.users = JSON.stringify([
                 {
-                    "name": "ameer",
+                    "name": "Ameer",
                     "userName": "ameer.outlook.com",
                     "password": 12345
                 },
                 {
-                    "name": "saeed",
+                    "name": "Saeed",
                     "userName": "saeednamih@gmail.com",
                     "password": 5678
                 },
                 {
-                    "name": "sally",
+                    "name": "Sally",
                     "userName": "sallydabbah@gmail.com",
                     "password": 9101112
                 },
                 {
-                    "name": "ameer",
+                    "name": "Ameer",
                     "userName": "ameer_z_90@hotmail.com",
                     "password": 131415
                 }
@@ -78,15 +79,15 @@ export default class App extends React.Component {
                 }]);
         }
     }
-
-    login(email, password){
-        this.setState({name:email});
+    updateLoggedIn(){
+        this.setState({LoggedIn:false})
     }
-
-    logout(){
-        this.setState({name:''});
+    login(email) {
+        this.setState({ name: email});
     }
-
+    logout() {
+        this.setState({ name: '' ,LoggedIn:true});
+    }
     render() {
         return (
             <>
@@ -101,7 +102,6 @@ export default class App extends React.Component {
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />
-
                             </Switch>
                         </div>
                     </BrowserRouter>

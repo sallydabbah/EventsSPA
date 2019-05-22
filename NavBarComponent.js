@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Nav, Navbar, Form, Badge } from "react-bootstrap";
+import { Nav, Navbar, Form, Badge,Button } from "react-bootstrap";
 
 import WishContext from './WishContext';
 
@@ -31,9 +31,10 @@ class NavBarComponent extends React.Component {
                             <NavLink className="navbarClass" to="/Login" activeClassName="text-warning">Login</NavLink>
                             </>
                             : 
-                            <button className="navbarClass" onClick={() => this.context.logout()}>Logout</button>}
-                            {this.context.name && 
-                                <>Hi <Badge variant="secondary">{this.context.name}</Badge></>
+                            <Button onClick={() => this.context.logout()} style={{border:"2px solid white",marginRight:"10px"}} variant="primary">Logout</Button>
+                            }
+                            {   this.context.name && 
+                                <><h1 style={{marginTop:"15px"}}><div className="navbarClass">Hi {this.context.name}</div></h1></>
                             }
                         </Form>
                     </Navbar.Collapse>

@@ -8,7 +8,8 @@ export default class CardComponent extends React.Component {
                     <div className="card-header"><label>{this.props.from}</label></div>
                     <div className="card-body">
                         <div id="cardBody">
-                            <div><img style={{ float: "right" }} width="150px" height="150px" src={this.props.imageURL}></img></div>
+                            <div><img style={{ float: "right" }} width="150px" height="150px" src={this.props.imageURL}></img>
+                            </div>
                             <div> <p>{this.props.wishContent}</p></div>
                         </div>
                     </div>

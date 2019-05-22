@@ -29769,8 +29769,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var WishContext = _react.default.createContext({
   name: '',
-  login: function login(email, password) {},
-  logout: function logout() {}
+  login: function login(email) {},
+  updateLoggedIn: function updateLoggedIn() {},
+  logout: function logout() {},
+  LoggedIn: true
 });
 
 var _default = WishContext;
@@ -56027,6 +56029,8 @@ var _reactBootstrap = require("react-bootstrap");
 
 require("./general.css");
 
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
 var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
 
 var _MyEventsComponent = _interopRequireDefault(require("./MyEventsComponent"));
@@ -56258,6 +56262,7 @@ function (_React$Component) {
         className: "font-weight-bold"
       }, "Welcome to bestWishes")), _react.default.createElement(_reactBootstrap.ButtonToolbar, null, _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
+        disabled: this.context.LoggedIn,
         style: {
           border: "2px solid white",
           marginRight: "25px",
@@ -56278,6 +56283,7 @@ function (_React$Component) {
         size: "lg"
       }, "Create A Best Wish"), _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
+        disabled: this.context.LoggedIn,
         style: {
           border: "2px solid white",
           marginTop: "100px"
@@ -56293,7 +56299,8 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = HomeComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css","./NavBarComponent":"NavBarComponent.js","./MyEventsComponent":"MyEventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./EventsComponent":"EventsComponent.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+HomeComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./MyEventsComponent":"MyEventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./EventsComponent":"EventsComponent.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -58321,14 +58328,22 @@ function (_React$Component) {
         className: "navbarClass",
         to: "/Login",
         activeClassName: "text-warning"
-      }, "Login")) : _react.default.createElement("button", {
-        className: "navbarClass",
+      }, "Login")) : _react.default.createElement(_reactBootstrap.Button, {
         onClick: function onClick() {
           return _this.context.logout();
+        },
+        style: {
+          border: "2px solid white",
+          marginRight: "10px"
+        },
+        variant: "primary"
+      }, "Logout"), this.context.name && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("h1", {
+        style: {
+          marginTop: "15px"
         }
-      }, "Logout"), this.context.name && _react.default.createElement(_react.default.Fragment, null, "Hi ", _react.default.createElement(_reactBootstrap.Badge, {
-        variant: "secondary"
-      }, this.context.name))))); // <Navbar className="navbarBackground">
+      }, _react.default.createElement("div", {
+        className: "navbarClass"
+      }, "Hi ", this.context.name)))))); // <Navbar className="navbarBackground">
       //     <Row>
       //         <Col md={8}>
       //             <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
@@ -58503,8 +58518,6 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _WishContext = _interopRequireDefault(require("./WishContext"));
 
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
 require("./general.css");
 
 var api = _interopRequireWildcard(require("./api"));
@@ -58619,7 +58632,7 @@ function (_React$Component) {
           LoginPasswordError = _CheckExistsUsernameA.LoginPasswordError;
 
       for (var key in user) {
-        if (key != "Users" && key != "login" && key != "name") {
+        if (key != "Users") {
           var _user$key = user[key],
               value = _user$key.value,
               validations = _user$key.validations;
@@ -58646,8 +58659,19 @@ function (_React$Component) {
       this.setState(_objectSpread({}, user));
 
       if (this.state.email.errors.length == 0 && this.state.password.errors.length == 0) {
-        alert("Welcome..");
-        this.context.login(this.state.email.value, this.state.password.value);
+        var name = "";
+
+        for (var i = 0; i < this.state.Users.length; i++) {
+          if (this.state.Users[i].userName == this.state.email.value) {
+            name = this.state.Users[i].name;
+            break;
+          }
+        }
+
+        alert("Welcome " + name);
+        this.context.login(name);
+        this.context.updateLoggedIn();
+        this.props.history.push("/");
       }
     }
   }, {
@@ -58722,7 +58746,7 @@ function (_React$Component) {
 
 exports.default = LoginComponent;
 LoginComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyWishes.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyWishes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58895,27 +58919,30 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.login = _this.login.bind(_assertThisInitialized(_this));
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
+    _this.updateLoggedIn = _this.updateLoggedIn.bind(_assertThisInitialized(_this));
     _this.state = {
-      name: 'Ahalan',
+      name: '',
+      LoggedIn: true,
+      updateLoggedIn: _this.updateLoggedIn,
       login: _this.login,
       logout: _this.logout
     };
 
     if (!localStorage.users) {
       localStorage.users = JSON.stringify([{
-        "name": "ameer",
+        "name": "Ameer",
         "userName": "ameer.outlook.com",
         "password": 12345
       }, {
-        "name": "saeed",
+        "name": "Saeed",
         "userName": "saeednamih@gmail.com",
         "password": 5678
       }, {
-        "name": "sally",
+        "name": "Sally",
         "userName": "sallydabbah@gmail.com",
         "password": 9101112
       }, {
-        "name": "ameer",
+        "name": "Ameer",
         "userName": "ameer_z_90@hotmail.com",
         "password": 131415
       }]);
@@ -58947,8 +58974,15 @@ function (_React$Component) {
   }
 
   _createClass(App, [{
+    key: "updateLoggedIn",
+    value: function updateLoggedIn() {
+      this.setState({
+        LoggedIn: false
+      });
+    }
+  }, {
     key: "login",
-    value: function login(email, password) {
+    value: function login(email) {
       this.setState({
         name: email
       });
@@ -58957,7 +58991,8 @@ function (_React$Component) {
     key: "logout",
     value: function logout() {
       this.setState({
-        name: ''
+        name: '',
+        LoggedIn: true
       });
     }
   }, {
@@ -59022,7 +59057,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55957" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49844" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
