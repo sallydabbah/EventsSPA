@@ -196,7 +196,7 @@ export default class EventsComponent extends React.Component {
 
     addBestWish(wish) {
         alert("added successfully");
-        this.setState({ wishes: [...this.state.wishes, wish] }, function () {
+        this.setState(prevState => ({ wishes: [...prevState.wishes, wish] }), function () {
             this.state.wishes.map((item) => {
                 console.log(item.from);
             });
