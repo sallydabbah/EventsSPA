@@ -61,12 +61,12 @@ export const CheckExistsUsernameAndPassword = (users, userName, password) => {
       if (users[i].password == password) {
             ValidPassword = true;
       }
-      if(!ValidPassword)LoginPasswordError.push(`Wrong Password`);
+      if(!ValidPassword)LoginPasswordError.push(`Wrong Email or password!`);
       break;
     }
   }
   if(userName!=""&&!ValidUserName){
-            LoginUserNameError.push(`userName Not Exists`);
+            LoginUserNameError.push(`Wrong Email or password !`);
   }
   return { ValidPassword, ValidUserName,LoginUserNameError,LoginPasswordError};
 }
