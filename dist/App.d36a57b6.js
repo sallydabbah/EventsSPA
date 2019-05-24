@@ -55828,8 +55828,10 @@ function (_React$Component) {
     key: "addBestWish",
     value: function addBestWish(wish) {
       alert("added successfully");
-      this.setState({
-        wishes: [].concat(_toConsumableArray(this.state.wishes), [wish])
+      this.setState(function (prevState) {
+        return {
+          wishes: [].concat(_toConsumableArray(prevState.wishes), [wish])
+        };
       }, function () {
         this.state.wishes.map(function (item) {
           console.log(item.from);
@@ -56026,6 +56028,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 
 var _reactBootstrap = require("react-bootstrap");
+
+var _reactRouterDom = require("react-router-dom");
 
 require("./general.css");
 
@@ -56260,9 +56264,12 @@ function (_React$Component) {
           textAlign: "center"
         },
         className: "font-weight-bold"
-      }, "Welcome to bestWishes")), _react.default.createElement(_reactBootstrap.ButtonToolbar, null, _react.default.createElement(_reactBootstrap.Button, {
+      }, "Welcome to bestWishes")), _react.default.createElement(_reactBootstrap.ButtonToolbar, null, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/CreateNewEvent",
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
-        disabled: this.context.LoggedIn,
         style: {
           border: "2px solid white",
           marginRight: "25px",
@@ -56271,7 +56278,7 @@ function (_React$Component) {
         onClick: this.createNewEventBox,
         variant: "primary",
         size: "lg"
-      }, "Create A New Event Box"), _react.default.createElement(_reactBootstrap.Button, {
+      }, " Create A New Event Box")), _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
         style: {
           border: "2px solid white",
@@ -56283,7 +56290,6 @@ function (_React$Component) {
         size: "lg"
       }, "Create A Best Wish"), _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
-        disabled: this.context.LoggedIn,
         style: {
           border: "2px solid white",
           marginTop: "100px"
@@ -56300,7 +56306,7 @@ function (_React$Component) {
 
 exports.default = HomeComponent;
 HomeComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./MyEventsComponent":"MyEventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./EventsComponent":"EventsComponent.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./MyEventsComponent":"MyEventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./EventsComponent":"EventsComponent.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -58670,7 +58676,6 @@ function (_React$Component) {
 
         alert("Welcome " + name);
         this.context.login(name);
-        this.context.updateLoggedIn();
         this.props.history.push("/");
       }
     }
@@ -58846,7 +58851,74 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = LoginComponent;
-},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var RedirectIfAnonymous =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RedirectIfAnonymous, _React$Component);
+
+  function RedirectIfAnonymous() {
+    _classCallCheck(this, RedirectIfAnonymous);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RedirectIfAnonymous).apply(this, arguments));
+  }
+
+  _createClass(RedirectIfAnonymous, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      var name = this.context.name;
+      return _react.default.createElement(_reactRouterDom.Route, {
+        path: this.props.path,
+        render: function render() {
+          return name ? _this.props.component : _react.default.createElement(_reactRouterDom.Redirect, {
+            to: "/login"
+          });
+        }
+      });
+    }
+  }]);
+
+  return RedirectIfAnonymous;
+}(_react.default.Component);
+
+exports.default = RedirectIfAnonymous;
+RedirectIfAnonymous.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58886,6 +58958,8 @@ var _SearchedEventComponent = _interopRequireDefault(require("./SearchedEventCom
 
 var _MyWishes = _interopRequireDefault(require("./MyWishes"));
 
+var _RedirectIfAnonymous = _interopRequireDefault(require("./RedirectIfAnonymous"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -58919,11 +58993,8 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.login = _this.login.bind(_assertThisInitialized(_this));
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
-    _this.updateLoggedIn = _this.updateLoggedIn.bind(_assertThisInitialized(_this));
     _this.state = {
       name: '',
-      LoggedIn: true,
-      updateLoggedIn: _this.updateLoggedIn,
       login: _this.login,
       logout: _this.logout
     };
@@ -58974,13 +59045,6 @@ function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "updateLoggedIn",
-    value: function updateLoggedIn() {
-      this.setState({
-        LoggedIn: false
-      });
-    }
-  }, {
     key: "login",
     value: function login(email) {
       this.setState({
@@ -58991,9 +59055,9 @@ function (_React$Component) {
     key: "logout",
     value: function logout() {
       this.setState({
-        name: '',
-        LoggedIn: true
+        name: ''
       });
+      this.props.history.push("/");
     }
   }, {
     key: "render",
@@ -59004,12 +59068,15 @@ function (_React$Component) {
         path: "/",
         component: _HomeComponent.default,
         exact: true
-      }), _react.default.createElement(_reactRouterDom.Route, {
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
         path: "/events",
-        component: _EventsComponent.default
-      }), _react.default.createElement(_reactRouterDom.Route, {
+        component: _react.default.createElement(_EventsComponent.default, null)
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
         path: "/wishes",
-        component: _MyWishes.default
+        component: _react.default.createElement(_MyWishes.default, null)
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
+        path: "/CreateNewEvent",
+        component: _react.default.createElement(_CreateNewEventComponent.default, null)
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
         component: _AboutComponent.default
@@ -59029,7 +59096,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -59057,7 +59124,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61661" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50093" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

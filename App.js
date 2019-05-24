@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import WishContext from './WishContext';
 
@@ -16,17 +16,15 @@ import LoginComponent from './LoginComponent';
 import MyEventsComponent from './MyEventsComponent';
 import SearchedEventComponent from './SearchedEventComponent';
 import MyWishes from './MyWishes';
+import RedirectIfAnonymous from './RedirectIfAnonymous';
 
 export default class App extends React.Component {
     constructor() {
         super();
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-        this.updateLoggedIn=this.updateLoggedIn.bind(this);
         this.state = {
             name: '',
-            LoggedIn:true,
-            updateLoggedIn:this.updateLoggedIn,
             login: this.login,
             logout: this.logout
         };
@@ -79,16 +77,16 @@ export default class App extends React.Component {
                 }]);
         }
     }
-    updateLoggedIn(){
-        this.setState({LoggedIn:false})
-    }
+  
     login(email) {
         this.setState({ name: email});
     }
     logout() {
-        this.setState({ name: '' ,LoggedIn:true});
+        this.setState({ name: ''});
+        this.props.history.push("/");
     }
     render() {
+        
         return (
             <>
                 <WishContext.Provider value={this.state}>
@@ -97,8 +95,9 @@ export default class App extends React.Component {
                             <NavBarComponent />
                             <Switch>
                                 <Route path="/" component={HomeComponent} exact />
-                                <Route path="/events" component={EventsComponent} />
-                                <Route path="/wishes" component={MyWishes} />
+                                 <RedirectIfAnonymous path="/events" component={<EventsComponent/>} />
+                                 <RedirectIfAnonymous path="/wishes" component={<MyWishes/>} />
+                                 <RedirectIfAnonymous path="/CreateNewEvent" component={<CreateNewEvent/>} />
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />

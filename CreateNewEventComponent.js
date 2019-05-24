@@ -1,9 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { Form, InputGroup, Button, Table } from "react-bootstrap";
 import { faLocationArrow, faCalendar, faTag, faList } from "@fortawesome/free-solid-svg-icons";
-
 import validator, { field } from './validator';
 import MyEventsComponent from './MyEventsComponent';
 

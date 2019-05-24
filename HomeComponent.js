@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ButtonToolbar, Table } from "react-bootstrap";
-
+import { NavLink } from 'react-router-dom';
 import './general.css'
 import WishContext from './WishContext';
 import NavBarComponent from './NavBarComponent';
@@ -154,7 +154,7 @@ export default class HomeComponent extends React.Component {
     render() {
 
         return <>
-
+          
             {this.state.viewMyEvents ? <>
                 <center>
                     <div className="container" >
@@ -189,13 +189,11 @@ export default class HomeComponent extends React.Component {
                                     <div className="login-box" style={{ width: "790px", height: "300px", top: "40%" }}>
                                         <div className="col"><h3 style={{color:"white", textAlign: "center" }} className="font-weight-bold">Welcome to bestWishes</h3></div>
                                         <ButtonToolbar>
-                                            <Button className="font-weight-bold" disabled={this.context.LoggedIn} style={{ border: "2px solid white", marginRight: "25px", marginTop: "100px" }} onClick={this.createNewEventBox} variant="primary" size="lg">
-                                                Create A New Event Box
-                                                    </Button>
+                                        <NavLink className="navbarClass" to="/CreateNewEvent" activeClassName="text-warning"><Button className="font-weight-bold"  style={{ border: "2px solid white", marginRight: "25px", marginTop: "100px" }} onClick={this.createNewEventBox} variant="primary" size="lg"> Create A New Event Box</Button></NavLink>         
                                             <Button className="font-weight-bold" style={{ border: "2px solid white", marginRight: "30px", marginTop: "100px" }} onClick={this.addABestwishe} variant="primary" size="lg">
                                                 Create A Best Wish
                                                     </Button>
-                                            <Button className="font-weight-bold" disabled={this.context.LoggedIn} style={{ border: "2px solid white", marginTop: "100px" }} onClick={this.viewEvents} variant="primary" size="lg">
+                                            <Button className="font-weight-bold" style={{ border: "2px solid white", marginTop: "100px" }} onClick={this.viewEvents} variant="primary" size="lg">
                                                 View My Events
                                                     </Button>
                                         </ButtonToolbar>

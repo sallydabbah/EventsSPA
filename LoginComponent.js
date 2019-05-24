@@ -68,7 +68,6 @@ export default class LoginComponent extends React.Component {
       }
       alert("Welcome " + name);
       this.context.login(name);
-      this.context.updateLoggedIn();
       this.props.history.push("/");
     }
   }
