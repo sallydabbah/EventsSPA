@@ -54707,13 +54707,13 @@ var CheckExistsUsernameAndPassword = function CheckExistsUsernameAndPassword(use
         ValidPassword = true;
       }
 
-      if (!ValidPassword) LoginPasswordError.push("Wrong Password");
+      if (!ValidPassword) LoginPasswordError.push("Wrong Email or password!");
       break;
     }
   }
 
   if (userName != "" && !ValidUserName) {
-    LoginUserNameError.push("userName Not Exists");
+    LoginUserNameError.push("Wrong Email or password !");
   }
 
   return {
@@ -59057,7 +59057,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49844" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61661" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
