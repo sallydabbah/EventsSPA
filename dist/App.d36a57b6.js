@@ -29769,10 +29769,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var WishContext = _react.default.createContext({
   name: '',
-  login: function login(email) {},
-  updateLoggedIn: function updateLoggedIn() {},
-  logout: function logout() {},
-  LoggedIn: true
+  userID: '1',
+  login: function login(email, userId) {},
+  logout: function logout() {}
 });
 
 var _default = WishContext;
@@ -45110,7 +45109,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"MyEventsComponent.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"HomeComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45122,11 +45121,23 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactBootstrap = require("react-bootstrap");
 
+var _reactRouterDom = require("react-router-dom");
+
 require("./general.css");
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -45136,49 +45147,114 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var MyEventsComponent =
+var HomeComponent =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(MyEventsComponent, _React$Component);
+  _inherits(HomeComponent, _React$Component);
 
-  function MyEventsComponent() {
-    _classCallCheck(this, MyEventsComponent);
+  function HomeComponent() {
+    var _this;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MyEventsComponent).apply(this, arguments));
+    _classCallCheck(this, HomeComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(HomeComponent).call(this));
+    _this.state = {
+      Users: [],
+      userId: 1,
+      userIsLoggedIn: true
+    };
+    _this.addNewEvent = _this.addNewEvent.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
-  _createClass(MyEventsComponent, [{
+  _createClass(HomeComponent, [{
+    key: "addNewEvent",
+    value: function addNewEvent(newEvent) {
+      alert("a new event was added successfully");
+      var CopyEvents = this.state.Users;
+      CopyEvents[this.state.userId - 1].events.push(newEvent);
+      this.setState({
+        Users: _toConsumableArray(CopyEvents)
+      }, function () {
+        this.state.Users.map(function (item) {
+          return console.log(item);
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", null, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        variant: "primary",
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "login-box",
         style: {
-          border: "2px solid white"
+          width: "800px",
+          height: "300px",
+          top: "40%"
         }
-      }, "Update")), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        variant: "primary",
+      }, _react.default.createElement("div", {
+        className: "col"
+      }, _react.default.createElement("h3", {
         style: {
-          border: "2px solid red"
-        }
-      }, "Delete"))));
+          color: "white",
+          textAlign: "center"
+        },
+        className: "font-weight-bold"
+      }, "Welcome to bestWishes")), _react.default.createElement(_reactBootstrap.ButtonToolbar, null, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/CreateNewEvent",
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        style: {
+          border: "2px solid white",
+          marginTop: "100px"
+        },
+        onClick: this.createNewEventBox,
+        variant: "primary",
+        size: "lg"
+      }, "Create A New Event Box")), _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/events",
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        style: {
+          border: "2px solid white",
+          marginTop: "100px"
+        },
+        onClick: this.addABestwishe,
+        variant: "primary",
+        size: "lg"
+      }, "Create A Best Wish")), _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/UserEvents/" + this.context.userID,
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        style: {
+          border: "2px solid white",
+          marginTop: "100px"
+        },
+        variant: "primary",
+        size: "lg"
+      }, "View My Events")))));
     }
   }]);
 
-  return MyEventsComponent;
+  return HomeComponent;
 }(_react.default.Component);
 
-exports.default = MyEventsComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css"}],"node_modules/@fortawesome/fontawesome-svg-core/index.es.js":[function(require,module,exports) {
+exports.default = HomeComponent;
+HomeComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css","./WishContext":"WishContext.js"}],"node_modules/@fortawesome/fontawesome-svg-core/index.es.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -54748,1565 +54824,7 @@ var checkUniqueUserName = function checkUniqueUserName(users, userName) {
 };
 
 exports.checkUniqueUserName = checkUniqueUserName;
-},{}],"CreateNewEventComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactFontawesome = require("@fortawesome/react-fontawesome");
-
-var _reactBootstrap = require("react-bootstrap");
-
-var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-
-var _validator2 = _interopRequireWildcard(require("./validator"));
-
-var _MyEventsComponent = _interopRequireDefault(require("./MyEventsComponent"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var CreateNewEvent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(CreateNewEvent, _React$Component);
-
-  function CreateNewEvent() {
-    var _this;
-
-    _classCallCheck(this, CreateNewEvent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(CreateNewEvent).call(this));
-    _this.state = {
-      category: (0, _validator2.field)({
-        value: '',
-        name: 'category'
-      }),
-      titleEvent: (0, _validator2.field)({
-        value: '',
-        name: 'titleEvent',
-        minLength: 2
-      }),
-      at: (0, _validator2.field)({
-        value: '',
-        name: 'at'
-      }),
-      where: (0, _validator2.field)({
-        value: '',
-        name: 'where',
-        minLength: 2
-      })
-    };
-    _this.onClickAtMyEvents = _this.onClickAtMyEvents.bind(_assertThisInitialized(_this));
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
-    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(CreateNewEvent, [{
-    key: "onInputChange",
-    value: function onInputChange(_ref) {
-      var _ref$target = _ref.target,
-          name = _ref$target.name,
-          value = _ref$target.value;
-      console.log(name, value);
-      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
-        value: value
-      }, (0, _validator2.default)(value, name, this.state[name].validations))));
-    }
-  }, {
-    key: "onClickAtMyEvents",
-    value: function onClickAtMyEvents() {
-      var _this2 = this;
-
-      this.setState({
-        myEvents: true
-      }, function () {
-        return console.log(_this2.state);
-      });
-    }
-  }, {
-    key: "onSubmit",
-    value: function onSubmit(e) {
-      e.preventDefault();
-      var event = Object.assign({}, this.state);
-
-      for (var key in event) {
-        var _event$key = event[key],
-            value = _event$key.value,
-            validations = _event$key.validations;
-
-        var _validator = (0, _validator2.default)(value, key, validations),
-            valid = _validator.valid,
-            errors = _validator.errors;
-
-        if (!valid) {
-          event[key].valid = valid;
-          event[key].errors = errors;
-        }
-      }
-
-      this.setState(_objectSpread({}, event)); //Send data to somewhere 
-
-      if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
-        var myNewEvent = {
-          ID: parseInt(this.props.lastEventID) + 1,
-          title: this.state.titleEvent.value,
-          catagory: this.state.category.value,
-          date: this.state.at.value,
-          where: this.state.where.value
-        };
-        this.props.AddNewEventFunc(myNewEvent);
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, this.state.myEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("h1", {
-        style: {
-          color: "red",
-          textAlign: "center",
-          marginTop: "20px"
-        },
-        className: "font-weight-bold"
-      }, "My Events")), _react.default.createElement(_reactBootstrap.Table, {
-        style: {
-          textAlign: "center",
-          marginTop: "30px"
-        },
-        className: "table tablebackground tableStyle",
-        id: "result"
-      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
-        scope: "col"
-      }, "#"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Catagory"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Event Title"), _react.default.createElement("th", {
-        scope: "col"
-      }, "When"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Where"))), _react.default.createElement("tbody", null, this.props.userEvents.map(function (_ref2, i) {
-        var ID = _ref2.ID,
-            title = _ref2.title,
-            catagory = _ref2.catagory,
-            date = _ref2.date,
-            where = _ref2.where;
-        return _react.default.createElement(_MyEventsComponent.default, {
-          key: i,
-          ID: ID,
-          title: title,
-          catagory: catagory,
-          date: date,
-          where: where
-        });
-      }))))))) : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement(_reactBootstrap.Form, {
-        style: {
-          height: 250,
-          margin: "80px 300px  0px 300px"
-        },
-        onSubmit: this.onSubmit
-      }, _react.default.createElement("h1", {
-        style: {
-          color: "white"
-        },
-        className: "font-weight-bold"
-      }, "Create New Event"), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "Category"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faList
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        as: "select",
-        id: "category",
-        name: "category",
-        onBlur: this.onInputChange
-      }, _react.default.createElement("option", {
-        value: ""
-      }, "Choose..."), _react.default.createElement("option", {
-        value: "New Born"
-      }, "New Born"), _react.default.createElement("option", {
-        value: "Wedding"
-      }, "Wedding"), _react.default.createElement("option", {
-        value: "Birthday"
-      }, "Birthday"), _react.default.createElement("option", {
-        value: "Party"
-      }, "Party"))), this.state.category.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "Title"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faTag
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "titleEvent",
-        name: "titleEvent",
-        placeholder: "Enter Title Event",
-        onBlur: this.onInputChange
-      })), this.state.titleEvent.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "At"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faCalendar
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "at",
-        name: "at",
-        type: "Date",
-        placeholder: "Enter Title Date",
-        onBlur: this.onInputChange
-      })), this.state.at.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "Where"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faLocationArrow
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "where",
-        name: "where",
-        placeholder: "Enter Event Position",
-        onBlur: this.onInputChange
-      })), this.state.where.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      })), _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        variant: "primary",
-        style: {
-          border: "2px solid white",
-          marginRight: 20
-        },
-        onClick: this.onClickAtMyEvents
-      }, "My Events"), _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        variant: "primary",
-        style: {
-          border: "2px solid white"
-        },
-        type: "submit"
-      }, "Create New Event Box")))));
-    }
-  }]);
-
-  return CreateNewEvent;
-}(_react.default.Component);
-
-exports.default = CreateNewEvent;
-},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./MyEventsComponent":"MyEventsComponent.js"}],"SearchedEventComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var SearchedEventComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(SearchedEventComponent, _React$Component);
-
-  function SearchedEventComponent() {
-    _classCallCheck(this, SearchedEventComponent);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(SearchedEventComponent).apply(this, arguments));
-  }
-
-  _createClass(SearchedEventComponent, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", {
-        onClick: this.props.func
-      }, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where)));
-    }
-  }]);
-
-  return SearchedEventComponent;
-}(_react.default.Component);
-
-exports.default = SearchedEventComponent;
-},{"react":"node_modules/react/index.js"}],"EventDetailsComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var EventDetailsComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(EventDetailsComponent, _React$Component);
-
-  function EventDetailsComponent() {
-    _classCallCheck(this, EventDetailsComponent);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(EventDetailsComponent).apply(this, arguments));
-  }
-
-  _createClass(EventDetailsComponent, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("table", {
-        className: "table tablebackground tableStyle",
-        id: "info"
-      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
-        scope: "col",
-        colSpan: "2"
-      }, "Event Info"))), _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("td", null, "title"), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null)), _react.default.createElement("tr", null, _react.default.createElement("td", null, "When"), _react.default.createElement("td", null, this.props.date)), _react.default.createElement("tr", null, _react.default.createElement("td", null, "Where"), _react.default.createElement("td", null, this.props.where)))));
-    }
-  }]);
-
-  return EventDetailsComponent;
-}(_react.default.Component);
-
-exports.default = EventDetailsComponent;
-},{"react":"node_modules/react/index.js"}],"CardComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var CardComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(CardComponent, _React$Component);
-
-  function CardComponent() {
-    _classCallCheck(this, CardComponent);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardComponent).apply(this, arguments));
-  }
-
-  _createClass(CardComponent, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "col-md-3"
-      }, _react.default.createElement("div", {
-        className: "card bg-light mb-3",
-        style: {
-          max_width: "20rem"
-        }
-      }, _react.default.createElement("div", {
-        className: "card-header"
-      }, _react.default.createElement("label", null, this.props.from)), _react.default.createElement("div", {
-        className: "card-body"
-      }, _react.default.createElement("div", {
-        id: "cardBody"
-      }, _react.default.createElement("div", null, _react.default.createElement("img", {
-        style: {
-          float: "right"
-        },
-        width: "150px",
-        height: "150px",
-        src: this.props.imageURL
-      })), _react.default.createElement("div", null, " ", _react.default.createElement("p", null, this.props.wishContent)))))));
-    }
-  }]);
-
-  return CardComponent;
-}(_react.default.Component);
-
-exports.default = CardComponent;
-},{"react":"node_modules/react/index.js"}],"AddABestWishComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactFontawesome = require("@fortawesome/react-fontawesome");
-
-var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-
-var _reactBootstrap = require("react-bootstrap");
-
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
-var _validator2 = _interopRequireWildcard(require("./validator"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var AddABestWishComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(AddABestWishComponent, _React$Component);
-
-  function AddABestWishComponent() {
-    var _this;
-
-    _classCallCheck(this, AddABestWishComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddABestWishComponent).call(this));
-    _this.state = {
-      from: (0, _validator2.field)({
-        value: '',
-        name: 'from',
-        minLength: 2
-      }),
-      Wishing: (0, _validator2.field)({
-        value: '',
-        name: 'Wishing',
-        minLength: 2
-      }),
-      imageURL: (0, _validator2.field)({
-        value: '',
-        name: 'imageURL',
-        minLength: 10
-      })
-    };
-    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
-    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(AddABestWishComponent, [{
-    key: "onInputChange",
-    value: function onInputChange(_ref) {
-      var _ref$target = _ref.target,
-          name = _ref$target.name,
-          value = _ref$target.value;
-      console.log(name, value);
-      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
-        value: value
-      }, (0, _validator2.default)(value, name, this.state[name].validations))));
-    }
-  }, {
-    key: "onSubmit",
-    value: function onSubmit(e) {
-      e.preventDefault();
-      var wish = Object.assign({}, this.state);
-
-      for (var key in wish) {
-        var _wish$key = wish[key],
-            value = _wish$key.value,
-            validations = _wish$key.validations;
-
-        var _validator = (0, _validator2.default)(value, key, validations),
-            valid = _validator.valid,
-            errors = _validator.errors;
-
-        if (!valid) {
-          wish[key].valid = valid;
-          wish[key].errors = errors;
-        }
-      }
-
-      this.setState(_objectSpread({}, wish)); //Send data to somewhere 
-      //...
-
-      if (this.state.from.errors.length == 0 && this.state.Wishing.errors.length == 0 && this.state.imageURL.errors.length == 0) {
-        var mywish = {
-          ID: parseInt(this.props.lastIDofWishes) + 1,
-          from: this.state.from.value,
-          wishContent: this.state.Wishing.value,
-          imageURL: this.state.imageURL.value,
-          eventID: this.props.idOfEvent
-        };
-        this.props.onAddNewWish(mywish);
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
-        style: {
-          height: 250,
-          margin: "80px 300px  0px 300px"
-        },
-        onSubmit: this.onSubmit
-      }, _react.default.createElement("h1", {
-        style: {
-          color: "red"
-        },
-        className: "font-weight-bold"
-      }, "Add a Best Wish"), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "From"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faUser
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        name: "from",
-        placeholder: "Enter your name",
-        "aria-label": "from",
-        id: "fromInput",
-        defaultValue: this.state.from.value,
-        onBlur: this.onInputChange
-      }))), this.state.from.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "Wishing you"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faList
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        as: "textarea",
-        name: "Wishing",
-        "aria-label": "Wishing",
-        placeholder: "Enter your wish",
-        rows: "5",
-        id: "wishInput",
-        defaultValue: this.state.Wishing.value,
-        onBlur: this.onInputChange
-      }))), this.state.Wishing.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
-        className: "font-weight-bold"
-      }, "imageURL"), _react.default.createElement(_reactBootstrap.InputGroup, {
-        className: "mb-3"
-      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-        icon: _freeSolidSvgIcons.faImage
-      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        name: "imageURL",
-        placeholder: "Enter your imageURL",
-        "aria-label": "imageURL",
-        id: "idSrcImg",
-        defaultValue: this.state.imageURL.value,
-        onBlur: this.onInputChange
-      }))), this.state.imageURL.errors.map(function (err, i) {
-        return _react.default.createElement(_reactBootstrap.Form.Text, {
-          key: i,
-          className: "text-danger"
-        }, err);
-      }))), _react.default.createElement(_reactBootstrap.Button, {
-        style: {
-          border: "2px solid white"
-        },
-        className: "font-weight-bold",
-        variant: "primary",
-        type: "submit"
-      }, "Add a Best Wish"))))));
-    }
-  }]);
-
-  return AddABestWishComponent;
-}(_react.default.Component);
-
-exports.default = AddABestWishComponent;
-},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./NavBarComponent":"NavBarComponent.js","./validator":"validator.js"}],"WishesComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
-var _EventDetailsComponent = _interopRequireDefault(require("./EventDetailsComponent"));
-
-var _CardComponent = _interopRequireDefault(require("./CardComponent"));
-
-var _AddABestWishComponent = _interopRequireDefault(require("./AddABestWishComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var WishesComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(WishesComponent, _React$Component);
-
-  function WishesComponent() {
-    var _this;
-
-    _classCallCheck(this, WishesComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(WishesComponent).call(this));
-    _this.state = {
-      AddNewWishClicked: false
-    };
-    _this.AddNewWishButtonClicked = _this.AddNewWishButtonClicked.bind(_assertThisInitialized(_this));
-    _this.updateFlagAddNewWishClicked = _this.updateFlagAddNewWishClicked.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(WishesComponent, [{
-    key: "AddNewWishButtonClicked",
-    value: function AddNewWishButtonClicked() {
-      if (this.state.addNewWish) this.setState({
-        AddNewWishClicked: false
-      });else {
-        this.setState({
-          AddNewWishClicked: true
-        });
-      }
-      console.log("AddNewWishClicked  " + this.state.AddNewWishClicked);
-      this.props.updateWishIsAdded(this.props.wishIsAdded);
-    }
-  }, {
-    key: "updateFlagAddNewWishClicked",
-    value: function updateFlagAddNewWishClicked(value) {
-      this.setState({
-        AddNewWishClicked: value
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      if (!this.state.AddNewWishClicked || this.props.wishIsAdded) {
-        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-          className: "container-fluid"
-        }, _react.default.createElement("div", {
-          className: "row"
-        }, _react.default.createElement("br", null)), _react.default.createElement("div", {
-          className: "row"
-        }, _react.default.createElement("div", {
-          className: "col-md-4"
-        }), _react.default.createElement("div", {
-          className: "col"
-        }, " ", _react.default.createElement("div", {
-          className: "col-md"
-        }, _react.default.createElement("button", {
-          onClick: this.AddNewWishButtonClicked,
-          style: {
-            backgroundColor: "red"
-          },
-          className: "btn btn-primary"
-        }, "Add a Best Wish")))), _react.default.createElement("div", {
-          className: "row"
-        }, _react.default.createElement("div", {
-          className: "col-md-3"
-        }, this.props.events.map(function (_ref, i) {
-          var ID = _ref.ID,
-              title = _ref.title,
-              catagory = _ref.catagory,
-              date = _ref.date,
-              where = _ref.where;
-          return _this2.props.id == ID ? _react.default.createElement(_EventDetailsComponent.default, {
-            key: i,
-            ID: ID,
-            title: title,
-            catagory: catagory,
-            date: date,
-            where: where
-          }) : '';
-        }))), _react.default.createElement("div", {
-          className: "row"
-        }, this.props.wishes.map(function (_ref2, i) {
-          var eventID = _ref2.eventID,
-              from = _ref2.from,
-              wishContent = _ref2.wishContent,
-              imageURL = _ref2.imageURL;
-          return _this2.props.id == eventID ? _react.default.createElement(_CardComponent.default, {
-            key: i,
-            eventID: eventID,
-            from: from,
-            wishContent: wishContent,
-            imageURL: imageURL
-          }) : '';
-        }))));
-      } else {
-        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_AddABestWishComponent.default, {
-          onAddNewWish: this.props.addNewWish,
-          idOfEvent: this.props.id,
-          lastIDofWishes: this.props.lastIDofWish
-        }));
-      }
-    }
-  }]);
-
-  return WishesComponent;
-}(_react.default.Component);
-
-exports.default = WishesComponent;
-},{"react":"node_modules/react/index.js","./NavBarComponent":"NavBarComponent.js","./EventDetailsComponent":"EventDetailsComponent.js","./CardComponent":"CardComponent.js","./AddABestWishComponent":"AddABestWishComponent.js"}],"EventsComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-require("./general.css");
-
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
-var _SearchedEventComponent = _interopRequireDefault(require("./SearchedEventComponent"));
-
-var _WishesComponent = _interopRequireDefault(require("./WishesComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var EventsComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(EventsComponent, _React$Component);
-
-  function EventsComponent() {
-    var _this;
-
-    _classCallCheck(this, EventsComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventsComponent).call(this));
-    _this.state = {
-      events: [{
-        ID: "1",
-        title: "Ebraheem Birthday",
-        catagory: "Birthday",
-        date: "25/6/2019",
-        where: "sakhnin"
-      }, {
-        ID: "2",
-        title: "Ebraheem New Born",
-        catagory: "New Born",
-        date: "25/6/2019",
-        where: "sakhnin"
-      }, {
-        ID: "3",
-        title: "Ebraheem Wedding",
-        catagory: "Wedding",
-        date: "25/6/2026",
-        where: "sakhnin"
-      }, {
-        ID: "4",
-        title: "Ebraheem Grraduation",
-        catagory: "Party",
-        date: "25/6/2020",
-        where: "sakhnin"
-      }],
-      wishes: [{
-        "ID": "1",
-        "from": "Ameer",
-        "wishContent": "Happy birthday wish you all the best",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "2",
-        "from": "sally",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "3",
-        "from": "Samah seh",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "4",
-        "from": "Ibraheem",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "5",
-        "from": "Arkan",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "6",
-        "from": "sally",
-        "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
-        "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
-        "eventID": "1"
-      }, {
-        "ID": "7",
-        "from": "Ameer",
-        "wishContent": "Best wishes on this wonderful journey, as you build your new lives together.",
-        "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
-        "eventID": "3"
-      }, {
-        "ID": "8",
-        "from": "sally",
-        "wishContent": "Wishing you joy, love and happiness on your wedding day and as you begin your new life together.",
-        "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
-        "eventID": "3"
-      }, {
-        "ID": "9",
-        "from": "Ibraheem",
-        "wishContent": "May God grant you all of life's blessings and love's joys",
-        "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
-        "eventID": "3"
-      }, {
-        "ID": "10",
-        "from": "Ameer",
-        "wishContent": "Welcome to the world little one, it is a place full of delights and wonders",
-        "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
-        "eventID": "2"
-      }, {
-        "ID": "11",
-        "from": "Sally",
-        "wishContent": "Wishing you much happiness as you welcome your new little bundle of joy into your family",
-        "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
-        "eventID": "2"
-      }, {
-        "ID": "12",
-        "from": "Sleman",
-        "wishContent": "Congratulations! Now is the time to enjoy your baby’s little feet and baby smell. It will not be there forever, and you should take as many pictures as possible. You will want to miss a single precious moment!",
-        "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
-        "eventID": "2"
-      }, {
-        "ID": "13",
-        "from": "Basel",
-        "wishContent": "Wishing you joy and happiness, and plently of wonderful moments together.",
-        "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
-        "eventID": "2"
-      }, {
-        "ID": "14",
-        "from": "Basel",
-        "wishContent": "Congratulations on your well-deserved success.",
-        "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
-        "eventID": "4"
-      }, {
-        "ID": "15",
-        "from": "sleman",
-        "wishContent": "I’m sure today will be only the first of many proud, successful moments for you",
-        "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
-        "eventID": "4"
-      }, {
-        "ID": "15",
-        "from": "Arkan",
-        "wishContent": "Congratulations today and best wishes for all your tomorrows.",
-        "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
-        "eventID": "4"
-      }, {
-        "ID": "16",
-        "from": "Mohamad",
-        "wishContent": "Can’t wait to see where life will take you next. Wherever it is, our prayers go with you!",
-        "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
-        "eventID": "4"
-      }],
-      searchedID: '',
-      searchedEventFlag: false,
-      rowIsClicked: false,
-      wishIsAdded: false
-    };
-    _this.updateSearchId = _this.updateSearchId.bind(_assertThisInitialized(_this));
-    _this.searchClicked = _this.searchClicked.bind(_assertThisInitialized(_this));
-    _this.rowClick = _this.rowClick.bind(_assertThisInitialized(_this));
-    _this.addBestWish = _this.addBestWish.bind(_assertThisInitialized(_this));
-    _this.updateWishIsAdded = _this.updateWishIsAdded.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(EventsComponent, [{
-    key: "updateWishIsAdded",
-    value: function updateWishIsAdded(value) {
-      if (value) this.setState({
-        wishIsAdded: false
-      });
-    }
-  }, {
-    key: "updateSearchId",
-    value: function updateSearchId(e) {
-      // searchedid = value of input field , Searcheventflag is for rendering the table.
-      this.setState({
-        searchedID: e.target.value
-      }, function () {
-        console.log(this.state.searchedID);
-      });
-      {
-        this.state.searchedEventFlag ? this.setState({
-          searchedEventFlag: false
-        }) : '';
-      }
-    }
-  }, {
-    key: "searchClicked",
-    value: function searchClicked() {
-      this.setState({
-        searchedEventFlag: true
-      }, function () {
-        console.log(this.state.searchedEventFlag);
-      });
-    }
-  }, {
-    key: "rowClick",
-    value: function rowClick() {
-      this.setState({
-        rowIsClicked: true
-      });
-    }
-  }, {
-    key: "addBestWish",
-    value: function addBestWish(wish) {
-      alert("added successfully");
-      this.setState(function (prevState) {
-        return {
-          wishes: [].concat(_toConsumableArray(prevState.wishes), [wish])
-        };
-      }, function () {
-        this.state.wishes.map(function (item) {
-          console.log(item.from);
-        });
-      });
-      this.setState({
-        wishIsAdded: true
-      }, function () {
-        console.log("Wish is added?" + this.state.wishIsAdded);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      {
-        if (!this.state.rowIsClicked) {
-          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-            className: "container"
-          }, _react.default.createElement("div", {
-            className: "row"
-          }, _react.default.createElement("div", {
-            id: "searchingdiv",
-            style: {
-              width: "900px"
-            }
-          }, _react.default.createElement("div", {
-            className: "row"
-          }, _react.default.createElement("h1", {
-            style: {
-              color: "#001d75",
-              textAlign: "center",
-              marginTop: "20px",
-              marginLeft: "20px",
-              fontWeight: "bold"
-            }
-          }, "Searching for event")), _react.default.createElement("div", {
-            className: "row"
-          }, _react.default.createElement("div", {
-            className: "col",
-            style: {
-              marginLeft: "30px"
-            }
-          }, _react.default.createElement("label", {
-            className: "font-weight-bold"
-          }, "Event ID: "), _react.default.createElement("input", {
-            type: "text",
-            style: {
-              width: "100px"
-            },
-            value: this.state.searchedID,
-            onChange: this.updateSearchId.bind(this)
-          })), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("label", {
-            style: {
-              color: "red"
-            }
-          }, "OR FILTER")), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("label", {
-            className: "font-weight-bold"
-          }, " Ctagory:"), _react.default.createElement("select", {
-            name: "Catagory",
-            style: {
-              width: "100px"
-            }
-          }, _react.default.createElement("option", {
-            value: "New Born"
-          }, "New Born"), _react.default.createElement("option", {
-            value: "Wedding"
-          }, "Wedding"), _react.default.createElement("option", {
-            value: "Birthday"
-          }, "Birthday"), _react.default.createElement("option", {
-            value: "Party"
-          }, "Party"))), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("label", {
-            className: "font-weight-bold"
-          }, "From Date: "), _react.default.createElement("input", {
-            id: "fromDate",
-            type: "date",
-            style: {
-              width: "100px"
-            }
-          })), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("label", {
-            className: "font-weight-bold"
-          }, "To Date: "), _react.default.createElement("input", {
-            id: "toDate",
-            type: "date",
-            style: {
-              width: "100px"
-            }
-          })), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("label", {
-            className: "font-weight-bold"
-          }, "Where: "), _react.default.createElement("input", {
-            type: "text",
-            style: {
-              width: "100px"
-            }
-          })), _react.default.createElement("div", {
-            className: "col"
-          }, _react.default.createElement("button", {
-            type: "button",
-            className: "btn btn-primary",
-            style: {
-              border: "2px solid white",
-              marginBottom: "40px"
-            },
-            onClick: this.searchClicked
-          }, "Search")))), _react.default.createElement("div", {
-            className: "col-md"
-          }, _react.default.createElement("center", null, _react.default.createElement("div", null, _react.default.createElement("table", {
-            style: {
-              textAlign: "center",
-              marginTop: "30px"
-            },
-            className: "table tablebackground tableStyle",
-            id: "result"
-          }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
-            scope: "col"
-          }, "#"), _react.default.createElement("th", {
-            scope: "col"
-          }, "Catagory"), _react.default.createElement("th", {
-            scope: "col"
-          }, "Event Title"), _react.default.createElement("th", {
-            scope: "col"
-          }, "When"), _react.default.createElement("th", {
-            scope: "col"
-          }, "Where"))), _react.default.createElement("tbody", null, this.state.searchedEventFlag ? this.state.events.map(function (_ref, i) {
-            var ID = _ref.ID,
-                title = _ref.title,
-                catagory = _ref.catagory,
-                date = _ref.date,
-                where = _ref.where;
-            return _this2.state.searchedID == ID ? _react.default.createElement(_SearchedEventComponent.default, {
-              key: i,
-              ID: ID,
-              title: title,
-              catagory: catagory,
-              date: date,
-              func: _this2.rowClick,
-              where: where
-            }) : '';
-          }) : '')), _react.default.createElement("div", {
-            style: {
-              display: "inline-block"
-            }
-          }, " ", _react.default.createElement("button", {
-            type: "button",
-            style: {
-              border: "2px solid white"
-            },
-            className: "btn btn-primary"
-          }, "Prev"), _react.default.createElement("button", {
-            type: "button",
-            className: "btn btn-primary",
-            style: {
-              border: "2px solid white"
-            }
-          }, "Next"))))))));
-        } else {
-          return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_WishesComponent.default, {
-            id: this.state.searchedID,
-            events: this.state.events,
-            wishes: this.state.wishes,
-            wishIsAdded: this.state.wishIsAdded,
-            addNewWish: this.addBestWish,
-            lastIDofWish: this.state.wishes[this.state.wishes.length - 1].ID,
-            updateWishIsAdded: this.updateWishIsAdded
-          }));
-        }
-      }
-    }
-  }]);
-
-  return EventsComponent;
-}(_react.default.Component);
-
-exports.default = EventsComponent;
-},{"react":"node_modules/react/index.js","./general.css":"general.css","./NavBarComponent":"NavBarComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./WishesComponent":"WishesComponent.js"}],"HomeComponent.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactBootstrap = require("react-bootstrap");
-
-var _reactRouterDom = require("react-router-dom");
-
-require("./general.css");
-
-var _WishContext = _interopRequireDefault(require("./WishContext"));
-
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
-
-var _MyEventsComponent = _interopRequireDefault(require("./MyEventsComponent"));
-
-var _CreateNewEventComponent = _interopRequireDefault(require("./CreateNewEventComponent"));
-
-var _EventsComponent = _interopRequireDefault(require("./EventsComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var HomeComponent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(HomeComponent, _React$Component);
-
-  function HomeComponent() {
-    var _this;
-
-    _classCallCheck(this, HomeComponent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(HomeComponent).call(this));
-    _this.state = {
-      Users: [{
-        userId: 1,
-        userName: 'sally@gmail.com',
-        name: 'sally',
-        password: '123',
-        events: [{
-          ID: "1",
-          title: "Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }, {
-          ID: "2",
-          title: "Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }, {
-          ID: "3",
-          title: "Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }]
-      }, {
-        userId: 2,
-        userName: '2@gmail.com',
-        name: '2',
-        password: '123',
-        events: [{
-          ID: "1",
-          title: "Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }, {
-          ID: "2",
-          title: "Ebraheem Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }, {
-          ID: "3",
-          title: "Ebraheem Birthday",
-          catagory: "Birthday",
-          date: "25/6/2019",
-          where: "sakhnin"
-        }]
-      }],
-      viewMyEvents: false,
-      CreateNewEventBox: false,
-      AddABestwishe: false,
-      userId: 1,
-      userIsLoggedIn: true
-    };
-    _this.viewEvents = _this.viewEvents.bind(_assertThisInitialized(_this));
-    _this.createNewEventBox = _this.createNewEventBox.bind(_assertThisInitialized(_this));
-    _this.addABestwishe = _this.addABestwishe.bind(_assertThisInitialized(_this));
-    _this.addNewEvent = _this.addNewEvent.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(HomeComponent, [{
-    key: "addNewEvent",
-    value: function addNewEvent(newEvent) {
-      alert("a new event was added successfully");
-      var CopyEvents = this.state.Users;
-      CopyEvents[this.state.userId - 1].events.push(newEvent);
-      this.setState({
-        Users: _toConsumableArray(CopyEvents)
-      }, function () {
-        this.state.Users.map(function (item) {
-          return console.log(item);
-        });
-      });
-    }
-  }, {
-    key: "addABestwishe",
-    value: function addABestwishe() {
-      this.setState({
-        AddABestwishe: true
-      }, function () {
-        console.log("AddABestwishe is clicked ? " + this.state.AddABestwishe);
-      });
-    }
-  }, {
-    key: "createNewEventBox",
-    value: function createNewEventBox() {
-      this.setState({
-        CreateNewEventBox: true
-      }, function () {
-        console.log("CreateNewEventBox is clicked ? " + this.state.CreateNewEventBox);
-      });
-    }
-  }, {
-    key: "viewEvents",
-    value: function viewEvents() {
-      this.setState({
-        viewMyEvents: true
-      }, function () {
-        var _this2 = this;
-
-        console.log("events is clicked?" + this.state.viewMyEvents);
-        console.log("events:" + this.state.Users.filter(function (user) {
-          return user.userId == _this2.state.userId;
-        }));
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      return _react.default.createElement(_react.default.Fragment, null, this.state.viewMyEvents ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("h1", {
-        style: {
-          color: "white",
-          textAlign: "center",
-          marginTop: "20px"
-        },
-        className: "font-weight-bold"
-      }, "My Events")), _react.default.createElement(_reactBootstrap.Table, {
-        style: {
-          textAlign: "center",
-          marginTop: "30px"
-        },
-        className: "table tablebackground tableStyle",
-        id: "result"
-      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
-        scope: "col"
-      }, "#"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Catagory"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Event Title"), _react.default.createElement("th", {
-        scope: "col"
-      }, "When"), _react.default.createElement("th", {
-        scope: "col"
-      }, "Where"))), _react.default.createElement("tbody", null, this.state.Users.filter(function (user) {
-        return user.userId == _this3.state.userId;
-      })[this.state.userId - 1].events.map(function (_ref, i) {
-        var ID = _ref.ID,
-            title = _ref.title,
-            catagory = _ref.catagory,
-            date = _ref.date,
-            where = _ref.where;
-        return _react.default.createElement(_MyEventsComponent.default, {
-          key: i,
-          ID: ID,
-          title: title,
-          catagory: catagory,
-          date: date,
-          where: where
-        });
-      }))))))) : _react.default.createElement(_react.default.Fragment, null, this.state.CreateNewEventBox ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_CreateNewEventComponent.default, {
-        AddNewEventFunc: this.addNewEvent,
-        lastEventID: this.state.Users[this.state.userId - 1].events[this.state.Users[this.state.userId - 1].events.length - 1].ID,
-        userID: this.userId,
-        userEvents: this.state.Users.filter(function (user) {
-          return user.userId == _this3.state.userId;
-        })[this.state.userId - 1].events
-      }), " ") : _react.default.createElement(_react.default.Fragment, null, this.state.AddABestwishe ? _react.default.createElement(_react.default.Fragment, null, " ", _react.default.createElement(_EventsComponent.default, null), " ") : _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "login-box",
-        style: {
-          width: "790px",
-          height: "300px",
-          top: "40%"
-        }
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("h3", {
-        style: {
-          color: "white",
-          textAlign: "center"
-        },
-        className: "font-weight-bold"
-      }, "Welcome to bestWishes")), _react.default.createElement(_reactBootstrap.ButtonToolbar, null, _react.default.createElement(_reactRouterDom.NavLink, {
-        className: "navbarClass",
-        to: "/CreateNewEvent",
-        activeClassName: "text-warning"
-      }, _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        style: {
-          border: "2px solid white",
-          marginRight: "25px",
-          marginTop: "100px"
-        },
-        onClick: this.createNewEventBox,
-        variant: "primary",
-        size: "lg"
-      }, " Create A New Event Box")), _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        style: {
-          border: "2px solid white",
-          marginRight: "30px",
-          marginTop: "100px"
-        },
-        onClick: this.addABestwishe,
-        variant: "primary",
-        size: "lg"
-      }, "Create A Best Wish"), _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        style: {
-          border: "2px solid white",
-          marginTop: "100px"
-        },
-        onClick: this.viewEvents,
-        variant: "primary",
-        size: "lg"
-      }, "View My Events")))))));
-    }
-  }]);
-
-  return HomeComponent;
-}(_react.default.Component);
-
-exports.default = HomeComponent;
-HomeComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./MyEventsComponent":"MyEventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./EventsComponent":"EventsComponent.js"}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+},{}],"node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -57957,7 +56475,7 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getWishes = exports.getUsers = void 0;
+exports.getUserWishesByUserID = exports.getUserEventsByUserID = exports.getEvent = exports.getEvents = exports.getWishes = exports.getUsers = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -57965,21 +56483,932 @@ var _axios = _interopRequireDefault(require("axios"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var events = [{
+  ID: "1",
+  title: "Ebraheem Birthday",
+  catagory: "Birthday",
+  date: "25/6/2019",
+  where: "sakhnin"
+}, {
+  ID: "2",
+  title: "Ebraheem New Born",
+  catagory: "New Born",
+  date: "25/6/2019",
+  where: "sakhnin"
+}, {
+  ID: "3",
+  title: "Ebraheem Wedding",
+  catagory: "Wedding",
+  date: "25/6/2026",
+  where: "sakhnin"
+}, {
+  ID: "4",
+  title: "Ebraheem Grraduation",
+  catagory: "Party",
+  date: "25/6/2020",
+  where: "sakhnin"
+}];
+var wishes = [{
+  "userID": "1",
+  "ID": "1",
+  "from": "Ameer",
+  "wishContent": "Happy birthday wish you all the best",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "2",
+  "ID": "2",
+  "from": "sally",
+  "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "1",
+  "ID": "3",
+  "from": "Samah seh",
+  "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "2",
+  "ID": "4",
+  "from": "Ibraheem",
+  "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "2",
+  "ID": "5",
+  "from": "Arkan",
+  "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "1",
+  "ID": "6",
+  "from": "sally",
+  "wishContent": "I wish that your birthday brings a new year as sweet, peppy and fiery as you my dear. Happy birthday.",
+  "imageURL": "https://blog.serenataflowers.com/pollennation/wp-content/uploads/2016/05/original-happy-birthday-messages-FT.gif",
+  "eventID": "1"
+}, {
+  "userID": "1",
+  "ID": "7",
+  "from": "Ameer",
+  "wishContent": "Best wishes on this wonderful journey, as you build your new lives together.",
+  "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
+  "eventID": "3"
+}, {
+  "userID": "3",
+  "ID": "8",
+  "from": "sally",
+  "wishContent": "Wishing you joy, love and happiness on your wedding day and as you begin your new life together.",
+  "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
+  "eventID": "3"
+}, {
+  "userID": "1",
+  "ID": "9",
+  "from": "Ibraheem",
+  "wishContent": "May God grant you all of life's blessings and love's joys",
+  "imageURL": "https://images.greetingsisland.com/images/Cards/Events-Occasions/Wedding/previews/Wedding-Wishes.png?auto=format,compress&w=440",
+  "eventID": "3"
+}, {
+  "userID": "2",
+  "ID": "10",
+  "from": "Ameer",
+  "wishContent": "Welcome to the world little one, it is a place full of delights and wonders",
+  "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
+  "eventID": "2"
+}, {
+  "userID": "2",
+  "ID": "11",
+  "from": "Sally",
+  "wishContent": "Wishing you much happiness as you welcome your new little bundle of joy into your family",
+  "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
+  "eventID": "2"
+}, {
+  "userID": "3",
+  "ID": "12",
+  "from": "Sleman",
+  "wishContent": "Congratulations! Now is the time to enjoy your baby’s little feet and baby smell. It will not be there forever, and you should take as many pictures as possible. You will want to miss a single precious moment!",
+  "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
+  "eventID": "2"
+}, {
+  "userID": "1",
+  "ID": "13",
+  "from": "Basel",
+  "wishContent": "Wishing you joy and happiness, and plently of wonderful moments together.",
+  "imageURL": "https://abestwish.com/wp-content/uploads/2019/02/WhatsApp-Image-2019-01-31-at-1.27.15-PM.jpeg",
+  "eventID": "2"
+}, {
+  "userID": "1",
+  "ID": "14",
+  "from": "Basel",
+  "wishContent": "Congratulations on your well-deserved success.",
+  "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
+  "eventID": "4"
+}, {
+  "userID": "3",
+  "ID": "15",
+  "from": "sleman",
+  "wishContent": "I’m sure today will be only the first of many proud, successful moments for you",
+  "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
+  "eventID": "4"
+}, {
+  "userID": "1",
+  "ID": "16",
+  "from": "Arkan",
+  "wishContent": "Congratulations today and best wishes for all your tomorrows.",
+  "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
+  "eventID": "4"
+}, {
+  "userID": "1",
+  "ID": "17",
+  "from": "Mohamad",
+  "wishContent": "Can’t wait to see where life will take you next. Wherever it is, our prayers go with you!",
+  "imageURL": "https://image.shutterstock.com/image-vector/congratulations-graduation-background-mortar-board-260nw-288861791.jpg",
+  "eventID": "4"
+}];
+var Users = [{
+  userId: 1,
+  userName: 'sally@gmail.com',
+  name: 'sally',
+  password: '123',
+  events: [{
+    ID: "1",
+    title: "Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }, {
+    ID: "2",
+    title: "Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }, {
+    ID: "3",
+    title: "Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }]
+}, {
+  userId: 2,
+  userName: '2@gmail.com',
+  name: '2',
+  password: '123',
+  events: [{
+    ID: "1",
+    title: "Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }, {
+    ID: "2",
+    title: "Ebraheem Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }, {
+    ID: "3",
+    title: "Ebraheem Birthday",
+    catagory: "Birthday",
+    date: "25/6/2019",
+    where: "sakhnin"
+  }]
+}];
+
+var getUserWishesByUserID = function getUserWishesByUserID(userId) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var userWishes = wishes.filter(function (wish) {
+        return wish.userID == userId;
+      });
+      resolve(userWishes);
+    }, 500);
+  });
+};
+
+exports.getUserWishesByUserID = getUserWishesByUserID;
+
+var getUserEventsByUserID = function getUserEventsByUserID(userId) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var userEvents = Users.filter(function (user) {
+        return user.userId == userId;
+      })[0].events;
+      resolve(userEvents);
+    }, 500);
+  });
+};
+
+exports.getUserEventsByUserID = getUserEventsByUserID;
+
+var getEvents = function getEvents() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(events);
+    }, 500);
+  });
+};
+
+exports.getEvents = getEvents;
+
+var getWishes = function getWishes() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(wishes);
+    }, 500);
+  });
+};
+
+exports.getWishes = getWishes;
+
+var getEvent = function getEvent(id) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var event = events.find(function (e) {
+        return e.ID === id;
+      });
+      resolve(event);
+    }, 500);
+  });
+};
+
+exports.getEvent = getEvent;
+
 var getUsers = function getUsers() {
-  //   return axios.get('users.json');
   return JSON.parse(localStorage.getItem('users'));
 };
 
 exports.getUsers = getUsers;
+},{"react":"node_modules/react/index.js","axios":"node_modules/axios/index.js"}],"SearchedEventComponent.js":[function(require,module,exports) {
+"use strict";
 
-var getWishes = function getWishes(userID) {
-  //   return axios.get('users.json');
-  console.log(userID + 'from get wishes api ');
-  return JSON.parse(localStorage.getItem('userWishes'));
-};
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
-exports.getWishes = getWishes;
-},{"react":"node_modules/react/index.js","axios":"node_modules/axios/index.js"}],"JoinComponent.js":[function(require,module,exports) {
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var SearchedEventComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SearchedEventComponent, _React$Component);
+
+  function SearchedEventComponent() {
+    _classCallCheck(this, SearchedEventComponent);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SearchedEventComponent).apply(this, arguments));
+  }
+
+  _createClass(SearchedEventComponent, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", {
+        onClick: this.props.func
+      }, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where)));
+    }
+  }]);
+
+  return SearchedEventComponent;
+}(_react.default.Component);
+
+exports.default = SearchedEventComponent;
+},{"react":"node_modules/react/index.js"}],"EventsComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+
+var _validator = _interopRequireWildcard(require("./validator"));
+
+var api = _interopRequireWildcard(require("./api"));
+
+require("./general.css");
+
+var _SearchedEventComponent = _interopRequireDefault(require("./SearchedEventComponent"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var EventsComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(EventsComponent, _React$Component);
+
+  function EventsComponent() {
+    var _this;
+
+    _classCallCheck(this, EventsComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventsComponent).call(this));
+    _this.state = {
+      category: (0, _validator.field)({
+        value: '',
+        name: 'category'
+      }),
+      inputId: (0, _validator.field)({
+        value: '',
+        name: 'inputId'
+      }),
+      FromDate: (0, _validator.field)({
+        value: '',
+        name: 'FromDate'
+      }),
+      ToDate: (0, _validator.field)({
+        value: '',
+        name: 'ToDate'
+      }),
+      where: (0, _validator.field)({
+        value: '',
+        name: 'where',
+        minLength: 2
+      }),
+      events: [],
+      wishes: [],
+      searchedID: '',
+      searchedEventFlag: false,
+      rowIsClicked: false,
+      wishIsAdded: false
+    };
+    _this.rowClick = _this.rowClick.bind(_assertThisInitialized(_this));
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    _this.getEvent = _this.getEvent.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(EventsComponent, [{
+    key: "getEvent",
+    value: function getEvent(id) {
+      var event = this.state.events.find(function (e) {
+        return e.ID === id;
+      });
+      return event;
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "rowClick",
+    value: function rowClick() {
+      this.props.history.push("/event/" + this.state.inputId.value);
+      this.setState({
+        rowIsClicked: true
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getEvents().then(function (events) {
+        return _this2.setState({
+          events: events
+        });
+      });
+      api.getWishes().then(function (wishes) {
+        return _this2.setState({
+          wishes: wishes
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      {
+        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("h1", {
+          style: {
+            color: "red"
+          },
+          className: "font-weight-bold"
+        }, "Search Event"), _react.default.createElement(_reactBootstrap.InputGroup, {
+          className: "mb-3",
+          style: {
+            width: "50%"
+          }
+        }, _react.default.createElement(_reactBootstrap.DropdownButton, {
+          as: _reactBootstrap.InputGroup.Prepend,
+          variant: "outline-secondary",
+          title: "FilterBy",
+          id: "input-group-dropdown-1"
+        }, _react.default.createElement(_reactBootstrap.Form, {
+          style: {
+            height: "540px",
+            width: "400px"
+          }
+        }, _react.default.createElement(_reactBootstrap.Form.Group, {
+          controlId: "exampleForm.ControlSelect1"
+        }, _react.default.createElement(_reactBootstrap.Form.Label, {
+          className: "font-weight-bold"
+        }, "Select Category"), _react.default.createElement(_reactBootstrap.Form.Control, {
+          as: "select",
+          id: "category",
+          name: "category",
+          onBlur: this.onInputChange
+        }, _react.default.createElement("option", {
+          value: ""
+        }, "Choose..."), _react.default.createElement("option", {
+          value: "New Born"
+        }, "New Born"), _react.default.createElement("option", {
+          value: "Wedding"
+        }, "Wedding"), _react.default.createElement("option", {
+          value: "Birthday"
+        }, "Birthday"), _react.default.createElement("option", {
+          value: "Party"
+        }, "Party")), this.state.category.errors.map(function (err, i) {
+          return _react.default.createElement(_reactBootstrap.Form.Text, {
+            key: i,
+            className: "text-danger"
+          }, err);
+        })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+          className: "font-weight-bold"
+        }, "From Date"), _react.default.createElement(_reactBootstrap.InputGroup, {
+          className: "mb-3"
+        }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+          icon: _freeSolidSvgIcons.faCalendar
+        }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+          id: "FromDate",
+          name: "FromDate",
+          type: "Date",
+          placeholder: "Enter From Date",
+          onBlur: this.onInputChange
+        })), this.state.FromDate.errors.map(function (err, i) {
+          return _react.default.createElement(_reactBootstrap.Form.Text, {
+            key: i,
+            className: "text-danger"
+          }, err);
+        })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+          className: "font-weight-bold"
+        }, "To Date"), _react.default.createElement(_reactBootstrap.InputGroup, {
+          className: "mb-3"
+        }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+          icon: _freeSolidSvgIcons.faCalendar
+        }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+          id: "ToDate",
+          name: "ToDate",
+          type: "Date",
+          placeholder: "Enter To Date",
+          onBlur: this.onInputChange
+        })), this.state.ToDate.errors.map(function (err, i) {
+          return _react.default.createElement(_reactBootstrap.Form.Text, {
+            key: i,
+            className: "text-danger"
+          }, err);
+        })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+          className: "font-weight-bold"
+        }, "Where"), _react.default.createElement(_reactBootstrap.InputGroup, {
+          className: "mb-3"
+        }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+          icon: _freeSolidSvgIcons.faLocationArrow
+        }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+          id: "where",
+          name: "where",
+          placeholder: "Enter Event Position",
+          onBlur: this.onInputChange
+        })), this.state.where.errors.map(function (err, i) {
+          return _react.default.createElement(_reactBootstrap.Form.Text, {
+            key: i,
+            className: "text-danger"
+          }, err);
+        })), _react.default.createElement(_reactBootstrap.Button, {
+          variant: "primary"
+        }, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+          icon: _freeSolidSvgIcons.faSearch
+        }))))), _react.default.createElement(_reactBootstrap.FormControl, {
+          "aria-describedby": "basic-addon1",
+          placeholder: "Search Event By ID",
+          name: "inputId",
+          onBlur: this.onInputChange
+        }), this.state.inputId.errors.map(function (err, i) {
+          return _react.default.createElement(_reactBootstrap.Form.Text, {
+            key: i,
+            className: "text-danger"
+          }, err);
+        }), _react.default.createElement(_reactBootstrap.Button, {
+          style: {
+            height: "38px"
+          }
+        }, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+          icon: _freeSolidSvgIcons.faSearch
+        }))))), this.state.inputId.value ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+          className: "col-md"
+        }, _react.default.createElement("center", null, _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Table, {
+          style: {
+            textAlign: "center",
+            marginTop: "30px"
+          },
+          className: "table tablebackground tableStyle",
+          id: "result"
+        }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
+          scope: "col"
+        }, "#"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Catagory"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Event Title"), _react.default.createElement("th", {
+          scope: "col"
+        }, "When"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Where"))), _react.default.createElement("tbody", null, _react.default.createElement(_SearchedEventComponent.default, {
+          ID: this.getEvent(this.state.inputId.value).ID,
+          title: this.getEvent(this.state.inputId.value).title,
+          catagory: this.getEvent(this.state.inputId.value).catagory,
+          date: this.getEvent(this.state.inputId.value).date,
+          func: this.rowClick,
+          where: this.getEvent(this.state.inputId.value).where
+        }))))))) : '');
+      }
+    }
+  }]);
+
+  return EventsComponent;
+}(_react.default.Component);
+
+exports.default = EventsComponent;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./api":"api.js","./general.css":"general.css","./SearchedEventComponent":"SearchedEventComponent.js"}],"EventDetailsComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var EventDetailsComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(EventDetailsComponent, _React$Component);
+
+  function EventDetailsComponent() {
+    _classCallCheck(this, EventDetailsComponent);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(EventDetailsComponent).apply(this, arguments));
+  }
+
+  _createClass(EventDetailsComponent, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("table", {
+        className: "table tablebackground tableStyle",
+        id: "info"
+      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
+        scope: "col",
+        colSpan: "2"
+      }, "Event Info"))), _react.default.createElement("tbody", null, _react.default.createElement("tr", null, _react.default.createElement("td", null, "title"), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null)), _react.default.createElement("tr", null, _react.default.createElement("td", null, "When"), _react.default.createElement("td", null, this.props.date)), _react.default.createElement("tr", null, _react.default.createElement("td", null, "Where"), _react.default.createElement("td", null, this.props.where)))));
+    }
+  }]);
+
+  return EventDetailsComponent;
+}(_react.default.Component);
+
+exports.default = EventDetailsComponent;
+},{"react":"node_modules/react/index.js"}],"CardComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CardComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CardComponent, _React$Component);
+
+  function CardComponent() {
+    var _this;
+
+    _classCallCheck(this, CardComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CardComponent).call(this));
+    _this.state = {
+      content: '',
+      seeflag: true
+    };
+    _this.seeMore = _this.seeMore.bind(_assertThisInitialized(_this));
+    _this.seeLess = _this.seeLess.bind(_assertThisInitialized(_this));
+    _this.handelText = _this.handelText.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CardComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        content: "".concat(this.props.wishContent.substring(0, 70), "...")
+      });
+    }
+  }, {
+    key: "seeMore",
+    value: function seeMore() {
+      this.setState({
+        content: this.props.wishContent,
+        seeflag: false
+      });
+    }
+  }, {
+    key: "seeLess",
+    value: function seeLess() {
+      this.setState({
+        content: "".concat(this.props.wishContent.substring(0, 70), "..."),
+        seeflag: true
+      });
+    }
+  }, {
+    key: "handelText",
+    value: function handelText() {
+      var btnText = document.getElementById(this.props.ID);
+
+      if (this.state.seeflag) {
+        btnText.innerHTML = "see less";
+        this.seeMore();
+      } else {
+        btnText.innerHTML = "see more";
+        this.seeLess();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "col-md-3"
+      }, _react.default.createElement("div", {
+        className: "card bg-light mb-3",
+        style: {
+          max_width: "20rem"
+        }
+      }, _react.default.createElement("div", {
+        className: "card-header"
+      }, _react.default.createElement("label", null, this.props.from)), _react.default.createElement("div", {
+        className: "card-body"
+      }, _react.default.createElement("div", {
+        id: "cardBody"
+      }, _react.default.createElement("div", null, _react.default.createElement("img", {
+        style: {
+          float: "right"
+        },
+        width: "150px",
+        height: "150px",
+        src: this.props.imageURL
+      })), _react.default.createElement("div", null, _react.default.createElement("p", null, this.state.content), _react.default.createElement("button", {
+        onClick: this.handelText,
+        id: this.props.ID
+      }, "see more")))))));
+    }
+  }]);
+
+  return CardComponent;
+}(_react.default.Component);
+
+exports.default = CardComponent;
+},{"react":"node_modules/react/index.js"}],"WishesComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _EventDetailsComponent = _interopRequireDefault(require("./EventDetailsComponent"));
+
+var _CardComponent = _interopRequireDefault(require("./CardComponent"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var api = _interopRequireWildcard(require("./api"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var WishesComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(WishesComponent, _React$Component);
+
+  function WishesComponent() {
+    var _this;
+
+    _classCallCheck(this, WishesComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(WishesComponent).call(this));
+    _this.state = {
+      events: [],
+      wishes: []
+    };
+    return _this;
+  }
+
+  _createClass(WishesComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getEvents().then(function (events) {
+        return _this2.setState({
+          events: events
+        });
+      });
+      api.getWishes().then(function (wishes) {
+        return _this2.setState({
+          wishes: wishes
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "container-fluid"
+      }, _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("br", null)), _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("div", {
+        className: "col-md-4"
+      }), _react.default.createElement("div", {
+        className: "col"
+      }, _react.default.createElement("div", {
+        className: "col-md"
+      }, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/AddABestWishComponent/" + this.props.match.params.eventID,
+        activeClassName: "text-warning"
+      }, _react.default.createElement("button", {
+        style: {
+          backgroundColor: "red"
+        },
+        className: "btn btn-primary"
+      }, "Add a Best Wish"))))), _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("div", {
+        className: "col-md-3"
+      }, this.state.events.map(function (_ref, i) {
+        var ID = _ref.ID,
+            title = _ref.title,
+            catagory = _ref.catagory,
+            date = _ref.date,
+            where = _ref.where;
+        return _this3.props.match.params.eventID == ID ? _react.default.createElement(_EventDetailsComponent.default, {
+          key: i,
+          ID: ID,
+          title: title,
+          catagory: catagory,
+          date: date,
+          where: where
+        }) : '';
+      }))), _react.default.createElement("div", {
+        className: "row"
+      }, this.state.wishes.map(function (_ref2, i) {
+        var ID = _ref2.ID,
+            eventID = _ref2.eventID,
+            from = _ref2.from,
+            wishContent = _ref2.wishContent,
+            imageURL = _ref2.imageURL;
+        return _this3.props.match.params.eventID == eventID ? _react.default.createElement(_CardComponent.default, {
+          key: i,
+          ID: ID,
+          eventID: eventID,
+          from: from,
+          wishContent: wishContent,
+          imageURL: imageURL
+        }) : '';
+      }))));
+    }
+  }]);
+
+  return WishesComponent;
+}(_react.default.Component);
+
+exports.default = WishesComponent;
+},{"react":"node_modules/react/index.js","./EventDetailsComponent":"EventDetailsComponent.js","./CardComponent":"CardComponent.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./api":"api.js"}],"JoinComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57992,8 +57421,6 @@ var _react = _interopRequireDefault(require("react"));
 var _reactBootstrap = require("react-bootstrap");
 
 require("./general.css");
-
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
 
 var _validator2 = _interopRequireWildcard(require("./validator"));
 
@@ -58074,9 +57501,6 @@ function (_React$Component) {
       var _this2 = this;
 
       setTimeout(function () {
-        /*api.getUsers().then(({ data }) => {
-            this.setState({ users: data });
-        });*/
         var data = api.getUsers();
 
         _this2.setState({
@@ -58092,6 +57516,7 @@ function (_React$Component) {
       if (localStorage.users) {
         var oldUsers = JSON.parse(localStorage.getItem('users'));
         var neWuser = {
+          userId: parseInt(this.state.Users[this.state.Users.length - 1].userId) + 1,
           name: this.state.displayName.value,
           password: this.state.UserPassword.value,
           userName: this.state.Useremail.value
@@ -58147,6 +57572,7 @@ function (_React$Component) {
       if (this.state.displayName.errors.length == 0 && this.state.Useremail.errors.length == 0 && this.state.UserPassword.errors.length == 0) {
         alert("User ".concat(this.state.displayName.value, " was addes successfully"));
         this.addUser();
+        this.props.history.push("/");
       }
     }
   }, {
@@ -58237,7 +57663,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = JoinComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css","./NavBarComponent":"NavBarComponent.js","./validator":"validator.js","./api":"api.js"}],"NavBarComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css","./validator":"validator.js","./api":"api.js"}],"NavBarComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58312,15 +57738,23 @@ function (_React$Component) {
         to: "/",
         exact: true,
         activeClassName: "text-warning"
-      }, "Home"), _react.default.createElement(_reactRouterDom.NavLink, {
+      }, "Home"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/events",
+        to: "/UserEvents/" + this.context.userID,
         activeClassName: "text-warning"
-      }, "Events"), _react.default.createElement(_reactRouterDom.NavLink, {
+      }, "Events")) : _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/wishes",
+        to: "/UserEvents/" + this.context.userID,
         activeClassName: "text-warning"
-      }, "Wishes"), _react.default.createElement(_reactRouterDom.NavLink, {
+      }, "MyEvents"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/wishes/" + this.context.userID,
+        activeClassName: "text-warning"
+      }, "Wishes")) : _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/wishes/" + this.context.userID,
+        activeClassName: "text-warning"
+      }, "MyWishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
         to: "/about",
         activeClassName: "text-warning"
@@ -58383,9 +57817,9 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-require("./general.css");
+var _reactBootstrap = require("react-bootstrap");
 
-var _NavBarComponent = _interopRequireDefault(require("./NavBarComponent"));
+require("./general.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -58421,88 +57855,21 @@ function (_React$Component) {
   _createClass(AboutComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("img", {
-        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSM8KX12WXOeUrVQ7gCLq1AaVj6p-dvuPMxft_Mu8LaQIb2gYb",
-        className: "img-thumbnail",
-        alt: "Cinque Terre"
-      })), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("h4", null, "Sally Dabbah"))))), _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("img", {
-        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSM8KX12WXOeUrVQ7gCLq1AaVj6p-dvuPMxft_Mu8LaQIb2gYb",
-        className: "img-thumbnail",
-        alt: "Cinque Terre"
-      })), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("h4", null, "Samah Seh")))))), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("img", {
-        src: "data:image/jpeg;base64,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",
-        className: "img-thumbnail",
-        alt: "Cinque Terre"
-      })), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("h4", null, "Ebraheem Ghantos"))))), _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("img", {
-        src: "data:image/jpeg;base64,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",
-        className: "img-thumbnail",
-        alt: "Cinque Terre"
-      })), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("h4", null, "Ameer Zubedat")))))), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        id: "AboutLeft",
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("img", {
-        src: "data:image/jpeg;base64,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",
-        className: "img-thumbnail",
-        alt: "Cinque Terre"
-      }))), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("h4", null, "Ibrahim Seh"))))))));
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Image, {
+        src: "images/wixcom.jpg",
+        className: "rounded float-left",
+        width: "150px",
+        height: "100px"
+      })), _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Card.Title, null, "Best Wishes")), _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Image, {
+        src: "images/tsofen.png",
+        className: "rounded float-right",
+        width: "150px",
+        height: "100px"
+      }))), _react.default.createElement("br", null), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Alert, {
+        variant: "light"
+      }, _react.default.createElement(_reactBootstrap.Alert.Heading, null, "Event System"), _react.default.createElement("p", null, "Organizing wishes for events that were created by site users, according to a specific category such as Birthday, Graduation etc."), _react.default.createElement("hr", null))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Alert, {
+        variant: "light"
+      }, _react.default.createElement(_reactBootstrap.Alert.Heading, null, "System goal"), _react.default.createElement("h4", null, "Why?"), _react.default.createElement("br", null), _react.default.createElement("p", null, "People today deals with a lot of data in social media , this causes them to miss events of friends, colleagues and their family members ."), _react.default.createElement("hr", null), _react.default.createElement("p", null, "We created this website to store user events and its related wishes in one place ,making it accessible at any time and never get lost.")))));
     }
   }]);
 
@@ -58510,7 +57877,547 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = AboutComponent;
-},{"react":"node_modules/react/index.js","./general.css":"general.css","./NavBarComponent":"NavBarComponent.js"}],"LoginComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./general.css":"general.css"}],"AddABestWishComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+
+var _reactBootstrap = require("react-bootstrap");
+
+var api = _interopRequireWildcard(require("./api"));
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
+var _validator2 = _interopRequireWildcard(require("./validator"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var AddABestWishComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(AddABestWishComponent, _React$Component);
+
+  function AddABestWishComponent() {
+    var _this;
+
+    _classCallCheck(this, AddABestWishComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AddABestWishComponent).call(this));
+    _this.state = {
+      from: (0, _validator2.field)({
+        value: '',
+        name: 'from',
+        minLength: 2
+      }),
+      Wishing: (0, _validator2.field)({
+        value: '',
+        name: 'Wishing',
+        minLength: 2
+      }),
+      imageURL: (0, _validator2.field)({
+        value: '',
+        name: 'imageURL',
+        minLength: 10
+      }),
+      wishes: []
+    };
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(AddABestWishComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getWishes().then(function (wishes) {
+        return _this2.setState({
+          wishes: wishes
+        });
+      });
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator2.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+      var wish = Object.assign({}, this.state);
+
+      for (var key in wish) {
+        if (key != "wishes") {
+          var _wish$key = wish[key],
+              value = _wish$key.value,
+              validations = _wish$key.validations;
+
+          var _validator = (0, _validator2.default)(value, key, validations),
+              valid = _validator.valid,
+              errors = _validator.errors;
+
+          if (!valid) {
+            wish[key].valid = valid;
+            wish[key].errors = errors;
+          }
+        }
+      }
+
+      this.setState(_objectSpread({}, wish));
+
+      if (this.state.from.errors.length == 0 && this.state.Wishing.errors.length == 0 && this.state.imageURL.errors.length == 0) {
+        var mywish = {
+          userID: this.context.userID,
+          ID: parseInt(this.state.wishes[this.state.wishes.length - 1].ID) + 1,
+          from: this.state.from.value,
+          wishContent: this.state.Wishing.value,
+          imageURL: this.state.imageURL.value,
+          eventID: this.props.match.params.eventID
+        };
+        alert("added successfully");
+        this.setState(function (prevState) {
+          return {
+            wishes: [].concat(_toConsumableArray(prevState.wishes), [mywish])
+          };
+        }, function () {
+          this.state.wishes.map(function (item) {
+            console.log(item.from);
+          });
+        });
+        this.props.history.push("/event/" + this.props.match.params.eventID);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
+        style: {
+          height: 250,
+          margin: "80px 300px  0px 300px"
+        },
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("h1", {
+        style: {
+          color: "red"
+        },
+        className: "font-weight-bold"
+      }, "Add a Best Wish"), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "From"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faUser
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        name: "from",
+        placeholder: "Enter your name",
+        "aria-label": "from",
+        id: "fromInput",
+        defaultValue: !this.context.name ? this.state.from.value : this.context.name,
+        onBlur: this.onInputChange
+      }))), this.state.from.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Wishing you"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faList
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        as: "textarea",
+        name: "Wishing",
+        "aria-label": "Wishing",
+        placeholder: "Enter your wish",
+        rows: "5",
+        id: "wishInput",
+        defaultValue: this.state.Wishing.value,
+        onBlur: this.onInputChange
+      }))), this.state.Wishing.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "imageURL"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faImage
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        name: "imageURL",
+        placeholder: "Enter your imageURL",
+        "aria-label": "imageURL",
+        id: "idSrcImg",
+        defaultValue: this.state.imageURL.value,
+        onBlur: this.onInputChange
+      }))), this.state.imageURL.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Button, {
+        style: {
+          border: "2px solid white"
+        },
+        className: "font-weight-bold",
+        variant: "primary",
+        type: "submit"
+      }, "Add a Best Wish"))))));
+    }
+  }]);
+
+  return AddABestWishComponent;
+}(_react.default.Component);
+
+exports.default = AddABestWishComponent;
+AddABestWishComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./api":"api.js","./WishContext":"WishContext.js","./validator":"validator.js"}],"CreateNewEventComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+
+var _reactRouterDom = require("react-router-dom");
+
+var _validator2 = _interopRequireWildcard(require("./validator"));
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
+var api = _interopRequireWildcard(require("./api"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CreateNewEvent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CreateNewEvent, _React$Component);
+
+  function CreateNewEvent() {
+    var _this;
+
+    _classCallCheck(this, CreateNewEvent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CreateNewEvent).call(this));
+    _this.state = {
+      category: (0, _validator2.field)({
+        value: '',
+        name: 'category'
+      }),
+      titleEvent: (0, _validator2.field)({
+        value: '',
+        name: 'titleEvent',
+        minLength: 2
+      }),
+      at: (0, _validator2.field)({
+        value: '',
+        name: 'at'
+      }),
+      where: (0, _validator2.field)({
+        value: '',
+        name: 'where',
+        minLength: 2
+      }),
+      userEvents: [],
+      events: []
+    };
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CreateNewEvent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getEvents().then(function (events) {
+        return _this2.setState({
+          events: events
+        });
+      });
+      api.getUserEventsByUserID(this.context.userID).then(function (userEvents) {
+        return _this2.setState({
+          userEvents: userEvents
+        });
+      });
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      console.log(name, value);
+      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator2.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+      var event = Object.assign({}, this.state);
+
+      for (var key in event) {
+        if (key != "userEvents" && key != "events") {
+          var _event$key = event[key],
+              value = _event$key.value,
+              validations = _event$key.validations;
+
+          var _validator = (0, _validator2.default)(value, key, validations),
+              valid = _validator.valid,
+              errors = _validator.errors;
+
+          if (!valid) {
+            event[key].valid = valid;
+            event[key].errors = errors;
+          }
+        }
+      }
+
+      this.setState(_objectSpread({}, event));
+
+      if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
+        var myNewEvent = {
+          userID: this.context.userID,
+          ID: parseInt(this.state.events[this.state.events.length - 1].ID) + 1,
+          title: this.state.titleEvent.value,
+          catagory: this.state.category.value,
+          date: this.state.at.value,
+          where: this.state.where.value
+        };
+        alert("added successfully");
+        this.setState(function (prevState) {
+          return {
+            events: [].concat(_toConsumableArray(prevState.events), [myNewEvent])
+          };
+        }, function () {
+          this.state.events.map(function (item) {
+            console.log(item.ID);
+          });
+        });
+        this.setState(function (prevState) {
+          return {
+            userEvents: [].concat(_toConsumableArray(prevState.userEvents), [myNewEvent])
+          };
+        }, function () {
+          this.state.userEvents.map(function (item) {
+            console.log(item.ID);
+          });
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement(_reactBootstrap.Form, {
+        style: {
+          height: 250,
+          margin: "80px 300px  0px 300px"
+        },
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("h1", {
+        style: {
+          color: "red"
+        },
+        className: "font-weight-bold"
+      }, "Create New Event"), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Category"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faList
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        as: "select",
+        id: "category",
+        name: "category",
+        onBlur: this.onInputChange
+      }, _react.default.createElement("option", {
+        value: ""
+      }, "Choose..."), _react.default.createElement("option", {
+        value: "New Born"
+      }, "New Born"), _react.default.createElement("option", {
+        value: "Wedding"
+      }, "Wedding"), _react.default.createElement("option", {
+        value: "Birthday"
+      }, "Birthday"), _react.default.createElement("option", {
+        value: "Party"
+      }, "Party"))), this.state.category.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Title"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faTag
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "titleEvent",
+        name: "titleEvent",
+        placeholder: "Enter Title Event",
+        onBlur: this.onInputChange
+      })), this.state.titleEvent.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "At"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faCalendar
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "at",
+        name: "at",
+        type: "Date",
+        placeholder: "Enter Title Date",
+        onBlur: this.onInputChange
+      })), this.state.at.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Where"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faLocationArrow
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "where",
+        name: "where",
+        placeholder: "Enter Event Position",
+        onBlur: this.onInputChange
+      })), this.state.where.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        variant: "primary",
+        style: {
+          border: "2px solid white"
+        },
+        type: "submit"
+      }, "Create New Event Box"), _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/UserEvents/" + this.context.userID,
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        variant: "primary",
+        style: {
+          border: "2px solid white",
+          marginRight: 20
+        }
+      }, "My Events")))));
+    }
+  }]);
+
+  return CreateNewEvent;
+}(_react.default.Component);
+
+exports.default = CreateNewEvent;
+CreateNewEvent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./validator":"validator.js","./WishContext":"WishContext.js","./api":"api.js"}],"LoginComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58665,17 +58572,18 @@ function (_React$Component) {
       this.setState(_objectSpread({}, user));
 
       if (this.state.email.errors.length == 0 && this.state.password.errors.length == 0) {
-        var name = "";
+        var name = "",
+            userID = "";
 
         for (var i = 0; i < this.state.Users.length; i++) {
           if (this.state.Users[i].userName == this.state.email.value) {
             name = this.state.Users[i].name;
+            userID = this.state.Users[i].userId;
             break;
           }
         }
 
-        alert("Welcome " + name);
-        this.context.login(name);
+        this.context.login(name, userID);
         this.props.history.push("/");
       }
     }
@@ -58751,7 +58659,84 @@ function (_React$Component) {
 
 exports.default = LoginComponent;
 LoginComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyWishes.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyEventsComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactRouterDom = require("react-router-dom");
+
+require("./general.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var MyEventsComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MyEventsComponent, _React$Component);
+
+  function MyEventsComponent() {
+    _classCallCheck(this, MyEventsComponent);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MyEventsComponent).apply(this, arguments));
+  }
+
+  _createClass(MyEventsComponent, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", {
+        onClick: this.props.func
+      }, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where)), _react.default.createElement("tr", {
+        style: {
+          textAlign: "center"
+        }
+      }, _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        variant: "primary",
+        style: {
+          border: "2px solid white"
+        },
+        onClick: this.props.buttonClickFunc
+      }, "Update")), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        variant: "primary",
+        style: {
+          border: "2px solid red"
+        }
+      }, "Delete"))));
+    }
+  }]);
+
+  return MyEventsComponent;
+}(_react.default.Component);
+
+exports.default = MyEventsComponent;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css"}],"MyWishes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58789,42 +58774,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var LoginComponent =
+var MyWishes =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(LoginComponent, _React$Component);
+  _inherits(MyWishes, _React$Component);
 
-  function LoginComponent() {
+  function MyWishes() {
     var _this;
 
-    _classCallCheck(this, LoginComponent);
+    _classCallCheck(this, MyWishes);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginComponent).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MyWishes).call(this));
     _this.state = {
       wishes: []
     };
     return _this;
   }
 
-  _createClass(LoginComponent, [{
+  _createClass(MyWishes, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      setTimeout(function () {
-        /*api.getUsers().then(({ data }) => {
-            this.setState({ users: data });
-        });*/
-        var userId = 1; // we should use it in our request , currently its not working , the api selects only static data from App.js 
-
-        var data = api.getWishes(userId);
-
-        _this2.setState({
-          wishes: data
-        }, function () {
-          return console.log(_this2.state);
+      api.getUserWishesByUserID(this.props.match.params.userID).then(function (wishes) {
+        return _this2.setState({
+          wishes: wishes
         });
-      }, 1000);
+      });
     }
   }, {
     key: "render",
@@ -58847,10 +58823,10 @@ function (_React$Component) {
     }
   }]);
 
-  return LoginComponent;
+  return MyWishes;
 }(_react.default.Component);
 
-exports.default = LoginComponent;
+exports.default = MyWishes;
 },{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
 "use strict";
 
@@ -58904,8 +58880,8 @@ function (_React$Component) {
       var name = this.context.name;
       return _react.default.createElement(_reactRouterDom.Route, {
         path: this.props.path,
-        render: function render() {
-          return name ? _this.props.component : _react.default.createElement(_reactRouterDom.Redirect, {
+        render: function render(props) {
+          return name ? _react.default.createElement(_this.props.component, props) : _react.default.createElement(_reactRouterDom.Redirect, {
             to: "/login"
           });
         }
@@ -58918,7 +58894,146 @@ function (_React$Component) {
 
 exports.default = RedirectIfAnonymous;
 RedirectIfAnonymous.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js"}],"ShowUserEvents.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _MyEventsComponent = _interopRequireDefault(require("./MyEventsComponent"));
+
+var api = _interopRequireWildcard(require("./api"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ShowUserEvents =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ShowUserEvents, _React$Component);
+
+  function ShowUserEvents() {
+    var _this;
+
+    _classCallCheck(this, ShowUserEvents);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ShowUserEvents).call(this));
+    _this.state = {
+      userEvents: []
+    };
+    _this.rowClick = _this.rowClick.bind(_assertThisInitialized(_this));
+    _this.buttonClick = _this.buttonClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(ShowUserEvents, [{
+    key: "buttonClick",
+    value: function buttonClick() {
+      this.props.history.push("/wishes/1");
+    }
+  }, {
+    key: "rowClick",
+    value: function rowClick() {
+      this.props.history.push("/wishes/2");
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var match = this.props.match;
+      console.log(match);
+      api.getUserEventsByUserID(this.props.match.params.userID).then(function (userEvents) {
+        return _this2.setState({
+          userEvents: userEvents
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("div", {
+        className: "col"
+      }, _react.default.createElement("h1", {
+        style: {
+          color: "white",
+          textAlign: "center",
+          marginTop: "20px"
+        },
+        className: "font-weight-bold"
+      }, "My Events")), _react.default.createElement(_reactBootstrap.Table, {
+        style: {
+          textAlign: "center",
+          marginTop: "30px"
+        },
+        className: "table tablebackground tableStyle",
+        id: "result"
+      }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
+        scope: "col"
+      }, "#"), _react.default.createElement("th", {
+        scope: "col"
+      }, "Catagory"), _react.default.createElement("th", {
+        scope: "col"
+      }, "Event Title"), _react.default.createElement("th", {
+        scope: "col"
+      }, "When"), _react.default.createElement("th", {
+        scope: "col"
+      }, "Where"))), _react.default.createElement("tbody", null, this.state.userEvents.map(function (_ref, i) {
+        var ID = _ref.ID,
+            title = _ref.title,
+            catagory = _ref.catagory,
+            date = _ref.date,
+            where = _ref.where;
+        return _react.default.createElement(_MyEventsComponent.default, {
+          key: i,
+          ID: ID,
+          title: title,
+          catagory: catagory,
+          date: date,
+          where: where,
+          func: _this3.rowClick,
+          buttonClickFunc: _this3.buttonClick
+        });
+      })))))));
+    }
+  }]);
+
+  return ShowUserEvents;
+}(_react.default.Component);
+
+exports.default = ShowUserEvents;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./MyEventsComponent":"MyEventsComponent.js","./api":"api.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58960,6 +59075,8 @@ var _MyWishes = _interopRequireDefault(require("./MyWishes"));
 
 var _RedirectIfAnonymous = _interopRequireDefault(require("./RedirectIfAnonymous"));
 
+var _ShowUserEvents = _interopRequireDefault(require("./ShowUserEvents"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -58995,27 +59112,32 @@ function (_React$Component) {
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     _this.state = {
       name: '',
+      userID: '1',
       login: _this.login,
       logout: _this.logout
     };
 
     if (!localStorage.users) {
       localStorage.users = JSON.stringify([{
+        "userId": "1",
         "name": "Ameer",
-        "userName": "ameer.outlook.com",
-        "password": 12345
+        "userName": "ameer_z_90@hotmail.com",
+        "password": 131415
       }, {
+        "userId": "2",
         "name": "Saeed",
         "userName": "saeednamih@gmail.com",
         "password": 5678
       }, {
+        "userId": "3",
         "name": "Sally",
         "userName": "sallydabbah@gmail.com",
         "password": 9101112
       }, {
+        "userId": "4",
         "name": "Ameer",
-        "userName": "ameer_z_90@hotmail.com",
-        "password": 131415
+        "userName": "ameer.outlook.com",
+        "password": 12345
       }]);
     }
 
@@ -59046,9 +59168,10 @@ function (_React$Component) {
 
   _createClass(App, [{
     key: "login",
-    value: function login(email) {
+    value: function login(email, userId) {
       this.setState({
-        name: email
+        name: email,
+        userID: userId
       });
     }
   }, {
@@ -59068,15 +59191,24 @@ function (_React$Component) {
         path: "/",
         component: _HomeComponent.default,
         exact: true
-      }), _react.default.createElement(_RedirectIfAnonymous.default, {
+      }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/events",
-        component: _react.default.createElement(_EventsComponent.default, null)
+        component: _EventsComponent.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/AddABestWishComponent/:eventID",
+        component: _AddABestWishComponent.default
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        path: "/event/:eventID",
+        component: _WishesComponent.default
       }), _react.default.createElement(_RedirectIfAnonymous.default, {
-        path: "/wishes",
-        component: _react.default.createElement(_MyWishes.default, null)
+        path: "/wishes/:userID",
+        component: _MyWishes.default
       }), _react.default.createElement(_RedirectIfAnonymous.default, {
         path: "/CreateNewEvent",
-        component: _react.default.createElement(_CreateNewEventComponent.default, null)
+        component: _CreateNewEventComponent.default
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
+        path: "/UserEvents/:userID",
+        component: _ShowUserEvents.default
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
         component: _AboutComponent.default
@@ -59096,7 +59228,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -59124,7 +59256,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54785" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

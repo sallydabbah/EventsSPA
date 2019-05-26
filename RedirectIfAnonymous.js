@@ -8,8 +8,8 @@ export default class RedirectIfAnonymous extends React.Component {
     render() {
         const { name } = this.context;
         return (
-            <Route path={this.props.path} render={() => (
-                name ? this.props.component : <Redirect to="/login" />
+            <Route path={this.props.path} render={(props) => (
+                name ? <this.props.component {...props}/> : <Redirect to="/login" />
             )} />
         );
     }

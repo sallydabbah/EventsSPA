@@ -20,8 +20,21 @@ class NavBarComponent extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
-                            <NavLink className="navbarClass" to="/events" activeClassName="text-warning">Events</NavLink>
-                            <NavLink className="navbarClass" to="/wishes" activeClassName="text-warning">Wishes</NavLink>
+                            {!this.context.name ?
+                            <>
+                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userID} activeClassName="text-warning">Events</NavLink>
+                            </>
+                            :
+                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userID} activeClassName="text-warning">MyEvents</NavLink>
+                            }
+                            {!this.context.name ?
+                            <>
+                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userID} activeClassName="text-warning">Wishes</NavLink>
+                            </>
+                            :
+                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userID} activeClassName="text-warning">MyWishes</NavLink>
+                            }
+                            
                             <NavLink className="navbarClass" to="/about" activeClassName="text-warning">About</NavLink>
                         </Nav>
                         <Form inline>

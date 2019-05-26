@@ -17,6 +17,7 @@ import MyEventsComponent from './MyEventsComponent';
 import SearchedEventComponent from './SearchedEventComponent';
 import MyWishes from './MyWishes';
 import RedirectIfAnonymous from './RedirectIfAnonymous';
+import ShowUserEvents from './ShowUserEvents';
 
 export default class App extends React.Component {
     constructor() {
@@ -25,30 +26,35 @@ export default class App extends React.Component {
         this.logout = this.logout.bind(this);
         this.state = {
             name: '',
+            userID: '1',
             login: this.login,
             logout: this.logout
         };
         if (!localStorage.users) {
             localStorage.users = JSON.stringify([
                 {
+                    "userId":"1",
                     "name": "Ameer",
-                    "userName": "ameer.outlook.com",
-                    "password": 12345
+                    "userName": "ameer_z_90@hotmail.com",
+                    "password": 131415
                 },
                 {
+                    "userId":"2",
                     "name": "Saeed",
                     "userName": "saeednamih@gmail.com",
                     "password": 5678
                 },
                 {
+                    "userId":"3",
                     "name": "Sally",
                     "userName": "sallydabbah@gmail.com",
                     "password": 9101112
                 },
-                {
+                {   
+                    "userId":"4",
                     "name": "Ameer",
-                    "userName": "ameer_z_90@hotmail.com",
-                    "password": 131415
+                    "userName": "ameer.outlook.com",
+                    "password": 12345
                 }
             ]);
         }
@@ -77,16 +83,15 @@ export default class App extends React.Component {
                 }]);
         }
     }
-  
-    login(email) {
-        this.setState({ name: email});
+
+    login(email,userId) {
+        this.setState({ name: email ,userID:userId});
     }
     logout() {
-        this.setState({ name: ''});
+        this.setState({ name: '' });
         this.props.history.push("/");
     }
     render() {
-        
         return (
             <>
                 <WishContext.Provider value={this.state}>
@@ -95,9 +100,12 @@ export default class App extends React.Component {
                             <NavBarComponent />
                             <Switch>
                                 <Route path="/" component={HomeComponent} exact />
-                                 <RedirectIfAnonymous path="/events" component={<EventsComponent/>} />
-                                 <RedirectIfAnonymous path="/wishes" component={<MyWishes/>} />
-                                 <RedirectIfAnonymous path="/CreateNewEvent" component={<CreateNewEvent/>} />
+                                <Route path="/events" component={EventsComponent} />
+                                <Route path="/AddABestWishComponent/:eventID" component={AddABestWishComponent}/>
+                                <Route path="/event/:eventID" component={WishesComponent}/>
+                                <RedirectIfAnonymous path="/wishes/:userID" component={MyWishes} />
+                                <RedirectIfAnonymous path="/CreateNewEvent" component={CreateNewEvent} />
+                                <RedirectIfAnonymous path="/UserEvents/:userID" component={ShowUserEvents} />
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />

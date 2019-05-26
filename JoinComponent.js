@@ -3,7 +3,6 @@ import { Button, Image } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 
 import './general.css';
-import NavBarComponent from './NavBarComponent';
 import validator, { field, checkUniqueUserName } from './validator';
 import * as api from "./api";
 export default class JoinComponent extends React.Component {
@@ -21,9 +20,6 @@ export default class JoinComponent extends React.Component {
     }
     componentDidMount() {
         setTimeout(() => {
-            /*api.getUsers().then(({ data }) => {
-                this.setState({ users: data });
-            });*/
             const data = api.getUsers();
             this.setState({ Users: data }, () => console.log(this.state));
         }, 1000);
@@ -32,6 +28,7 @@ export default class JoinComponent extends React.Component {
         if (localStorage.users) {
             var oldUsers = JSON.parse(localStorage.getItem('users'));
             const neWuser = {
+                userId:parseInt(this.state.Users[this.state.Users.length-1].userId)+1,
                 name: this.state.displayName.value,
                 password: this.state.UserPassword.value,
                 userName: this.state.Useremail.value
@@ -72,6 +69,7 @@ export default class JoinComponent extends React.Component {
         if (this.state.displayName.errors.length == 0 && this.state.Useremail.errors.length == 0 && this.state.UserPassword.errors.length == 0) {
             alert(`User ${this.state.displayName.value} was addes successfully`);
             this.addUser();
+            this.props.history.push("/");
         }
     }
     render() {
