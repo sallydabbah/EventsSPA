@@ -59,15 +59,15 @@ export default class LoginComponent extends React.Component {
     }
     this.setState({ ...user });
     if (this.state.email.errors.length == 0 && this.state.password.errors.length == 0) {
-      let name = "";
+      let name = "",userID="";
       for (let i = 0; i < this.state.Users.length; i++) {
         if (this.state.Users[i].userName == this.state.email.value) {
           name = this.state.Users[i].name;
+          userID= this.state.Users[i].userId;
           break;
         }
       }
-      alert("Welcome " + name);
-      this.context.login(name);
+      this.context.login(name,userID);
       this.props.history.push("/");
     }
   }

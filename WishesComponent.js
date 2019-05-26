@@ -1,61 +1,53 @@
 import React from 'react';
 
-import NavBarComponent from './NavBarComponent';
 import EventDetailsComponent from './EventDetailsComponent';
 import CardComponent from './CardComponent';
-import AddABestWishComponent from './AddABestWishComponent';
+import {NavLink} from 'react-router-dom';
+import * as api from './api';
+
 
 export default class WishesComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      AddNewWishClicked: false
+      events: [],
+      wishes: []
     }
-    this.AddNewWishButtonClicked = this.AddNewWishButtonClicked.bind(this);
-    this.updateFlagAddNewWishClicked = this.updateFlagAddNewWishClicked.bind(this);
+
   }
-  AddNewWishButtonClicked() {
-    if (this.state.addNewWish)
-      this.setState({
-        AddNewWishClicked: false
-      });
-    else {
-      this.setState({
-        AddNewWishClicked: true
-      });
-    }
-    console.log("AddNewWishClicked  " + this.state.AddNewWishClicked);
-    this.props.updateWishIsAdded(this.props.wishIsAdded);
+  componentDidMount() {
+    api.getEvents()
+      .then(events => this.setState({ events }));
+    api.getWishes()
+      .then(wishes => this.setState({ wishes }));
   }
-  updateFlagAddNewWishClicked(value) {
-    this.setState({
-      AddNewWishClicked: value
-    });
-  }
+
   render() {
-    if (!this.state.AddNewWishClicked || this.props.wishIsAdded) {
-      return <>
-        <div className="container-fluid">
-          <div className="row"><br /></div>
-          <div className="row">
-            <div className="col-md-4"></div>
-            <div className="col"> <div className="col-md"><button onClick={this.AddNewWishButtonClicked} style={{ backgroundColor: "red" }} className="btn btn-primary">Add a Best Wish</button></div></div>
-          </div>
-          <div className="row">
-            <div className="col-md-3">
-              {this.props.events.map(({ ID, title, catagory, date, where }, i) => { return (this.props.id == ID) ? <EventDetailsComponent key={i} ID={ID} title={title} catagory={catagory} date={date} where={where} /> : '' })}
+    return <>
+      <div className="container-fluid">
+        <div className="row"><br /></div>
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col">
+            <div className="col-md">
+              <NavLink className="navbarClass" to={"/AddABestWishComponent/" + this.props.match.params.eventID} activeClassName="text-warning">
+                <button style={{ backgroundColor: "red" }} className="btn btn-primary">Add a Best Wish</button>
+              </NavLink>
             </div>
           </div>
-          <div className="row">
-            {this.props.wishes.map(({ eventID, from, wishContent, imageURL }, i) => { return (this.props.id == eventID) ? <CardComponent key={i} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> : '' })}
+        </div>
+        <div className="row">
+          <div className="col-md-3">
+            {this.state.events.map(({ ID, title, catagory, date, where }, i) => { return (this.props.match.params.eventID == ID) ? <EventDetailsComponent key={i} ID={ID} title={title} catagory={catagory} date={date} where={where} /> : '' })}
           </div>
         </div>
-      </>;
-    }
-    else {
-      return <>
-        <AddABestWishComponent onAddNewWish={this.props.addNewWish} idOfEvent={this.props.id} lastIDofWishes={this.props.lastIDofWish} />
-      </>;
-    }
+        <div className="row">
+          {this.state.wishes.map(({ ID,eventID, from, wishContent, imageURL }, i) => { return (this.props.match.params.eventID == eventID) ? <CardComponent key={i} ID={ID} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> : '' })}
+        </div>
+      </div>
+    </>;
   }
+
 }
+
+

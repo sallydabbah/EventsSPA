@@ -21,13 +21,15 @@
     "bootstrap": "^4.3.1",
     "mdbreact": "^4.13.0",
     "prop-types": "^15.7.2",
+    "re": "^0.1.4",
     "rea": "0.0.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-bootstrap-date-picker": "^5.1.0",
     "react-dom": "^16.8.6",
     "react-native": "^0.59.8",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.0.0",
+    "ro": "^1.2.2"
   },
   "assetsPath": "assets/"
 }

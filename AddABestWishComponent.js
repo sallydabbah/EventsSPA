@@ -1,26 +1,30 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faImage, faList } from "@fortawesome/free-solid-svg-icons";
-
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { Form, InputGroup } from "react-bootstrap";
 
-import NavBarComponent from './NavBarComponent';
+import * as api from './api';
+import WishContext from './WishContext';
 import validator, { field } from './validator';
-export default class AddABestWishComponent extends React.Component {
 
+export default class AddABestWishComponent extends React.Component {
     constructor() {
         super();
         this.state = {
             from: field({ value: '', name: 'from', minLength: 2 }),
             Wishing: field({ value: '', name: 'Wishing', minLength: 2 }),
             imageURL: field({ value: '', name: 'imageURL', minLength: 10 }),
+            wishes: []
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
+    componentDidMount() {
+        api.getWishes()
+            .then(wishes => this.setState({ wishes }));
+    }
     onInputChange({ target: { name, value } }) {
-        console.log(name, value);
         this.setState({
             [name]: {
                 ...this.state[name],
@@ -32,36 +36,35 @@ export default class AddABestWishComponent extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-
         const wish = Object.assign({}, this.state);
-
         for (let key in wish) {
-            const { value, validations } = wish[key];
-
-            const { valid, errors } = validator(value, key, validations);
-
-            if (!valid) {
-                wish[key].valid = valid;
-                wish[key].errors = errors;
+            if (key != "wishes") {
+                const { value, validations } = wish[key];
+                const { valid, errors } = validator(value, key, validations);
+                if (!valid) {
+                    wish[key].valid = valid;
+                    wish[key].errors = errors;
+                }
             }
         }
-
         this.setState({ ...wish });
-        //Send data to somewhere 
-        //...
+
         if (this.state.from.errors.length == 0 && this.state.Wishing.errors.length == 0 && this.state.imageURL.errors.length == 0) {
             const mywish = {
-                ID: parseInt(this.props.lastIDofWishes) + 1,
-
+                userID: this.context.userID,
+                ID: parseInt(this.state.wishes[this.state.wishes.length - 1].ID) + 1,
                 from: this.state.from.value,
-
                 wishContent: this.state.Wishing.value,
-
                 imageURL: this.state.imageURL.value,
-
-                eventID: this.props.idOfEvent
+                eventID: this.props.match.params.eventID
             };
-            this.props.onAddNewWish(mywish);
+            alert("added successfully");
+            this.setState(prevState => ({ wishes: [...prevState.wishes, mywish] }), function () {
+                this.state.wishes.map((item) => {
+                    console.log(item.from);
+                });
+            });
+            this.props.history.push("/event/" + this.props.match.params.eventID);
         }
     }
 
@@ -87,7 +90,7 @@ export default class AddABestWishComponent extends React.Component {
                                                 placeholder="Enter your name"
                                                 aria-label="from"
                                                 id="fromInput"
-                                                defaultValue={this.state.from.value}
+                                                defaultValue={!this.context.name ? this.state.from.value : this.context.name}
                                                 onBlur={this.onInputChange}
                                             />
                                         </InputGroup>
@@ -166,3 +169,4 @@ export default class AddABestWishComponent extends React.Component {
         </>;
     }
 }
+AddABestWishComponent.contextType = WishContext;
