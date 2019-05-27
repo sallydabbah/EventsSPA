@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { Row, Col, Container, Button } from 'react-bootstrap';
 import EventDetailsComponent from './EventDetailsComponent';
 import CardComponent from './CardComponent';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as api from './api';
 
 
@@ -13,7 +13,6 @@ export default class WishesComponent extends React.Component {
       events: [],
       wishes: []
     }
-
   }
   componentDidMount() {
     api.getEvents()
@@ -24,27 +23,21 @@ export default class WishesComponent extends React.Component {
 
   render() {
     return <>
-      <div className="container-fluid">
-        <div className="row"><br /></div>
-        <div className="row">
-          <div className="col-md-4"></div>
-          <div className="col">
-            <div className="col-md">
-              <NavLink className="navbarClass" to={"/AddABestWishComponent/" + this.props.match.params.eventID} activeClassName="text-warning">
-                <button style={{ backgroundColor: "red" }} className="btn btn-primary">Add a Best Wish</button>
-              </NavLink>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-3">
-            {this.state.events.map(({ ID, title, catagory, date, where }, i) => { return (this.props.match.params.eventID == ID) ? <EventDetailsComponent key={i} ID={ID} title={title} catagory={catagory} date={date} where={where} /> : '' })}
-          </div>
-        </div>
-        <div className="row">
-          {this.state.wishes.map(({ ID,eventID, from, wishContent, imageURL }, i) => { return (this.props.match.params.eventID == eventID) ? <CardComponent key={i} ID={ID} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> : '' })}
-        </div>
-      </div>
+      <Container>
+        <Row>
+          <Col xs="5">
+          {this.state.events.map(({ ID, title, catagory, date, where }, i) => { return (this.props.match.params.eventID == ID) ? <EventDetailsComponent key={i} ID={ID} title={title} catagory={catagory} date={date} where={where} /> : '' })}
+          </Col>
+          <Col >
+            <NavLink className="navbarClass" to={"/AddABestWishComponent/" + this.props.match.params.eventID} activeClassName="text-warning">
+              <Button style={{ backgroundColor: "red" }} className="btn btn-primary">Add a Best Wish</Button>
+            </NavLink>
+          </Col>
+        </Row>
+        <Row>
+          {this.state.wishes.map(({ ID, eventID, from, wishContent, imageURL }, i) => { return (this.props.match.params.eventID == eventID) ? <CardComponent key={i} ID={ID} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> : '' })}
+        </Row>
+      </Container>
     </>;
   }
 

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import WishContext from './WishContext';
-
 import NavBarComponent from './NavBarComponent';
 import HomeComponent from './HomeComponent';
 import JoinComponent from './JoinComponent';
@@ -13,6 +12,7 @@ import WishesComponent from './WishesComponent';
 import EventsComponent from './EventsComponent';
 import CreateNewEvent from './CreateNewEventComponent';
 import LoginComponent from './LoginComponent';
+import UpdateEventComponent from './UpdateEventComponent';
 import MyEventsComponent from './MyEventsComponent';
 import SearchedEventComponent from './SearchedEventComponent';
 import MyWishes from './MyWishes';
@@ -26,7 +26,7 @@ export default class App extends React.Component {
         this.logout = this.logout.bind(this);
         this.state = {
             name: '',
-            userID: '1',
+            userID: 1,
             login: this.login,
             logout: this.logout
         };
@@ -106,6 +106,7 @@ export default class App extends React.Component {
                                 <RedirectIfAnonymous path="/wishes/:userID" component={MyWishes} />
                                 <RedirectIfAnonymous path="/CreateNewEvent" component={CreateNewEvent} />
                                 <RedirectIfAnonymous path="/UserEvents/:userID" component={ShowUserEvents} />
+                                <RedirectIfAnonymous path="/UpdateEventComponent/:eventID" component={UpdateEventComponent} />
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />
@@ -114,7 +115,6 @@ export default class App extends React.Component {
                     </BrowserRouter>
                 </WishContext.Provider>
             </>);
-
     }
 }
 ReactDOM.render(<App />, document.querySelector('#container'));
