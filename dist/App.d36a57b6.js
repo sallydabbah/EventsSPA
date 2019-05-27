@@ -29769,7 +29769,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var WishContext = _react.default.createContext({
   name: '',
-  userID: '1',
+  userID: 1,
   login: function login(email, userId) {},
   logout: function logout() {}
 });
@@ -57097,6 +57097,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactBootstrap = require("react-bootstrap");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -57131,7 +57133,7 @@ function (_React$Component) {
   _createClass(EventDetailsComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("table", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Table, {
         className: "table tablebackground tableStyle",
         id: "info"
       }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
@@ -57145,7 +57147,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = EventDetailsComponent;
-},{"react":"node_modules/react/index.js"}],"CardComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"CardComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57154,6 +57156,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -57188,7 +57192,8 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CardComponent).call(this));
     _this.state = {
       content: '',
-      seeflag: true
+      seeflag: true,
+      text: "see more"
     };
     _this.seeMore = _this.seeMore.bind(_assertThisInitialized(_this));
     _this.seeLess = _this.seeLess.bind(_assertThisInitialized(_this));
@@ -57222,43 +57227,35 @@ function (_React$Component) {
   }, {
     key: "handelText",
     value: function handelText() {
-      var btnText = document.getElementById(this.props.ID);
-
       if (this.state.seeflag) {
-        btnText.innerHTML = "see less";
+        this.setState({
+          text: "see less"
+        });
         this.seeMore();
       } else {
-        btnText.innerHTML = "see more";
+        this.setState({
+          text: "see more"
+        });
         this.seeLess();
       }
     }
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "col-md-3"
-      }, _react.default.createElement("div", {
-        className: "card bg-light mb-3",
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Card, {
         style: {
-          max_width: "20rem"
+          width: '18rem',
+          marginBottom: "15px"
         }
-      }, _react.default.createElement("div", {
-        className: "card-header"
-      }, _react.default.createElement("label", null, this.props.from)), _react.default.createElement("div", {
-        className: "card-body"
-      }, _react.default.createElement("div", {
-        id: "cardBody"
-      }, _react.default.createElement("div", null, _react.default.createElement("img", {
-        style: {
-          float: "right"
-        },
+      }, _react.default.createElement(_reactBootstrap.Card.Img, {
+        variant: "top",
         width: "150px",
         height: "150px",
         src: this.props.imageURL
-      })), _react.default.createElement("div", null, _react.default.createElement("p", null, this.state.content), _react.default.createElement("button", {
-        onClick: this.handelText,
-        id: this.props.ID
-      }, "see more")))))));
+      }), _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, this.props.from), _react.default.createElement(_reactBootstrap.Card.Text, null, this.state.content), _react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: this.handelText
+      }, this.state.text)))));
     }
   }]);
 
@@ -57266,7 +57263,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = CardComponent;
-},{"react":"node_modules/react/index.js"}],"WishesComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"WishesComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57275,6 +57272,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
 
 var _EventDetailsComponent = _interopRequireDefault(require("./EventDetailsComponent"));
 
@@ -57345,31 +57344,8 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
-        className: "container-fluid"
-      }, _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("br", null)), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col-md-4"
-      }), _react.default.createElement("div", {
-        className: "col"
-      }, _react.default.createElement("div", {
-        className: "col-md"
-      }, _react.default.createElement(_reactRouterDom.NavLink, {
-        className: "navbarClass",
-        to: "/AddABestWishComponent/" + this.props.match.params.eventID,
-        activeClassName: "text-warning"
-      }, _react.default.createElement("button", {
-        style: {
-          backgroundColor: "red"
-        },
-        className: "btn btn-primary"
-      }, "Add a Best Wish"))))), _react.default.createElement("div", {
-        className: "row"
-      }, _react.default.createElement("div", {
-        className: "col-md-3"
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, {
+        xs: "5"
       }, this.state.events.map(function (_ref, i) {
         var ID = _ref.ID,
             title = _ref.title,
@@ -57384,9 +57360,16 @@ function (_React$Component) {
           date: date,
           where: where
         }) : '';
-      }))), _react.default.createElement("div", {
-        className: "row"
-      }, this.state.wishes.map(function (_ref2, i) {
+      })), _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/AddABestWishComponent/" + this.props.match.params.eventID,
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        style: {
+          backgroundColor: "red"
+        },
+        className: "btn btn-primary"
+      }, "Add a Best Wish")))), _react.default.createElement(_reactBootstrap.Row, null, this.state.wishes.map(function (_ref2, i) {
         var ID = _ref2.ID,
             eventID = _ref2.eventID,
             from = _ref2.from,
@@ -57408,7 +57391,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = WishesComponent;
-},{"react":"node_modules/react/index.js","./EventDetailsComponent":"EventDetailsComponent.js","./CardComponent":"CardComponent.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./api":"api.js"}],"JoinComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./EventDetailsComponent":"EventDetailsComponent.js","./CardComponent":"CardComponent.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./api":"api.js"}],"JoinComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58659,7 +58642,301 @@ function (_React$Component) {
 
 exports.default = LoginComponent;
 LoginComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"MyEventsComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./WishContext":"WishContext.js","./general.css":"general.css","./api":"api.js","./validator":"validator.js"}],"UpdateEventComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+
+var _reactRouterDom = require("react-router-dom");
+
+var _validator2 = _interopRequireWildcard(require("./validator"));
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
+var api = _interopRequireWildcard(require("./api"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var UpdateEventComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UpdateEventComponent, _React$Component);
+
+  function UpdateEventComponent() {
+    var _this;
+
+    _classCallCheck(this, UpdateEventComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateEventComponent).call(this));
+    _this.state = {
+      category: (0, _validator2.field)({
+        value: '',
+        name: 'category'
+      }),
+      titleEvent: (0, _validator2.field)({
+        value: '',
+        name: 'titleEvent',
+        minLength: 2
+      }),
+      at: (0, _validator2.field)({
+        value: '',
+        name: 'at'
+      }),
+      where: (0, _validator2.field)({
+        value: '',
+        name: 'where',
+        minLength: 2
+      }),
+      userEvents: [],
+      events: [],
+      event: {}
+    };
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UpdateEventComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getEvents().then(function (events) {
+        return _this2.setState({
+          events: events
+        });
+      });
+      api.getUserEventsByUserID(this.context.userID).then(function (userEvents) {
+        return _this2.setState({
+          userEvents: userEvents
+        });
+      });
+      api.getEvent(this.props.match.params.eventID).then(function (event) {
+        return _this2.setState({
+          event: event
+        });
+      });
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      console.log(name, value);
+      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator2.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+      var event = Object.assign({}, this.state);
+
+      for (var key in event) {
+        if (key != "userEvents" && key != "events" && key != "event") {
+          var _event$key = event[key],
+              value = _event$key.value,
+              validations = _event$key.validations;
+
+          var _validator = (0, _validator2.default)(value, key, validations),
+              valid = _validator.valid,
+              errors = _validator.errors;
+
+          if (!valid) {
+            event[key].valid = valid;
+            event[key].errors = errors;
+          }
+        }
+      }
+
+      this.setState(_objectSpread({}, event));
+
+      if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
+        var myNewEvent = {
+          userID: this.context.userID,
+          ID: parseInt(this.state.events[this.state.events.length - 1].ID) + 1,
+          title: this.state.titleEvent.value,
+          catagory: this.state.category.value,
+          date: this.state.at.value,
+          where: this.state.where.value
+        };
+        alert("added successfully");
+        this.setState(function (prevState) {
+          return {
+            events: [].concat(_toConsumableArray(prevState.events), [myNewEvent])
+          };
+        }, function () {
+          this.state.events.map(function (item) {
+            console.log(item.ID);
+          });
+        });
+        this.setState(function (prevState) {
+          return {
+            userEvents: [].concat(_toConsumableArray(prevState.userEvents), [myNewEvent])
+          };
+        }, function () {
+          this.state.userEvents.map(function (item) {
+            console.log(item.ID);
+          });
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        className: "container"
+      }, _react.default.createElement(_reactBootstrap.Form, {
+        style: {
+          height: 250,
+          margin: "80px 300px  0px 300px"
+        },
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("h1", {
+        style: {
+          color: "red"
+        },
+        className: "font-weight-bold"
+      }, "Update Event ID " + this.props.match.params.eventID), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Category"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faList
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        as: "select",
+        id: "category",
+        name: "category",
+        onBlur: this.onInputChange
+      }, _react.default.createElement("option", {
+        value: ""
+      }, "Choose..."), _react.default.createElement("option", {
+        value: "New Born"
+      }, "New Born"), _react.default.createElement("option", {
+        value: "Wedding"
+      }, "Wedding"), _react.default.createElement("option", {
+        value: "Birthday"
+      }, "Birthday"), _react.default.createElement("option", {
+        value: "Party"
+      }, "Party"))), this.state.category.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Title"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faTag
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "titleEvent",
+        name: "titleEvent",
+        placeholder: "Enter Title Event",
+        onBlur: this.onInputChange,
+        defaultValue: this.state.event.title
+      })), this.state.titleEvent.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "At"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faCalendar
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "at",
+        name: "at",
+        type: "Date",
+        placeholder: "Enter Title Date",
+        onBlur: this.onInputChange,
+        value: this.state.event.date
+      })), this.state.at.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Where"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faLocationArrow
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        id: "where",
+        name: "where",
+        placeholder: "Enter Event Position",
+        onBlur: this.onInputChange,
+        defaultValue: this.state.event.where
+      })), this.state.where.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      })), _react.default.createElement(_reactBootstrap.Button, {
+        className: "font-weight-bold",
+        variant: "primary",
+        style: {
+          border: "2px solid white"
+        },
+        type: "submit"
+      }, "Save Changes"))));
+    }
+  }]);
+
+  return UpdateEventComponent;
+}(_react.default.Component);
+
+exports.default = UpdateEventComponent;
+UpdateEventComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./validator":"validator.js","./WishContext":"WishContext.js","./api":"api.js"}],"MyEventsComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -58715,14 +58992,17 @@ function (_React$Component) {
         style: {
           textAlign: "center"
         }
-      }, _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
+      }, _react.default.createElement("td", null, _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass",
+        to: "/UpdateEventComponent/" + 1,
+        activeClassName: "text-warning"
+      }, _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
         variant: "primary",
         style: {
           border: "2px solid white"
-        },
-        onClick: this.props.buttonClickFunc
-      }, "Update")), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
+        }
+      }, "Update"))), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
         variant: "primary",
         style: {
@@ -58751,6 +59031,8 @@ require("./general.css");
 var api = _interopRequireWildcard(require("./api"));
 
 var _CardComponent = _interopRequireDefault(require("./CardComponent"));
+
+var _reactBootstrap = require("react-bootstrap");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -58805,9 +59087,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        className: "row"
-      }, this.state.wishes.map(function (_ref, i) {
+      return _react.default.createElement(_reactBootstrap.Row, null, this.state.wishes.map(function (_ref, i) {
         var eventID = _ref.eventID,
             from = _ref.from,
             wishContent = _ref.wishContent,
@@ -58827,7 +59107,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = MyWishes;
-},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59067,6 +59347,8 @@ var _CreateNewEventComponent = _interopRequireDefault(require("./CreateNewEventC
 
 var _LoginComponent = _interopRequireDefault(require("./LoginComponent"));
 
+var _UpdateEventComponent = _interopRequireDefault(require("./UpdateEventComponent"));
+
 var _MyEventsComponent = _interopRequireDefault(require("./MyEventsComponent"));
 
 var _SearchedEventComponent = _interopRequireDefault(require("./SearchedEventComponent"));
@@ -59112,7 +59394,7 @@ function (_React$Component) {
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     _this.state = {
       name: '',
-      userID: '1',
+      userID: 1,
       login: _this.login,
       logout: _this.logout
     };
@@ -59209,6 +59491,9 @@ function (_React$Component) {
       }), _react.default.createElement(_RedirectIfAnonymous.default, {
         path: "/UserEvents/:userID",
         component: _ShowUserEvents.default
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
+        path: "/UpdateEventComponent/:eventID",
+        component: _UpdateEventComponent.default
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
         component: _AboutComponent.default
@@ -59228,7 +59513,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./UpdateEventComponent":"UpdateEventComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -59256,7 +59541,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54785" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61436" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

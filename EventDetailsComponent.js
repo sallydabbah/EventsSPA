@@ -1,11 +1,11 @@
 import React from 'react';
-
+import {Table} from 'react-bootstrap';
 
 
 export default class EventDetailsComponent extends React.Component {
     render() {
         return <>
-            <table className="table tablebackground tableStyle" id="info">
+            <Table className="table tablebackground tableStyle" id="info">
                 <thead>
                     <tr>
                         <th scope="col" colSpan="2">Event Info</th>
@@ -26,7 +26,7 @@ export default class EventDetailsComponent extends React.Component {
                         <td>{this.props.where}</td>
                     </tr>
                 </tbody>
-            </table>
+            </Table>
         </>;
     }
 }

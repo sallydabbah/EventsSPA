@@ -3,6 +3,7 @@ import React from 'react';
 import './general.css';
 import * as api from "./api";
 import CardComponent from './CardComponent';
+import { Row } from 'react-bootstrap';
 
 export default class MyWishes extends React.Component {
   constructor() {
@@ -16,8 +17,8 @@ export default class MyWishes extends React.Component {
       .then(wishes => this.setState({ wishes }));
   }
   render() {
-    return <div className="row">
+    return <Row>
       {this.state.wishes.map(({ eventID, from, wishContent, imageURL }, i) => { return <CardComponent key={i} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> })}
-    </div>;
+      </Row>;
   }
 }
