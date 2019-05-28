@@ -260,6 +260,9 @@ const getWishes = () => {
         }, 500);
     });
 }
+const FilterEvents = event =>  {
+    
+}
 const getEvent = id => {
     return new Promise(resolve => {
         setTimeout(() => {
