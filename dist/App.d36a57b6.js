@@ -45037,7 +45037,7 @@ var _ToggleButtonGroup2 = _interopRequireDefault(require("./ToggleButtonGroup"))
 var _Tooltip2 = _interopRequireDefault(require("./Tooltip"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Accordion":"node_modules/react-bootstrap/es/Accordion.js","./Alert":"node_modules/react-bootstrap/es/Alert.js","./Badge":"node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"node_modules/react-bootstrap/es/Card.js","./CardColumns":"node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"node_modules/react-bootstrap/es/CloseButton.js","./Col":"node_modules/react-bootstrap/es/Col.js","./Collapse":"node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"node_modules/react-bootstrap/es/Fade.js","./Form":"node_modules/react-bootstrap/es/Form.js","./FormControl":"node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"node_modules/react-bootstrap/es/FormLabel.js","./FormText":"node_modules/react-bootstrap/es/FormText.js","./Container":"node_modules/react-bootstrap/es/Container.js","./Image":"node_modules/react-bootstrap/es/Image.js","./Figure":"node_modules/react-bootstrap/es/Figure.js","./InputGroup":"node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"node_modules/react-bootstrap/es/Media.js","./Modal":"node_modules/react-bootstrap/es/Modal.js","./ModalBody":"node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"node_modules/react-bootstrap/es/Nav.js","./Navbar":"node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"node_modules/react-bootstrap/es/NavItem.js","./Overlay":"node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"node_modules/react-bootstrap/es/PageItem.js","./Pagination":"node_modules/react-bootstrap/es/Pagination.js","./Popover":"node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"node_modules/react-bootstrap/es/SplitButton.js","./Tab":"node_modules/react-bootstrap/es/Tab.js","./TabContainer":"node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"node_modules/react-bootstrap/es/TabContent.js","./Table":"node_modules/react-bootstrap/es/Table.js","./TabPane":"node_modules/react-bootstrap/es/TabPane.js","./Tabs":"node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"node_modules/react-bootstrap/es/Tooltip.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./Accordion":"node_modules/react-bootstrap/es/Accordion.js","./Alert":"node_modules/react-bootstrap/es/Alert.js","./Badge":"node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"node_modules/react-bootstrap/es/Card.js","./CardColumns":"node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"node_modules/react-bootstrap/es/CloseButton.js","./Col":"node_modules/react-bootstrap/es/Col.js","./Collapse":"node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"node_modules/react-bootstrap/es/Fade.js","./Form":"node_modules/react-bootstrap/es/Form.js","./FormControl":"node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"node_modules/react-bootstrap/es/FormLabel.js","./FormText":"node_modules/react-bootstrap/es/FormText.js","./Container":"node_modules/react-bootstrap/es/Container.js","./Image":"node_modules/react-bootstrap/es/Image.js","./Figure":"node_modules/react-bootstrap/es/Figure.js","./InputGroup":"node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"node_modules/react-bootstrap/es/Media.js","./Modal":"node_modules/react-bootstrap/es/Modal.js","./ModalBody":"node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"node_modules/react-bootstrap/es/Nav.js","./Navbar":"node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"node_modules/react-bootstrap/es/NavItem.js","./Overlay":"node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"node_modules/react-bootstrap/es/PageItem.js","./Pagination":"node_modules/react-bootstrap/es/Pagination.js","./Popover":"node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"node_modules/react-bootstrap/es/SplitButton.js","./Tab":"node_modules/react-bootstrap/es/Tab.js","./TabContainer":"node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"node_modules/react-bootstrap/es/TabContent.js","./Table":"node_modules/react-bootstrap/es/Table.js","./TabPane":"node_modules/react-bootstrap/es/TabPane.js","./Tabs":"node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"node_modules/react-bootstrap/es/Tooltip.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -45069,7 +45069,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -45104,12 +45104,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"general.css":[function(require,module,exports) {
+},{"./bundle-url":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"general.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"HomeComponent.js":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"HomeComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55712,7 +55712,7 @@ module.exports = function xhrAdapter(config) {
     request.send(requestData);
   });
 };
-},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/btoa":"node_modules/axios/lib/helpers/btoa.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{"./../utils":"node_modules/axios/lib/utils.js","./../core/settle":"node_modules/axios/lib/core/settle.js","./../helpers/buildURL":"node_modules/axios/lib/helpers/buildURL.js","./../helpers/parseHeaders":"node_modules/axios/lib/helpers/parseHeaders.js","./../helpers/isURLSameOrigin":"node_modules/axios/lib/helpers/isURLSameOrigin.js","../core/createError":"node_modules/axios/lib/core/createError.js","./../helpers/btoa":"node_modules/axios/lib/helpers/btoa.js","./../helpers/cookies":"node_modules/axios/lib/helpers/cookies.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -56020,7 +56020,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","process":"node_modules/process/browser.js"}],"node_modules/axios/lib/core/InterceptorManager.js":[function(require,module,exports) {
+},{"./utils":"node_modules/axios/lib/utils.js","./helpers/normalizeHeaderName":"node_modules/axios/lib/helpers/normalizeHeaderName.js","./adapters/xhr":"node_modules/axios/lib/adapters/xhr.js","./adapters/http":"node_modules/axios/lib/adapters/xhr.js","process":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"node_modules/axios/lib/core/InterceptorManager.js":[function(require,module,exports) {
 'use strict';
 
 var utils = require('./../utils');
@@ -56493,7 +56493,7 @@ var events = [{
   ID: "2",
   title: "Ebraheem New Born",
   catagory: "New Born",
-  date: "25/6/2019",
+  date: "2019-06-25",
   where: "sakhnin"
 }, {
   ID: "3",
@@ -56786,8 +56786,12 @@ function (_React$Component) {
   _createClass(SearchedEventComponent, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", {
-        onClick: this.props.func
+        onClick: function onClick() {
+          return _this.props.click(_this.props.ID);
+        }
       }, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where)));
     }
   }]);
@@ -56796,7 +56800,1456 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = SearchedEventComponent;
-},{"react":"node_modules/react/index.js"}],"EventsComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js":[function(require,module,exports) {
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+},{}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js":[function(require,module,exports) {
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+},{}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js":[function(require,module,exports) {
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutPropertiesLoose;
+},{}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js":[function(require,module,exports) {
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+
+          if (desc.get || desc.set) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+
+    newObj["default"] = obj;
+    return newObj;
+  }
+}
+
+module.exports = _interopRequireWildcard;
+},{}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js":[function(require,module,exports) {
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+module.exports = _inheritsLoose;
+},{}],"node_modules/react-bootstrap/ThemeProvider.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.useBootstrapPrefix = useBootstrapPrefix;
+exports.createBootstrapComponent = createBootstrapComponent;
+exports.default = exports.ThemeConsumer = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _forwardRef = _interopRequireDefault(require("@restart/context/forwardRef"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var ThemeContext = _react.default.createContext(new Map());
+
+var Consumer = ThemeContext.Consumer,
+    Provider = ThemeContext.Provider;
+exports.ThemeConsumer = Consumer;
+
+var ThemeProvider =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(ThemeProvider, _React$Component);
+
+  function ThemeProvider() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.prefixes = new Map();
+    Object.keys(_this.props.prefixes).forEach(function (key) {
+      _this.prefixes.set(key, _this.props.prefixes[key]);
+    });
+    return _this;
+  }
+
+  var _proto = ThemeProvider.prototype;
+
+  _proto.render = function render() {
+    return _react.default.createElement(Provider, {
+      value: this.prefixes
+    }, this.props.children);
+  };
+
+  return ThemeProvider;
+}(_react.default.Component);
+
+function useBootstrapPrefix(prefix, defaultPrefix) {
+  var prefixes = (0, _react.useContext)(ThemeContext);
+  return prefix || prefixes.get(defaultPrefix) || defaultPrefix;
+}
+
+function createBootstrapComponent(Component, opts) {
+  if (typeof opts === 'string') opts = {
+    prefix: opts
+  };
+  var isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+
+  var _opts = opts,
+      prefix = _opts.prefix,
+      _opts$forwardRefAs = _opts.forwardRefAs,
+      forwardRefAs = _opts$forwardRefAs === void 0 ? isClassy ? 'ref' : 'innerRef' : _opts$forwardRefAs;
+  return (0, _forwardRef.default)(function (_ref, ref) {
+    var props = (0, _extends2.default)({}, _ref);
+    props[forwardRefAs] = ref;
+    var prefixes = (0, _react.useContext)(ThemeContext);
+    return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
+      // eslint-disable-next-line react/prop-types
+      bsPrefix: props.bsPrefix || prefixes.get(prefix) || prefix
+    }));
+  }, {
+    displayName: "Bootstrap(" + (Component.displayName || Component.name) + ")"
+  });
+}
+
+var _default = ThemeProvider;
+exports.default = _default;
+},{"@babel/runtime/helpers/interopRequireWildcard":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/inheritsLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","@restart/context/forwardRef":"node_modules/@restart/context/forwardRef.js","react":"node_modules/react/index.js"}],"node_modules/react-bootstrap/utils/createWithBsPrefix.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = createWithBsPrefix;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _camelize = _interopRequireDefault(require("dom-helpers/util/camelize"));
+
+var _ThemeProvider = require("../ThemeProvider");
+
+var pascalCase = function pascalCase(str) {
+  return str[0].toUpperCase() + (0, _camelize.default)(str).slice(1);
+};
+
+function createWithBsPrefix(prefix, _temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      _ref$displayName = _ref.displayName,
+      displayName = _ref$displayName === void 0 ? pascalCase(prefix) : _ref$displayName,
+      _ref$Component = _ref.Component,
+      Component = _ref$Component === void 0 ? 'div' : _ref$Component,
+      defaultProps = _ref.defaultProps;
+
+  var BsComponent = _react.default.forwardRef( // eslint-disable-next-line react/prop-types
+  function (_ref2, ref) {
+    var className = _ref2.className,
+        bsPrefix = _ref2.bsPrefix,
+        _ref2$as = _ref2.as,
+        Tag = _ref2$as === void 0 ? Component : _ref2$as,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_ref2, ["className", "bsPrefix", "as"]);
+    var resolvedPrefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, prefix);
+    return _react.default.createElement(Tag, (0, _extends2.default)({
+      ref: ref,
+      className: (0, _classnames.default)(className, resolvedPrefix)
+    }, props));
+  });
+
+  BsComponent.defaultProps = defaultProps;
+  BsComponent.displayName = displayName;
+  return BsComponent;
+}
+
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","dom-helpers/util/camelize":"node_modules/dom-helpers/util/camelize.js","../ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js"}],"node_modules/react-bootstrap/utils/divWithClassName.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _default = function _default(className) {
+  return _react.default.forwardRef(function (p, ref) {
+    return _react.default.createElement("div", (0, _extends2.default)({}, p, {
+      ref: ref,
+      className: (0, _classnames.default)(p.className, className)
+    }));
+  });
+};
+
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","react":"node_modules/react/index.js","classnames":"node_modules/classnames/index.js"}],"node_modules/react-bootstrap/utils/triggerBrowserReflow.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+exports.default = triggerBrowserReflow;
+
+// reading a dimension prop will cause the browser to recalculate,
+// which will let our animations work
+function triggerBrowserReflow(node) {
+  node.offsetHeight; // eslint-disable-line no-unused-expressions
+}
+
+module.exports = exports["default"];
+},{}],"node_modules/react-bootstrap/Fade.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Transition = _interopRequireWildcard(require("react-transition-group/Transition"));
+
+var _end = _interopRequireDefault(require("dom-helpers/transition/end"));
+
+var _triggerBrowserReflow = _interopRequireDefault(require("./utils/triggerBrowserReflow"));
+
+var _fadeStyles;
+
+var defaultProps = {
+  in: false,
+  timeout: 300,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false
+};
+var fadeStyles = (_fadeStyles = {}, _fadeStyles[_Transition.ENTERING] = 'show', _fadeStyles[_Transition.ENTERED] = 'show', _fadeStyles);
+
+var Fade =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(Fade, _React$Component);
+
+  function Fade() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+
+    _this.handleEnter = function (node) {
+      (0, _triggerBrowserReflow.default)(node);
+      if (_this.props.onEnter) _this.props.onEnter(node);
+    };
+
+    return _this;
+  }
+
+  var _proto = Fade.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        className = _this$props.className,
+        children = _this$props.children,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_this$props, ["className", "children"]);
+    return _react.default.createElement(_Transition.default, (0, _extends2.default)({
+      addEndListener: _end.default
+    }, props, {
+      onEnter: this.handleEnter
+    }), function (status, innerProps) {
+      return _react.default.cloneElement(children, (0, _extends2.default)({}, innerProps, {
+        className: (0, _classnames.default)('fade', className, children.props.className, fadeStyles[status])
+      }));
+    });
+  };
+
+  return Fade;
+}(_react.default.Component);
+
+Fade.defaultProps = defaultProps;
+var _default = Fade;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/inheritsLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","react-transition-group/Transition":"node_modules/react-transition-group/Transition.js","dom-helpers/transition/end":"node_modules/dom-helpers/transition/end.js","./utils/triggerBrowserReflow":"node_modules/react-bootstrap/utils/triggerBrowserReflow.js"}],"node_modules/react-bootstrap/CloseButton.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var propTypes = {
+  label: _propTypes.default.string.isRequired,
+  onClick: _propTypes.default.func
+};
+var defaultProps = {
+  label: 'Close'
+};
+
+var CloseButton = _react.default.forwardRef(function (_ref, ref) {
+  var label = _ref.label,
+      onClick = _ref.onClick;
+  return _react.default.createElement("button", {
+    ref: ref,
+    type: "button",
+    className: "close",
+    onClick: onClick
+  }, _react.default.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"), _react.default.createElement("span", {
+    className: "sr-only"
+  }, label));
+});
+
+CloseButton.displayName = 'CloseButton';
+CloseButton.propTypes = propTypes;
+CloseButton.defaultProps = defaultProps;
+var _default = CloseButton;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","prop-types":"node_modules/prop-types/index.js","react":"node_modules/react/index.js"}],"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/assertThisInitialized.js":[function(require,module,exports) {
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
+},{}],"node_modules/react-bootstrap/utils/createChainedFunction.js":[function(require,module,exports) {
+"use strict";
+
+exports.__esModule = true;
+exports.default = void 0;
+
+/**
+ * Safe chained function
+ *
+ * Will only create a new function if needed,
+ * otherwise will pass back existing functions or null.
+ *
+ * @param {function} functions to chain
+ * @returns {function|null}
+ */
+function createChainedFunction() {
+  for (var _len = arguments.length, funcs = new Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
+
+  return funcs.filter(function (f) {
+    return f != null;
+  }).reduce(function (acc, f) {
+    if (typeof f !== 'function') {
+      throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
+    }
+
+    if (acc === null) return f;
+    return function chainedFunction() {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      acc.apply(this, args);
+      f.apply(this, args);
+    };
+  }, null);
+}
+
+var _default = createChainedFunction;
+exports.default = _default;
+module.exports = exports["default"];
+},{}],"node_modules/react-bootstrap/SafeAnchor.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _createChainedFunction = _interopRequireDefault(require("./utils/createChainedFunction"));
+
+var defaultProps = {
+  as: 'a'
+};
+
+function isTrivialHref(href) {
+  return !href || href.trim() === '#';
+}
+/**
+ * There are situations due to browser quirks or Bootstrap CSS where
+ * an anchor tag is needed, when semantically a button tag is the
+ * better choice. SafeAnchor ensures that when an anchor is used like a
+ * button its accessible. It also emulates input `disabled` behavior for
+ * links, which is usually desirable for Buttons, NavItems, DropdownItems, etc.
+ */
+
+
+var SafeAnchor =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(SafeAnchor, _React$Component);
+
+  function SafeAnchor(props, context) {
+    var _this;
+
+    _this = _React$Component.call(this, props, context) || this;
+    _this.handleClick = _this.handleClick.bind((0, _assertThisInitialized2.default)(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2.default)(_this));
+    return _this;
+  }
+
+  var _proto = SafeAnchor.prototype;
+
+  _proto.handleClick = function handleClick(event) {
+    var _this$props = this.props,
+        disabled = _this$props.disabled,
+        href = _this$props.href,
+        onClick = _this$props.onClick;
+
+    if (disabled || isTrivialHref(href)) {
+      event.preventDefault();
+    }
+
+    if (disabled) {
+      event.stopPropagation();
+      return;
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  _proto.handleKeyDown = function handleKeyDown(event) {
+    if (event.key === ' ') {
+      event.preventDefault();
+      this.handleClick(event);
+    }
+  };
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        Component = _this$props2.as,
+        disabled = _this$props2.disabled,
+        onKeyDown = _this$props2.onKeyDown,
+        innerRef = _this$props2.innerRef,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_this$props2, ["as", "disabled", "onKeyDown", "innerRef"]);
+
+    if (isTrivialHref(props.href)) {
+      props.role = props.role || 'button'; // we want to make sure there is a href attribute on the node
+      // otherwise, the cursor incorrectly styled (except with role='button')
+
+      props.href = props.href || '#';
+    }
+
+    if (disabled) {
+      props.tabIndex = -1;
+      props['aria-disabled'] = true;
+    }
+
+    if (innerRef) props.ref = innerRef;
+    return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
+      onClick: this.handleClick,
+      onKeyDown: (0, _createChainedFunction.default)(this.handleKeyDown, onKeyDown)
+    }));
+  };
+
+  return SafeAnchor;
+}(_react.default.Component);
+
+SafeAnchor.defaultProps = defaultProps;
+var _default = SafeAnchor;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/assertThisInitialized":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/assertThisInitialized.js","@babel/runtime/helpers/inheritsLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","react":"node_modules/react/index.js","./utils/createChainedFunction":"node_modules/react-bootstrap/utils/createChainedFunction.js"}],"node_modules/react-bootstrap/Alert.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _hook = _interopRequireDefault(require("uncontrollable/hook"));
+
+var _useEventCallback = _interopRequireDefault(require("@restart/hooks/useEventCallback"));
+
+var _createWithBsPrefix = _interopRequireDefault(require("./utils/createWithBsPrefix"));
+
+var _divWithClassName = _interopRequireDefault(require("./utils/divWithClassName"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var _Fade = _interopRequireDefault(require("./Fade"));
+
+var _CloseButton = _interopRequireDefault(require("./CloseButton"));
+
+var _SafeAnchor = _interopRequireDefault(require("./SafeAnchor"));
+
+var defaultProps = {
+  show: true,
+  transition: _Fade.default,
+  closeLabel: 'Close alert'
+};
+var controllables = {
+  show: 'onClose'
+};
+
+var Alert = _react.default.forwardRef(function (uncontrolledProps, ref) {
+  var _useControllable = (0, _hook.default)(uncontrolledProps, controllables),
+      bsPrefix = _useControllable.bsPrefix,
+      show = _useControllable.show,
+      closeLabel = _useControllable.closeLabel,
+      className = _useControllable.className,
+      children = _useControllable.children,
+      variant = _useControllable.variant,
+      onClose = _useControllable.onClose,
+      dismissible = _useControllable.dismissible,
+      Transition = _useControllable.transition,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_useControllable, ["bsPrefix", "show", "closeLabel", "className", "children", "variant", "onClose", "dismissible", "transition"]);
+
+  var prefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'alert');
+  var handleClose = (0, _useEventCallback.default)(function (e) {
+    onClose(false, e);
+  });
+
+  var alert = _react.default.createElement("div", (0, _extends2.default)({
+    role: "alert"
+  }, Transition ? props : undefined, {
+    className: (0, _classnames.default)(className, prefix, variant && prefix + "-" + variant, dismissible && prefix + "-dismissible")
+  }), dismissible && _react.default.createElement(_CloseButton.default, {
+    onClick: handleClose,
+    label: closeLabel
+  }), children);
+
+  if (!Transition) return show ? alert : null;
+  return _react.default.createElement(Transition, (0, _extends2.default)({
+    unmountOnExit: true,
+    ref: ref
+  }, props, {
+    in: show
+  }), alert);
+});
+
+var DivStyledAsH4 = (0, _divWithClassName.default)('h4');
+DivStyledAsH4.displayName = 'DivStyledAsH4';
+Alert.displayName = 'Alert';
+Alert.defaultProps = defaultProps;
+Alert.Link = (0, _createWithBsPrefix.default)('alert-link', {
+  Component: _SafeAnchor.default
+});
+Alert.Heading = (0, _createWithBsPrefix.default)('alert-heading', {
+  Component: DivStyledAsH4
+});
+var _default = Alert;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","uncontrollable/hook":"node_modules/uncontrollable/hook.js","@restart/hooks/useEventCallback":"node_modules/@restart/hooks/useEventCallback.js","./utils/createWithBsPrefix":"node_modules/react-bootstrap/utils/createWithBsPrefix.js","./utils/divWithClassName":"node_modules/react-bootstrap/utils/divWithClassName.js","./ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js","./Fade":"node_modules/react-bootstrap/Fade.js","./CloseButton":"node_modules/react-bootstrap/CloseButton.js","./SafeAnchor":"node_modules/react-bootstrap/SafeAnchor.js"}],"node_modules/react-bootstrap/ModalBody.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _createWithBsPrefix = _interopRequireDefault(require("./utils/createWithBsPrefix"));
+
+var _default = (0, _createWithBsPrefix.default)('modal-body');
+
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createWithBsPrefix":"node_modules/react-bootstrap/utils/createWithBsPrefix.js"}],"node_modules/react-bootstrap/ModalDialog.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var ModalDialog = _react.default.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      centered = _ref.centered,
+      size = _ref.size,
+      children = _ref.children,
+      scrollable = _ref.scrollable,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "className", "centered", "size", "children", "scrollable"]);
+  bsPrefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'modal');
+  var dialogClass = bsPrefix + "-dialog";
+  return _react.default.createElement("div", (0, _extends2.default)({}, props, {
+    ref: ref,
+    className: (0, _classnames.default)(dialogClass, className, size && bsPrefix + "-" + size, centered && dialogClass + "-centered", scrollable && dialogClass + "-scrollable")
+  }), _react.default.createElement("div", {
+    className: (0, _classnames.default)(bsPrefix + "-content")
+  }, children));
+});
+
+ModalDialog.displayName = 'ModalDialog';
+var _default = ModalDialog;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","./ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js"}],"node_modules/react-bootstrap/ModalFooter.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _createWithBsPrefix = _interopRequireDefault(require("./utils/createWithBsPrefix"));
+
+var _default = (0, _createWithBsPrefix.default)('modal-footer');
+
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createWithBsPrefix":"node_modules/react-bootstrap/utils/createWithBsPrefix.js"}],"node_modules/react-bootstrap/ModalContext.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var ModalContext = _react.default.createContext({
+  onHide: function onHide() {}
+});
+
+var _default = ModalContext;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","react":"node_modules/react/index.js"}],"node_modules/react-bootstrap/ModalHeader.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _useEventCallback = _interopRequireDefault(require("@restart/hooks/useEventCallback"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var _CloseButton = _interopRequireDefault(require("./CloseButton"));
+
+var _ModalContext = _interopRequireDefault(require("./ModalContext"));
+
+var defaultProps = {
+  closeLabel: 'Close',
+  closeButton: false
+};
+
+var ModalHeader = _react.default.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      closeLabel = _ref.closeLabel,
+      closeButton = _ref.closeButton,
+      onHide = _ref.onHide,
+      className = _ref.className,
+      children = _ref.children,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "closeLabel", "closeButton", "onHide", "className", "children"]);
+  bsPrefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'modal-header');
+  var context = (0, _react.useContext)(_ModalContext.default);
+  var handleClick = (0, _useEventCallback.default)(function () {
+    if (context) context.onHide();
+    if (onHide) onHide();
+  });
+  return _react.default.createElement("div", (0, _extends2.default)({
+    ref: ref
+  }, props, {
+    className: (0, _classnames.default)(className, bsPrefix)
+  }), children, closeButton && _react.default.createElement(_CloseButton.default, {
+    label: closeLabel,
+    onClick: handleClick
+  }));
+});
+
+ModalHeader.displayName = 'ModalHeader';
+ModalHeader.defaultProps = defaultProps;
+var _default = ModalHeader;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireWildcard":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireWildcard.js","@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","@restart/hooks/useEventCallback":"node_modules/@restart/hooks/useEventCallback.js","./ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js","./CloseButton":"node_modules/react-bootstrap/CloseButton.js","./ModalContext":"node_modules/react-bootstrap/ModalContext.js"}],"node_modules/react-bootstrap/ModalTitle.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _createWithBsPrefix = _interopRequireDefault(require("./utils/createWithBsPrefix"));
+
+var _divWithClassName = _interopRequireDefault(require("./utils/divWithClassName"));
+
+var DivStyledAsH4 = (0, _divWithClassName.default)('h4');
+
+var _default = (0, _createWithBsPrefix.default)('modal-title', {
+  Component: DivStyledAsH4
+});
+
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","./utils/createWithBsPrefix":"node_modules/react-bootstrap/utils/createWithBsPrefix.js","./utils/divWithClassName":"node_modules/react-bootstrap/utils/divWithClassName.js"}],"node_modules/react-bootstrap/utils/BootstrapModalManager.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _querySelectorAll = _interopRequireDefault(require("dom-helpers/query/querySelectorAll"));
+
+var _style = _interopRequireDefault(require("dom-helpers/style"));
+
+var _scrollbarSize = _interopRequireDefault(require("dom-helpers/util/scrollbarSize"));
+
+var _ModalManager2 = _interopRequireDefault(require("react-overlays/ModalManager"));
+
+var Selector = {
+  FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+  STICKY_CONTENT: '.sticky-top',
+  NAVBAR_TOGGLER: '.navbar-toggler'
+};
+
+var BootstrapModalManager =
+/*#__PURE__*/
+function (_ModalManager) {
+  (0, _inheritsLoose2.default)(BootstrapModalManager, _ModalManager);
+
+  function BootstrapModalManager() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _ModalManager.call.apply(_ModalManager, [this].concat(args)) || this;
+
+    _this.adjustAndStore = function (prop, element, adjust) {
+      var actual = element.style[prop];
+      element.dataset[prop] = actual;
+      (0, _style.default)(element, prop, parseFloat((0, _style.default)(element, prop)) + adjust + "px");
+    };
+
+    _this.restore = function (prop, element) {
+      var value = element.dataset[prop];
+
+      if (value !== undefined) {
+        delete element.dataset[prop];
+        (0, _style.default)(element, prop, value);
+      }
+    };
+
+    return _this;
+  }
+
+  var _proto = BootstrapModalManager.prototype;
+
+  _proto.setContainerStyle = function setContainerStyle(containerState, container) {
+    var _this2 = this;
+
+    _ModalManager.prototype.setContainerStyle.call(this, containerState, container);
+
+    if (!containerState.overflowing) return;
+    var size = (0, _scrollbarSize.default)();
+    (0, _querySelectorAll.default)(container, Selector.FIXED_CONTENT).forEach(function (el) {
+      return _this2.adjustAndStore('paddingRight', el, size);
+    });
+    (0, _querySelectorAll.default)(container, Selector.STICKY_CONTENT).forEach(function (el) {
+      return _this2.adjustAndStore('margingRight', el, -size);
+    });
+    (0, _querySelectorAll.default)(container, Selector.NAVBAR_TOGGLER).forEach(function (el) {
+      return _this2.adjustAndStore('margingRight', el, size);
+    });
+  };
+
+  _proto.removeContainerStyle = function removeContainerStyle(containerState, container) {
+    var _this3 = this;
+
+    _ModalManager.prototype.removeContainerStyle.call(this, containerState, container);
+
+    (0, _querySelectorAll.default)(container, Selector.FIXED_CONTENT).forEach(function (el) {
+      return _this3.restore('paddingRight', el);
+    });
+    (0, _querySelectorAll.default)(container, Selector.STICKY_CONTENT).forEach(function (el) {
+      return _this3.restore('margingRight', el);
+    });
+    (0, _querySelectorAll.default)(container, Selector.NAVBAR_TOGGLER).forEach(function (el) {
+      return _this3.restore('margingRight', el);
+    });
+  };
+
+  return BootstrapModalManager;
+}(_ModalManager2.default);
+
+exports.default = BootstrapModalManager;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/inheritsLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","dom-helpers/query/querySelectorAll":"node_modules/dom-helpers/query/querySelectorAll.js","dom-helpers/style":"node_modules/dom-helpers/style/index.js","dom-helpers/util/scrollbarSize":"node_modules/dom-helpers/util/scrollbarSize.js","react-overlays/ModalManager":"node_modules/react-overlays/ModalManager.js"}],"node_modules/react-bootstrap/Modal.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _events = _interopRequireDefault(require("dom-helpers/events"));
+
+var _ownerDocument = _interopRequireDefault(require("dom-helpers/ownerDocument"));
+
+var _inDOM = _interopRequireDefault(require("dom-helpers/util/inDOM"));
+
+var _scrollbarSize = _interopRequireDefault(require("dom-helpers/util/scrollbarSize"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Modal = _interopRequireDefault(require("react-overlays/Modal"));
+
+var _Fade = _interopRequireDefault(require("./Fade"));
+
+var _ModalBody = _interopRequireDefault(require("./ModalBody"));
+
+var _ModalDialog = _interopRequireDefault(require("./ModalDialog"));
+
+var _ModalFooter = _interopRequireDefault(require("./ModalFooter"));
+
+var _ModalHeader = _interopRequireDefault(require("./ModalHeader"));
+
+var _ModalTitle = _interopRequireDefault(require("./ModalTitle"));
+
+var _BootstrapModalManager = _interopRequireDefault(require("./utils/BootstrapModalManager"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var _ModalContext = _interopRequireDefault(require("./ModalContext"));
+
+var defaultProps = {
+  show: false,
+  backdrop: true,
+  keyboard: true,
+  autoFocus: true,
+  enforceFocus: true,
+  restoreFocus: true,
+  animation: true,
+  dialogAs: _ModalDialog.default,
+  manager: new _BootstrapModalManager.default()
+};
+/* eslint-disable no-use-before-define, react/no-multi-comp */
+
+function DialogTransition(props) {
+  return _react.default.createElement(_Fade.default, props);
+}
+
+function BackdropTransition(props) {
+  return _react.default.createElement(_Fade.default, props);
+}
+/* eslint-enable no-use-before-define */
+
+
+var Modal =
+/*#__PURE__*/
+function (_React$Component) {
+  (0, _inheritsLoose2.default)(Modal, _React$Component);
+
+  function Modal(_props, context) {
+    var _this;
+
+    _this = _React$Component.call(this, _props, context) || this;
+
+    _this.setModalRef = function (ref) {
+      _this._modal = ref;
+    };
+
+    _this.handleDialogMouseDown = function () {
+      _this._waitingForMouseUp = true;
+    };
+
+    _this.handleMouseUp = function (e) {
+      if (_this._waitingForMouseUp && e.target === _this._modal.dialog) {
+        _this._ignoreBackdropClick = true;
+      }
+
+      _this._waitingForMouseUp = false;
+    };
+
+    _this.handleClick = function (e) {
+      if (_this._ignoreBackdropClick || e.target !== e.currentTarget) {
+        _this._ignoreBackdropClick = false;
+        return;
+      }
+
+      _this.props.onHide();
+    };
+
+    _this.handleEnter = function (node) {
+      var _this$props;
+
+      if (node) {
+        node.style.display = 'block';
+
+        _this.updateDialogStyle(node);
+      }
+
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+
+      if (_this.props.onEnter) (_this$props = _this.props).onEnter.apply(_this$props, [node].concat(args));
+    };
+
+    _this.handleEntering = function (node) {
+      var _this$props2;
+
+      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        args[_key2 - 1] = arguments[_key2];
+      }
+
+      if (_this.props.onEntering) (_this$props2 = _this.props).onEntering.apply(_this$props2, [node].concat(args)); // FIXME: This should work even when animation is disabled.
+
+      _events.default.on(window, 'resize', _this.handleWindowResize);
+    };
+
+    _this.handleExited = function (node) {
+      var _this$props3;
+
+      if (node) node.style.display = ''; // RHL removes it sometimes
+
+      for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        args[_key3 - 1] = arguments[_key3];
+      }
+
+      if (_this.props.onExited) (_this$props3 = _this.props).onExited.apply(_this$props3, args); // FIXME: This should work even when animation is disabled.
+
+      _events.default.off(window, 'resize', _this.handleWindowResize);
+    };
+
+    _this.handleWindowResize = function () {
+      _this.updateDialogStyle(_this._modal.dialog);
+    };
+
+    _this.renderBackdrop = function (props) {
+      var _this$props4 = _this.props,
+          bsPrefix = _this$props4.bsPrefix,
+          backdropClassName = _this$props4.backdropClassName;
+      return _react.default.createElement("div", (0, _extends2.default)({}, props, {
+        className: (0, _classnames.default)(bsPrefix + "-backdrop", backdropClassName)
+      }));
+    };
+
+    _this.state = {
+      style: {}
+    };
+    _this.modalContext = {
+      onHide: function onHide() {
+        return _this.props.onHide();
+      }
+    };
+    return _this;
+  }
+
+  var _proto = Modal.prototype;
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    // Clean up the listener if we need to.
+    _events.default.off(window, 'resize', this.handleWindowResize);
+  };
+
+  _proto.updateDialogStyle = function updateDialogStyle(node) {
+    if (!_inDOM.default) return;
+    var manager = this.props.manager;
+    var containerIsOverflowing = manager.isContainerOverflowing(this._modal);
+    var modalIsOverflowing = node.scrollHeight > (0, _ownerDocument.default)(node).documentElement.clientHeight;
+    this.setState({
+      style: {
+        paddingRight: containerIsOverflowing && !modalIsOverflowing ? (0, _scrollbarSize.default)() : undefined,
+        paddingLeft: !containerIsOverflowing && modalIsOverflowing ? (0, _scrollbarSize.default)() : undefined
+      }
+    });
+  };
+
+  _proto.render = function render() {
+    var _this$props5 = this.props,
+        bsPrefix = _this$props5.bsPrefix,
+        className = _this$props5.className,
+        style = _this$props5.style,
+        dialogClassName = _this$props5.dialogClassName,
+        children = _this$props5.children,
+        Dialog = _this$props5.dialogAs,
+        show = _this$props5.show,
+        animation = _this$props5.animation,
+        backdrop = _this$props5.backdrop,
+        keyboard = _this$props5.keyboard,
+        manager = _this$props5.manager,
+        onEscapeKeyDown = _this$props5.onEscapeKeyDown,
+        onShow = _this$props5.onShow,
+        onHide = _this$props5.onHide,
+        container = _this$props5.container,
+        autoFocus = _this$props5.autoFocus,
+        enforceFocus = _this$props5.enforceFocus,
+        restoreFocus = _this$props5.restoreFocus,
+        onEntered = _this$props5.onEntered,
+        onExit = _this$props5.onExit,
+        onExiting = _this$props5.onExiting,
+        _ = _this$props5.onExited,
+        _1 = _this$props5.onEntering,
+        _6 = _this$props5.onEnter,
+        _4 = _this$props5.onEntering,
+        _2 = _this$props5.backdropClassName,
+        props = (0, _objectWithoutPropertiesLoose2.default)(_this$props5, ["bsPrefix", "className", "style", "dialogClassName", "children", "dialogAs", "show", "animation", "backdrop", "keyboard", "manager", "onEscapeKeyDown", "onShow", "onHide", "container", "autoFocus", "enforceFocus", "restoreFocus", "onEntered", "onExit", "onExiting", "onExited", "onEntering", "onEnter", "onEntering", "backdropClassName"]);
+    var clickHandler = backdrop === true ? this.handleClick : null;
+    var baseModalStyle = (0, _extends2.default)({}, style, this.state.style); // Sets `display` always block when `animation` is false
+
+    if (!animation) baseModalStyle.display = 'block';
+    return _react.default.createElement(_ModalContext.default.Provider, {
+      value: this.modalContext
+    }, _react.default.createElement(_Modal.default, {
+      show: show,
+      backdrop: backdrop,
+      container: container,
+      keyboard: keyboard,
+      autoFocus: autoFocus,
+      enforceFocus: enforceFocus,
+      restoreFocus: restoreFocus,
+      onEscapeKeyDown: onEscapeKeyDown,
+      onShow: onShow,
+      onHide: onHide,
+      onEntered: onEntered,
+      onExit: onExit,
+      onExiting: onExiting,
+      manager: manager,
+      ref: this.setModalRef,
+      style: baseModalStyle,
+      className: (0, _classnames.default)(className, bsPrefix),
+      containerClassName: bsPrefix + "-open",
+      transition: animation ? DialogTransition : undefined,
+      backdropTransition: animation ? BackdropTransition : undefined,
+      renderBackdrop: this.renderBackdrop,
+      onClick: clickHandler,
+      onMouseUp: this.handleMouseUp,
+      onEnter: this.handleEnter,
+      onEntering: this.handleEntering,
+      onExited: this.handleExited
+    }, _react.default.createElement(Dialog, (0, _extends2.default)({}, props, {
+      onMouseDown: this.handleDialogMouseDown,
+      className: dialogClassName
+    }), children)));
+  };
+
+  return Modal;
+}(_react.default.Component);
+
+Modal.defaultProps = defaultProps;
+var DecoratedModal = (0, _ThemeProvider.createBootstrapComponent)(Modal, 'modal');
+DecoratedModal.Body = _ModalBody.default;
+DecoratedModal.Header = _ModalHeader.default;
+DecoratedModal.Title = _ModalTitle.default;
+DecoratedModal.Footer = _ModalFooter.default;
+DecoratedModal.Dialog = _ModalDialog.default;
+DecoratedModal.TRANSITION_DURATION = 300;
+DecoratedModal.BACKDROP_TRANSITION_DURATION = 150;
+var _default = DecoratedModal;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/inheritsLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/inheritsLoose.js","classnames":"node_modules/classnames/index.js","dom-helpers/events":"node_modules/dom-helpers/events/index.js","dom-helpers/ownerDocument":"node_modules/dom-helpers/ownerDocument.js","dom-helpers/util/inDOM":"node_modules/dom-helpers/util/inDOM.js","dom-helpers/util/scrollbarSize":"node_modules/dom-helpers/util/scrollbarSize.js","react":"node_modules/react/index.js","react-overlays/Modal":"node_modules/react-overlays/Modal.js","./Fade":"node_modules/react-bootstrap/Fade.js","./ModalBody":"node_modules/react-bootstrap/ModalBody.js","./ModalDialog":"node_modules/react-bootstrap/ModalDialog.js","./ModalFooter":"node_modules/react-bootstrap/ModalFooter.js","./ModalHeader":"node_modules/react-bootstrap/ModalHeader.js","./ModalTitle":"node_modules/react-bootstrap/ModalTitle.js","./utils/BootstrapModalManager":"node_modules/react-bootstrap/utils/BootstrapModalManager.js","./ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js","./ModalContext":"node_modules/react-bootstrap/ModalContext.js"}],"node_modules/react-bootstrap/Col.js":[function(require,module,exports) {
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+exports.__esModule = true;
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _ThemeProvider = require("./ThemeProvider");
+
+var DEVICE_SIZES = ['xl', 'lg', 'md', 'sm', 'xs'];
+var defaultProps = {
+  as: 'div'
+};
+
+var Col = _react.default.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      Component = _ref.as,
+      props = (0, _objectWithoutPropertiesLoose2.default)(_ref, ["bsPrefix", "className", "as"]);
+  var prefix = (0, _ThemeProvider.useBootstrapPrefix)(bsPrefix, 'col');
+  var spans = [];
+  var classes = [];
+  DEVICE_SIZES.forEach(function (brkPoint) {
+    var propValue = props[brkPoint];
+    delete props[brkPoint];
+    var span, offset, order;
+
+    if (propValue != null && typeof propValue === 'object') {
+      var _propValue$span = propValue.span;
+      span = _propValue$span === void 0 ? true : _propValue$span;
+      offset = propValue.offset;
+      order = propValue.order;
+    } else {
+      span = propValue;
+    }
+
+    var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
+    if (span != null) spans.push(span === true ? "" + prefix + infix : "" + prefix + infix + "-" + span);
+    if (order != null) classes.push("order" + infix + "-" + order);
+    if (offset != null) classes.push("offset" + infix + "-" + offset);
+  });
+
+  if (!spans.length) {
+    spans.push(prefix); // plain 'col'
+  }
+
+  return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
+    ref: ref,
+    className: _classnames.default.apply(void 0, [className].concat(spans, classes))
+  }));
+});
+
+Col.displayName = 'Col';
+Col.defaultProps = defaultProps;
+var _default = Col;
+exports.default = _default;
+module.exports = exports["default"];
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/extends":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/extends.js","@babel/runtime/helpers/objectWithoutPropertiesLoose":"node_modules/react-bootstrap/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js","classnames":"node_modules/classnames/index.js","react":"node_modules/react/index.js","./ThemeProvider":"node_modules/react-bootstrap/ThemeProvider.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/constants-browserify/constants.json":[function(require,module,exports) {
+module.exports = {
+  "O_RDONLY": 0,
+  "O_WRONLY": 1,
+  "O_RDWR": 2,
+  "S_IFMT": 61440,
+  "S_IFREG": 32768,
+  "S_IFDIR": 16384,
+  "S_IFCHR": 8192,
+  "S_IFBLK": 24576,
+  "S_IFIFO": 4096,
+  "S_IFLNK": 40960,
+  "S_IFSOCK": 49152,
+  "O_CREAT": 512,
+  "O_EXCL": 2048,
+  "O_NOCTTY": 131072,
+  "O_TRUNC": 1024,
+  "O_APPEND": 8,
+  "O_DIRECTORY": 1048576,
+  "O_NOFOLLOW": 256,
+  "O_SYNC": 128,
+  "O_SYMLINK": 2097152,
+  "O_NONBLOCK": 4,
+  "S_IRWXU": 448,
+  "S_IRUSR": 256,
+  "S_IWUSR": 128,
+  "S_IXUSR": 64,
+  "S_IRWXG": 56,
+  "S_IRGRP": 32,
+  "S_IWGRP": 16,
+  "S_IXGRP": 8,
+  "S_IRWXO": 7,
+  "S_IROTH": 4,
+  "S_IWOTH": 2,
+  "S_IXOTH": 1,
+  "E2BIG": 7,
+  "EACCES": 13,
+  "EADDRINUSE": 48,
+  "EADDRNOTAVAIL": 49,
+  "EAFNOSUPPORT": 47,
+  "EAGAIN": 35,
+  "EALREADY": 37,
+  "EBADF": 9,
+  "EBADMSG": 94,
+  "EBUSY": 16,
+  "ECANCELED": 89,
+  "ECHILD": 10,
+  "ECONNABORTED": 53,
+  "ECONNREFUSED": 61,
+  "ECONNRESET": 54,
+  "EDEADLK": 11,
+  "EDESTADDRREQ": 39,
+  "EDOM": 33,
+  "EDQUOT": 69,
+  "EEXIST": 17,
+  "EFAULT": 14,
+  "EFBIG": 27,
+  "EHOSTUNREACH": 65,
+  "EIDRM": 90,
+  "EILSEQ": 92,
+  "EINPROGRESS": 36,
+  "EINTR": 4,
+  "EINVAL": 22,
+  "EIO": 5,
+  "EISCONN": 56,
+  "EISDIR": 21,
+  "ELOOP": 62,
+  "EMFILE": 24,
+  "EMLINK": 31,
+  "EMSGSIZE": 40,
+  "EMULTIHOP": 95,
+  "ENAMETOOLONG": 63,
+  "ENETDOWN": 50,
+  "ENETRESET": 52,
+  "ENETUNREACH": 51,
+  "ENFILE": 23,
+  "ENOBUFS": 55,
+  "ENODATA": 96,
+  "ENODEV": 19,
+  "ENOENT": 2,
+  "ENOEXEC": 8,
+  "ENOLCK": 77,
+  "ENOLINK": 97,
+  "ENOMEM": 12,
+  "ENOMSG": 91,
+  "ENOPROTOOPT": 42,
+  "ENOSPC": 28,
+  "ENOSR": 98,
+  "ENOSTR": 99,
+  "ENOSYS": 78,
+  "ENOTCONN": 57,
+  "ENOTDIR": 20,
+  "ENOTEMPTY": 66,
+  "ENOTSOCK": 38,
+  "ENOTSUP": 45,
+  "ENOTTY": 25,
+  "ENXIO": 6,
+  "EOPNOTSUPP": 102,
+  "EOVERFLOW": 84,
+  "EPERM": 1,
+  "EPIPE": 32,
+  "EPROTO": 100,
+  "EPROTONOSUPPORT": 43,
+  "EPROTOTYPE": 41,
+  "ERANGE": 34,
+  "EROFS": 30,
+  "ESPIPE": 29,
+  "ESRCH": 3,
+  "ESTALE": 70,
+  "ETIME": 101,
+  "ETIMEDOUT": 60,
+  "ETXTBSY": 26,
+  "EWOULDBLOCK": 35,
+  "EXDEV": 18,
+  "SIGHUP": 1,
+  "SIGINT": 2,
+  "SIGQUIT": 3,
+  "SIGILL": 4,
+  "SIGTRAP": 5,
+  "SIGABRT": 6,
+  "SIGIOT": 6,
+  "SIGBUS": 10,
+  "SIGFPE": 8,
+  "SIGKILL": 9,
+  "SIGUSR1": 30,
+  "SIGSEGV": 11,
+  "SIGUSR2": 31,
+  "SIGPIPE": 13,
+  "SIGALRM": 14,
+  "SIGTERM": 15,
+  "SIGCHLD": 20,
+  "SIGCONT": 19,
+  "SIGSTOP": 17,
+  "SIGTSTP": 18,
+  "SIGTTIN": 21,
+  "SIGTTOU": 22,
+  "SIGURG": 16,
+  "SIGXCPU": 24,
+  "SIGXFSZ": 25,
+  "SIGVTALRM": 26,
+  "SIGPROF": 27,
+  "SIGWINCH": 28,
+  "SIGIO": 23,
+  "SIGSYS": 12,
+  "SSL_OP_ALL": 2147486719,
+  "SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION": 262144,
+  "SSL_OP_CIPHER_SERVER_PREFERENCE": 4194304,
+  "SSL_OP_CISCO_ANYCONNECT": 32768,
+  "SSL_OP_COOKIE_EXCHANGE": 8192,
+  "SSL_OP_CRYPTOPRO_TLSEXT_BUG": 2147483648,
+  "SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS": 2048,
+  "SSL_OP_EPHEMERAL_RSA": 0,
+  "SSL_OP_LEGACY_SERVER_CONNECT": 4,
+  "SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER": 32,
+  "SSL_OP_MICROSOFT_SESS_ID_BUG": 1,
+  "SSL_OP_MSIE_SSLV2_RSA_PADDING": 0,
+  "SSL_OP_NETSCAPE_CA_DN_BUG": 536870912,
+  "SSL_OP_NETSCAPE_CHALLENGE_BUG": 2,
+  "SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG": 1073741824,
+  "SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG": 8,
+  "SSL_OP_NO_COMPRESSION": 131072,
+  "SSL_OP_NO_QUERY_MTU": 4096,
+  "SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION": 65536,
+  "SSL_OP_NO_SSLv2": 16777216,
+  "SSL_OP_NO_SSLv3": 33554432,
+  "SSL_OP_NO_TICKET": 16384,
+  "SSL_OP_NO_TLSv1": 67108864,
+  "SSL_OP_NO_TLSv1_1": 268435456,
+  "SSL_OP_NO_TLSv1_2": 134217728,
+  "SSL_OP_PKCS1_CHECK_1": 0,
+  "SSL_OP_PKCS1_CHECK_2": 0,
+  "SSL_OP_SINGLE_DH_USE": 1048576,
+  "SSL_OP_SINGLE_ECDH_USE": 524288,
+  "SSL_OP_SSLEAY_080_CLIENT_DH_BUG": 128,
+  "SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG": 0,
+  "SSL_OP_TLS_BLOCK_PADDING_BUG": 512,
+  "SSL_OP_TLS_D5_BUG": 256,
+  "SSL_OP_TLS_ROLLBACK_BUG": 8388608,
+  "ENGINE_METHOD_DSA": 2,
+  "ENGINE_METHOD_DH": 4,
+  "ENGINE_METHOD_RAND": 8,
+  "ENGINE_METHOD_ECDH": 16,
+  "ENGINE_METHOD_ECDSA": 32,
+  "ENGINE_METHOD_CIPHERS": 64,
+  "ENGINE_METHOD_DIGESTS": 128,
+  "ENGINE_METHOD_STORE": 256,
+  "ENGINE_METHOD_PKEY_METHS": 512,
+  "ENGINE_METHOD_PKEY_ASN1_METHS": 1024,
+  "ENGINE_METHOD_ALL": 65535,
+  "ENGINE_METHOD_NONE": 0,
+  "DH_CHECK_P_NOT_SAFE_PRIME": 2,
+  "DH_CHECK_P_NOT_PRIME": 1,
+  "DH_UNABLE_TO_CHECK_GENERATOR": 4,
+  "DH_NOT_SUITABLE_GENERATOR": 8,
+  "NPN_ENABLED": 1,
+  "RSA_PKCS1_PADDING": 1,
+  "RSA_SSLV23_PADDING": 2,
+  "RSA_NO_PADDING": 3,
+  "RSA_PKCS1_OAEP_PADDING": 4,
+  "RSA_X931_PADDING": 5,
+  "RSA_PKCS1_PSS_PADDING": 6,
+  "POINT_CONVERSION_COMPRESSED": 2,
+  "POINT_CONVERSION_UNCOMPRESSED": 4,
+  "POINT_CONVERSION_HYBRID": 6,
+  "F_OK": 0,
+  "R_OK": 4,
+  "W_OK": 2,
+  "X_OK": 1,
+  "UV_UDP_REUSEADDR": 4
+}
+;
+},{}],"EventsComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -56819,6 +58272,14 @@ var api = _interopRequireWildcard(require("./api"));
 require("./general.css");
 
 var _SearchedEventComponent = _interopRequireDefault(require("./SearchedEventComponent"));
+
+var _Alert = _interopRequireDefault(require("react-bootstrap/Alert"));
+
+var _Modal = _interopRequireDefault(require("react-bootstrap/Modal"));
+
+var _Col = _interopRequireDefault(require("react-bootstrap/Col"));
+
+var _constants = require("constants");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -56881,18 +58342,83 @@ function (_React$Component) {
       }),
       events: [],
       wishes: [],
+      searchedevents: [],
       searchedID: '',
+      filtered: false,
       searchedEventFlag: false,
       rowIsClicked: false,
-      wishIsAdded: false
+      wishIsAdded: false,
+      show: false
     };
     _this.rowClick = _this.rowClick.bind(_assertThisInitialized(_this));
     _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
     _this.getEvent = _this.getEvent.bind(_assertThisInitialized(_this));
+    _this.Filtering = _this.Filtering.bind(_assertThisInitialized(_this));
+    _this.FilterEvents = _this.FilterEvents.bind(_assertThisInitialized(_this));
+    _this.onIdChange = _this.onIdChange.bind(_assertThisInitialized(_this));
+    _this.handleShow = _this.handleShow.bind(_assertThisInitialized(_this));
+    _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(EventsComponent, [{
+    key: "handleClose",
+    value: function handleClose() {
+      this.setState(function (prevState) {
+        return _objectSpread({
+          show: false
+        }, prevState.items);
+      });
+    }
+  }, {
+    key: "handleShow",
+    value: function handleShow() {
+      this.setState(function (prevState) {
+        return _objectSpread({
+          show: true
+        }, prevState.items);
+      });
+    }
+  }, {
+    key: "onIdChange",
+    value: function onIdChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      this.setState(_defineProperty({
+        filtered: false
+      }, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "Filtering",
+    value: function Filtering(event) {
+      event.preventDefault();
+      this.FilterEvents(event);
+      this.refs.Byid.blur();
+      this.setState(function (prevState) {
+        return _objectSpread({
+          filtered: true,
+          show: false,
+          searchedevents: JSON.parse(localStorage.getItem('FilteredEvents'))
+        }, prevState.items);
+      });
+      this.state.inputId.value = '';
+    }
+  }, {
+    key: "FilterEvents",
+    value: function FilterEvents(event) {
+      var RightSearch = [];
+      this.state.events.forEach(function (e) {
+        if (e.catagory == category.value || ToDate.value && e.date <= ToDate.value || FromDate.value && e.date >= FromDate.value || where.value && e.where == where.value) {
+          RightSearch.push(e);
+        }
+      });
+      localStorage.setItem('FilteredEvents', JSON.stringify(RightSearch));
+      this.state.searchedevents = [];
+    }
+  }, {
     key: "getEvent",
     value: function getEvent(id) {
       var event = this.state.events.find(function (e) {
@@ -56902,18 +58428,19 @@ function (_React$Component) {
     }
   }, {
     key: "onInputChange",
-    value: function onInputChange(_ref) {
-      var _ref$target = _ref.target,
-          name = _ref$target.name,
-          value = _ref$target.value;
+    value: function onInputChange(_ref2) {
+      var _ref2$target = _ref2.target,
+          name = _ref2$target.name,
+          value = _ref2$target.value;
       this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
         value: value
       }, (0, _validator.default)(value, name, this.state[name].validations))));
     }
   }, {
     key: "rowClick",
-    value: function rowClick() {
-      this.props.history.push("/event/" + this.state.inputId.value);
+    value: function rowClick(id) {
+      console.log(id);
+      this.props.history.push("/event/" + id);
       this.setState({
         rowIsClicked: true
       });
@@ -56937,23 +58464,28 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       {
-        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement("h1", {
+        return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("center", null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("h1", {
           style: {
             color: "red"
           },
-          className: "font-weight-bold"
+          className: "font-weight-bold "
         }, "Search Event"), _react.default.createElement(_reactBootstrap.InputGroup, {
-          className: "mb-3",
+          className: "mb-10",
           style: {
             width: "50%"
           }
-        }, _react.default.createElement(_reactBootstrap.DropdownButton, {
-          as: _reactBootstrap.InputGroup.Prepend,
-          variant: "outline-secondary",
-          title: "FilterBy",
-          id: "input-group-dropdown-1"
-        }, _react.default.createElement(_reactBootstrap.Form, {
+        }, _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Button, {
+          variant: "primary",
+          onClick: this.handleShow
+        }, "Filter"), _react.default.createElement(_Modal.default, {
+          show: this.state.show,
+          onHide: this.handleClose
+        }, _react.default.createElement(_Modal.default.Header, null), _react.default.createElement(_Modal.default.Body, null, _react.default.createElement(_Modal.default.Header, {
+          closeButton: true
+        }, _react.default.createElement(_Modal.default.Title, null, "Events Filter ")), _react.default.createElement(_Modal.default.Body, null, " ", _react.default.createElement(_reactBootstrap.Form, {
           style: {
             height: "540px",
             width: "400px"
@@ -57032,27 +58564,68 @@ function (_React$Component) {
             key: i,
             className: "text-danger"
           }, err);
-        })), _react.default.createElement(_reactBootstrap.Button, {
-          variant: "primary"
-        }, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
-          icon: _freeSolidSvgIcons.faSearch
-        }))))), _react.default.createElement(_reactBootstrap.FormControl, {
+        })), _react.default.createElement("center", null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_Col.default, {
+          sm: 2
+        }), _react.default.createElement(_Col.default, null, " ", _react.default.createElement(_reactBootstrap.Button, {
+          variant: "primary",
+          type: "submit",
+          onClick: this.Filtering
+        }, "Filter")), _react.default.createElement(_Col.default, {
+          sm: 1
+        }), _react.default.createElement(_Col.default, null, "  ", _react.default.createElement(_reactBootstrap.Button, {
+          variant: "primary",
+          onClick: this.handleClose
+        }, "Close")), _react.default.createElement(_Col.default, {
+          sm: 2
+        }))))))))), _react.default.createElement(_reactBootstrap.FormControl, {
+          id: "Byid",
           "aria-describedby": "basic-addon1",
           placeholder: "Search Event By ID",
           name: "inputId",
-          onBlur: this.onInputChange
-        }), this.state.inputId.errors.map(function (err, i) {
-          return _react.default.createElement(_reactBootstrap.Form.Text, {
-            key: i,
-            className: "text-danger"
-          }, err);
+          ref: "Byid",
+          onBlur: this.onIdChange
         }), _react.default.createElement(_reactBootstrap.Button, {
           style: {
             height: "38px"
           }
         }, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
           icon: _freeSolidSvgIcons.faSearch
-        }))))), this.state.inputId.value ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+        })))))), this.state.filtered && !this.state.inputId.value && this.state.searchedevents.length ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+          className: "col-md"
+        }, _react.default.createElement("center", null, _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Table, {
+          style: {
+            textAlign: "center",
+            marginTop: "30px"
+          },
+          className: "table tablebackground tableStyle",
+          id: "result"
+        }, _react.default.createElement("thead", null, _react.default.createElement("tr", null, _react.default.createElement("th", {
+          scope: "col"
+        }, "#"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Catagory"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Event Title"), _react.default.createElement("th", {
+          scope: "col"
+        }, "When"), _react.default.createElement("th", {
+          scope: "col"
+        }, "Where"))), _react.default.createElement("tbody", null, this.state.searchedevents.map(function (_ref3, i) {
+          var ID = _ref3.ID,
+              title = _ref3.title,
+              catagory = _ref3.catagory,
+              date = _ref3.date,
+              where = _ref3.where;
+          return _react.default.createElement(_SearchedEventComponent.default, {
+            key: i,
+            ID: ID,
+            title: title,
+            catagory: catagory,
+            date: date,
+            where: where,
+            click: _this3.rowClick,
+            buttonClickFunc: _this3.buttonClick
+          });
+        }))))))) : '', this.state.inputId.value && !this.state.filtered && this.getEvent(this.state.inputId.value) ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
           className: "col-md"
         }, _react.default.createElement("center", null, _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Table, {
           style: {
@@ -57076,7 +58649,7 @@ function (_React$Component) {
           title: this.getEvent(this.state.inputId.value).title,
           catagory: this.getEvent(this.state.inputId.value).catagory,
           date: this.getEvent(this.state.inputId.value).date,
-          func: this.rowClick,
+          click: this.rowClick,
           where: this.getEvent(this.state.inputId.value).where
         }))))))) : '');
       }
@@ -57087,7 +58660,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = EventsComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./api":"api.js","./general.css":"general.css","./SearchedEventComponent":"SearchedEventComponent.js"}],"EventDetailsComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./api":"api.js","./general.css":"general.css","./SearchedEventComponent":"SearchedEventComponent.js","react-bootstrap/Alert":"node_modules/react-bootstrap/Alert.js","react-bootstrap/Modal":"node_modules/react-bootstrap/Modal.js","react-bootstrap/Col":"node_modules/react-bootstrap/Col.js","constants":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/constants-browserify/constants.json"}],"EventDetailsComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -57723,19 +59296,19 @@ function (_React$Component) {
         activeClassName: "text-warning"
       }, "Home"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/UserEvents/" + this.context.userID,
+        to: "/UserEvents/" + this.context.userId,
         activeClassName: "text-warning"
       }, "Events")) : _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/UserEvents/" + this.context.userID,
+        to: "/UserEvents/" + this.context.userId,
         activeClassName: "text-warning"
       }, "MyEvents"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/wishes/" + this.context.userID,
+        to: "/wishes/" + this.context.userId,
         activeClassName: "text-warning"
       }, "Wishes")) : _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/wishes/" + this.context.userID,
+        to: "/wishes/" + this.context.userId,
         activeClassName: "text-warning"
       }, "MyWishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
@@ -58468,9 +60041,9 @@ function (_React$Component) {
     _this.state = {
       email: (0, _validator2.field)({
         value: '',
-        name: 'email',
-        pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/
+        name: 'email'
       }),
+      //, pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/ }),
       password: (0, _validator2.field)({
         value: '',
         name: 'password',
@@ -58730,9 +60303,11 @@ function (_React$Component) {
         name: 'where',
         minLength: 2
       }),
-      userEvents: [],
-      events: [],
-      event: {}
+      // userEvents: [],
+      // events: [],
+      event: {
+        catagory: ''
+      }
     };
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
@@ -58744,16 +60319,10 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      api.getEvents().then(function (events) {
-        return _this2.setState({
-          events: events
-        });
-      });
-      api.getUserEventsByUserID(this.context.userID).then(function (userEvents) {
-        return _this2.setState({
-          userEvents: userEvents
-        });
-      });
+      // api.getEvents()
+      //     .then(events => this.setState({ events }));
+      // api.getUserEventsByUserID(this.context.userID)
+      //     .then(userEvents => this.setState({ userEvents }));
       api.getEvent(this.props.match.params.eventID).then(function (event) {
         return _this2.setState({
           event: event
@@ -58838,11 +60407,12 @@ function (_React$Component) {
         },
         onSubmit: this.onSubmit
       }, _react.default.createElement("h1", {
+        className: "font-weight-bold"
+      }, "Update Event ", _react.default.createElement("span", {
         style: {
           color: "red"
-        },
-        className: "font-weight-bold"
-      }, "Update Event ID " + this.props.match.params.eventID), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        }
+      }, this.state.event.title)), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
         className: "font-weight-bold"
       }, "Category"), _react.default.createElement(_reactBootstrap.InputGroup, {
         className: "mb-3"
@@ -58852,7 +60422,8 @@ function (_React$Component) {
         as: "select",
         id: "category",
         name: "category",
-        onBlur: this.onInputChange
+        value: this.state.event.catagory,
+        onChange: this.onInputChange
       }, _react.default.createElement("option", {
         value: ""
       }, "Choose..."), _react.default.createElement("option", {
@@ -58892,12 +60463,11 @@ function (_React$Component) {
       }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faCalendar
       }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "at",
-        name: "at",
-        type: "Date",
+        name: "date",
+        type: "date",
         placeholder: "Enter Title Date",
         onBlur: this.onInputChange,
-        value: this.state.event.date
+        defaultValue: this.state.event.date
       })), this.state.at.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
@@ -58986,23 +60556,13 @@ function (_React$Component) {
   _createClass(MyEventsComponent, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", null, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
         onClick: this.props.func
-      }, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where)), _react.default.createElement("tr", {
-        style: {
-          textAlign: "center"
-        }
-      }, _react.default.createElement("td", null, _react.default.createElement(_reactRouterDom.NavLink, {
-        className: "navbarClass",
-        to: "/UpdateEventComponent/" + 1,
+      }, "Show"), _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass btn text-primary",
+        to: "/UpdateEventComponent/" + this.props.ID,
         activeClassName: "text-warning"
-      }, _react.default.createElement(_reactBootstrap.Button, {
-        className: "font-weight-bold",
-        variant: "primary",
-        style: {
-          border: "2px solid white"
-        }
-      }, "Update"))), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
+      }, "Update"), _react.default.createElement(_reactBootstrap.Button, {
         className: "font-weight-bold",
         variant: "primary",
         style: {
@@ -59289,7 +60849,7 @@ function (_React$Component) {
         scope: "col"
       }, "When"), _react.default.createElement("th", {
         scope: "col"
-      }, "Where"))), _react.default.createElement("tbody", null, this.state.userEvents.map(function (_ref, i) {
+      }, "Where"), _react.default.createElement("th", null, "Options"))), _react.default.createElement("tbody", null, this.state.userEvents.map(function (_ref, i) {
         var ID = _ref.ID,
             title = _ref.title,
             catagory = _ref.catagory,
@@ -59313,7 +60873,40 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = ShowUserEvents;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./MyEventsComponent":"MyEventsComponent.js","./api":"api.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./MyEventsComponent":"MyEventsComponent.js","./api":"api.js"}],"localstorage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var USER = 'user';
+
+var isLoggedIn = function isLoggedIn() {
+  return localStorage.getItem(USER) != null;
+};
+
+var getUser = function getUser() {
+  return JSON.parse(localStorage.getItem(USER));
+};
+
+var login = function login(user) {
+  localStorage.setItem(USER, JSON.stringify(user));
+};
+
+var logout = function logout() {
+  localStorage.removeItem(USER);
+};
+
+var localStorageManager = {
+  login: login,
+  logout: logout,
+  isLoggedIn: isLoggedIn,
+  getUser: getUser
+};
+var _default = localStorageManager;
+exports.default = _default;
+},{}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -59359,9 +60952,15 @@ var _RedirectIfAnonymous = _interopRequireDefault(require("./RedirectIfAnonymous
 
 var _ShowUserEvents = _interopRequireDefault(require("./ShowUserEvents"));
 
+var _localstorage = _interopRequireDefault(require("./localstorage"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -59392,19 +60991,22 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.login = _this.login.bind(_assertThisInitialized(_this));
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
-    _this.state = {
+    var user;
+    if (_localstorage.default.isLoggedIn()) user = _localstorage.default.getUser();else user = {
       name: '',
-      userID: 1,
+      userID: 1
+    };
+    _this.state = _objectSpread({}, user, {
       login: _this.login,
       logout: _this.logout
-    };
+    });
 
     if (!localStorage.users) {
       localStorage.users = JSON.stringify([{
         "userId": "1",
         "name": "Ameer",
-        "userName": "ameer_z_90@hotmail.com",
-        "password": 131415
+        "userName": "a@b.com",
+        "password": 123456
       }, {
         "userId": "2",
         "name": "Saeed",
@@ -59451,17 +61053,24 @@ function (_React$Component) {
   _createClass(App, [{
     key: "login",
     value: function login(email, userId) {
-      this.setState({
+      var user = {
         name: email,
-        userID: userId
-      });
+        userId: userId
+      };
+      this.setState(user);
+
+      _localstorage.default.login(user);
     }
   }, {
     key: "logout",
     value: function logout() {
       this.setState({
-        name: ''
+        name: '',
+        userId: -1
       });
+
+      _localstorage.default.logout();
+
       this.props.history.push("/");
     }
   }, {
@@ -59513,7 +61122,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./UpdateEventComponent":"UpdateEventComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./UpdateEventComponent":"UpdateEventComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js","./localstorage":"localstorage.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -59541,7 +61150,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61436" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57442" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -59716,5 +61325,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","App.js"], null)
 //# sourceMappingURL=/App.d36a57b6.js.map

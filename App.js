@@ -18,15 +18,20 @@ import SearchedEventComponent from './SearchedEventComponent';
 import MyWishes from './MyWishes';
 import RedirectIfAnonymous from './RedirectIfAnonymous';
 import ShowUserEvents from './ShowUserEvents';
+import localStorageManager from './localstorage';
 
 export default class App extends React.Component {
     constructor() {
         super();
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
+        let user;
+        
+        if(localStorageManager.isLoggedIn()) user = localStorageManager.getUser();
+        else user = {name:'', userID: 1};
+        
         this.state = {
-            name: '',
-            userID: 1,
+            ...user,
             login: this.login,
             logout: this.logout
         };
@@ -35,8 +40,8 @@ export default class App extends React.Component {
                 {
                     "userId":"1",
                     "name": "Ameer",
-                    "userName": "ameer_z_90@hotmail.com",
-                    "password": 131415
+                    "userName": "a@b.com",
+                    "password": 123456
                 },
                 {
                     "userId":"2",
@@ -85,10 +90,13 @@ export default class App extends React.Component {
     }
 
     login(email,userId) {
-        this.setState({ name: email ,userID:userId});
+        const user = { name: email, userId };
+        this.setState(user);
+        localStorageManager.login(user);
     }
     logout() {
-        this.setState({ name: '' });
+        this.setState({ name: '', userId: -1 });
+        localStorageManager.logout();
         this.props.history.push("/");
     }
     render() {
