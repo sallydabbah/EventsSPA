@@ -13,7 +13,7 @@ const events = [
         ID: "2",
         title: "Ebraheem New Born",
         catagory: "New Born",
-        date: "25/6/2019",
+        date: "2019-06-25",
         where: "sakhnin"
     },
     {

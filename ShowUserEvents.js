@@ -39,6 +39,7 @@ export default class ShowUserEvents extends React.Component {
                                     <th scope="col">Event Title</th>
                                     <th scope="col">When</th>
                                     <th scope="col">Where</th>
+                                    <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>

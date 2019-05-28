@@ -16,23 +16,24 @@ export default class UpdateEventComponent extends React.Component {
             titleEvent: field({ value: '', name: 'titleEvent', minLength: 2 }),
             at: field({ value: '', name: 'at' }),
             where: field({ value: '', name: 'where', minLength: 2 }),
-            userEvents: [],
-            events: [],
-            event:{}
+            // userEvents: [],
+            // events: [],
+            event:{catagory:''}
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
     }
     componentDidMount() {
-        api.getEvents()
-            .then(events => this.setState({ events }));
-        api.getUserEventsByUserID(this.context.userID)
-            .then(userEvents => this.setState({ userEvents }));
+        // api.getEvents()
+        //     .then(events => this.setState({ events }));
+        // api.getUserEventsByUserID(this.context.userID)
+        //     .then(userEvents => this.setState({ userEvents }));
         api.getEvent(this.props.match.params.eventID)
             .then(event=>this.setState({event}));    
     }
     onInputChange({ target: { name, value } }) {
         console.log(name, value);
+        
         this.setState({
             [name]: {
                 ...this.state[name],
@@ -81,7 +82,7 @@ export default class UpdateEventComponent extends React.Component {
         return <>
             <div className="container">
                 <Form style={{ height: 250, margin: "80px 300px  0px 300px" }} onSubmit={this.onSubmit} >
-                    <h1 style={{ color: "red" }} className="font-weight-bold">{"Update Event ID "+this.props.match.params.eventID}</h1>
+                    <h1 className="font-weight-bold">Update Event <span style={{ color: "red" }}>{this.state.event.title}</span></h1>
                     <Form.Group>
                         <Form.Label className="font-weight-bold">Category</Form.Label>
                         <InputGroup className="mb-3">
@@ -94,7 +95,8 @@ export default class UpdateEventComponent extends React.Component {
                                 as="select"
                                 id="category"
                                 name="category"
-                                onBlur={this.onInputChange}
+                                value={this.state.event.catagory}
+                                onChange={this.onInputChange}
                             >
                                 <option value="">Choose...</option>
                                 <option value="New Born">New Born</option>
@@ -140,12 +142,11 @@ export default class UpdateEventComponent extends React.Component {
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
                             <Form.Control
-                                id="at"
-                                name="at"
-                                type="Date"
+                                name="date"
+                                type="date"
                                 placeholder="Enter Title Date"
                                 onBlur={this.onInputChange}
-                                value={this.state.event.date}
+                                defaultValue={this.state.event.date}
                             />
                         </InputGroup>
                         {this.state.at.errors.map((err, i) => (
