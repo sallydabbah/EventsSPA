@@ -83,10 +83,74 @@ export default class EventsComponent extends React.Component {
     FilterEvents(event) {
         let RightSearch = []
         this.state.events.forEach(e => {
-            if ((e.catagory == category.value) || ((ToDate.value) && (e.date <= ToDate.value))
-                || ((FromDate.value) && (e.date >= FromDate.value)) || ((where.value) && (e.where == where.value))) {
+            console.log(`e.category = ${e.category}, e.where = ${e.where}, category="${category.value}, where=${where.value}`);
+           
+             if((category.value && ToDate.value) && (FromDate.value && where.value)) {
+
+                if(((category.value == e.category) && (ToDate.value >= e.date)) && ((FromDate.value <= e.date) && (e.where == where.value ))){
+                     RightSearch.push(e);
+             }}
+             
+             else if ((category.value && ToDate.value) && (FromDate.value)) {
+                if((category.value == e.category) && ((ToDate.value >= e.date) && (FromDate.value <= e.date)))
                 RightSearch.push(e);
-            }
+
+             }
+             else if ((category.value && ToDate.value)&&(where.value)) {
+                if(((category.value == e.category) && (ToDate.value >= e.date))  && (e.where == where.value )){
+                     RightSearch.push(e);
+             }}
+             else if((category.value && FromDate.value) &&(where.value)) {
+                if(((category.value == e.category)  && (FromDate.value <= e.date)) && (e.where == where.value )){
+                     RightSearch.push(e);
+             }}
+             else if ((FromDate.value && ToDate.value) && (where.value )) {
+                if( ((ToDate.value >= e.date) && (FromDate.value <= e.date)) && (e.where == where.value )){
+                     RightSearch.push(e);
+             }}
+             else if(category.value && FromDate.value ) {
+                if((category.value == e.category) &&(FromDate.value <= e.date )){
+                     RightSearch.push(e);
+             }}
+             else if(category.value && ToDate.value) {
+                if(category.value == e.category){
+            if (ToDate.value >= e.date ){
+                RightSearch.push(e);
+             }}}
+             else if(category.value && where.value) {
+                if(category.value == e.category) {
+                    if (e.where == where.value )
+                 {
+                     RightSearch.push(e);
+             }}}
+             else if(FromDate.value && ToDate.value) {
+                if( (ToDate.value >= e.date) && (FromDate.value <= e.date)){
+                RightSearch.push(e);
+             }}
+             else if(FromDate.value && where.value) {
+                if( (FromDate.value <= e.date) && (e.where == where.value )){
+                RightSearch.push(e);
+             }}
+             else if ( ToDate.value && where.value ) {
+                if( (ToDate.value >= e.date) && (e.where == where.value )){
+                RightSearch.push(e);
+             }}
+              else if (category.value) {
+                if((e.category == category.value)){
+                     RightSearch.push(e);
+              }}
+              else if(FromDate.value ){
+                if( (FromDate.value <= e.date)){
+                RightSearch.push(e);
+              }}
+              else if(ToDate.value) {
+                if( (ToDate.value >= e.date)){
+                RightSearch.push(e);
+              }}
+              else if (where.value) {
+                if( (e.where == where.value)){
+                RightSearch.push(e);
+              }}
         });
         localStorage.setItem('FilteredEvents', JSON.stringify(RightSearch));
         this.state.searchedevents = [];
@@ -287,7 +351,7 @@ export default class EventsComponent extends React.Component {
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Catagory</th>
+                                                <th scope="col">category</th>
                                                 <th scope="col">Event Title</th>
                                                 <th scope="col">When</th>
                                                 <th scope="col">Where</th>
@@ -295,8 +359,8 @@ export default class EventsComponent extends React.Component {
                                         </thead>
                                         <tbody>
                                             {
-                                                this.state.searchedevents.map(({ ID, title, catagory, date, where }, i) =>
-                                                    <SearchedEventComponent key={i} ID={ID} title={title} catagory={catagory} date={date} where={where} click={this.rowClick} buttonClickFunc={this.buttonClick} />
+                                                this.state.searchedevents.map(({ ID, title, category, date, where }, i) =>
+                                                    <SearchedEventComponent key={i} ID={ID} title={title} category={category} date={date} where={where} click={this.rowClick} buttonClickFunc={this.buttonClick} />
                                                 )}
 
                                         </tbody>
@@ -319,7 +383,7 @@ export default class EventsComponent extends React.Component {
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Catagory</th>
+                                                <th scope="col">category</th>
                                                 <th scope="col">Event Title</th>
                                                 <th scope="col">When</th>
                                                 <th scope="col">Where</th>
@@ -327,7 +391,7 @@ export default class EventsComponent extends React.Component {
                                         </thead>
                                         <tbody>
                                             {
-                                                <SearchedEventComponent ID={this.getEvent(this.state.inputId.value).ID} title={this.getEvent(this.state.inputId.value).title} catagory={this.getEvent(this.state.inputId.value).catagory} date={this.getEvent(this.state.inputId.value).date} click={this.rowClick} where={this.getEvent(this.state.inputId.value).where} />
+                                                <SearchedEventComponent ID={this.getEvent(this.state.inputId.value).ID} title={this.getEvent(this.state.inputId.value).title} category={this.getEvent(this.state.inputId.value).category} date={this.getEvent(this.state.inputId.value).date} click={this.rowClick} where={this.getEvent(this.state.inputId.value).where} />
                                             }
                                         </tbody>
                                     </Table>

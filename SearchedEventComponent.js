@@ -7,7 +7,7 @@ export default class SearchedEventComponent extends React.Component {
         return <>
             <tr onClick={() => this.props.click(this.props.ID)}  >
                 <td>{this.props.ID}</td>
-                <td>{this.props.catagory}</td>
+                <td>{this.props.category}</td>
                 <td>{this.props.title}</td>
                 <td>{this.props.date}</td>
                 <td>{this.props.where}</td>
