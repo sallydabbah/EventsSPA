@@ -2,7 +2,7 @@ import React from 'react';
 
 import './general.css';
 import * as api from "./api";
-import CardComponent from './CardComponent';
+import CardUserWishesComponent from './CardUserWishesComponent';
 import { Row } from 'react-bootstrap';
 
 export default class MyWishes extends React.Component {
@@ -18,7 +18,7 @@ export default class MyWishes extends React.Component {
   }
   render() {
     return <Row>
-      {this.state.wishes.map(({ eventID, from, wishContent, imageURL }, i) => { return <CardComponent key={i} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> })}
+      {this.state.wishes.map(({ID, eventID, from, wishContent, imageURL }, i) => { return <CardUserWishesComponent key={i} id={ID} eventID={eventID} from={from} wishContent={wishContent} imageURL={imageURL} /> })}
       </Row>;
   }
 }
