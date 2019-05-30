@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import WishContext from './WishContext';
-
 import NavBarComponent from './NavBarComponent';
 import HomeComponent from './HomeComponent';
 import JoinComponent from './JoinComponent';
@@ -13,44 +12,49 @@ import WishesComponent from './WishesComponent';
 import EventsComponent from './EventsComponent';
 import CreateNewEvent from './CreateNewEventComponent';
 import LoginComponent from './LoginComponent';
+import UpdateEventComponent from './UpdateEventComponent';
 import MyEventsComponent from './MyEventsComponent';
 import SearchedEventComponent from './SearchedEventComponent';
 import MyWishes from './MyWishes';
+import RedirectIfAnonymous from './RedirectIfAnonymous';
+import ShowUserEvents from './ShowUserEvents';
 
 export default class App extends React.Component {
     constructor() {
         super();
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-        this.updateLoggedIn=this.updateLoggedIn.bind(this);
         this.state = {
             name: '',
-            LoggedIn:true,
-            updateLoggedIn:this.updateLoggedIn,
+            userID: 1,
             login: this.login,
             logout: this.logout
         };
         if (!localStorage.users) {
             localStorage.users = JSON.stringify([
                 {
+                    "userId":"1",
                     "name": "Ameer",
-                    "userName": "ameer.outlook.com",
-                    "password": 12345
+                    "userName": "ameer_z_90@hotmail.com",
+                    "password": 131415
                 },
                 {
+                    "userId":"2",
                     "name": "Saeed",
                     "userName": "saeednamih@gmail.com",
                     "password": 5678
                 },
                 {
+                    "userId":"3",
                     "name": "Sally",
                     "userName": "sallydabbah@gmail.com",
                     "password": 9101112
                 },
-                {
+                {   
+                    "userId":"4",
                     "name": "Ameer",
-                    "userName": "ameer_z_90@hotmail.com",
-                    "password": 131415
+                    "userName": "ameer.outlook.com",
+                    "password": 12345
                 }
             ]);
         }
@@ -79,14 +83,13 @@ export default class App extends React.Component {
                 }]);
         }
     }
-    updateLoggedIn(){
-        this.setState({LoggedIn:false})
-    }
-    login(email) {
-        this.setState({ name: email});
+
+    login(email,userId) {
+        this.setState({ name: email ,userID:userId});
     }
     logout() {
-        this.setState({ name: '' ,LoggedIn:true});
+        this.setState({ name: '' });
+        this.props.history.push("/");
     }
     render() {
         return (
@@ -98,7 +101,12 @@ export default class App extends React.Component {
                             <Switch>
                                 <Route path="/" component={HomeComponent} exact />
                                 <Route path="/events" component={EventsComponent} />
-                                <Route path="/wishes" component={MyWishes} />
+                                <Route path="/AddABestWishComponent/:eventID" component={AddABestWishComponent}/>
+                                <Route path="/event/:eventID" component={WishesComponent}/>
+                                <RedirectIfAnonymous path="/wishes/:userID" component={MyWishes} />
+                                <RedirectIfAnonymous path="/CreateNewEvent" component={CreateNewEvent} />
+                                <RedirectIfAnonymous path="/UserEvents/:userID" component={ShowUserEvents} />
+                                <RedirectIfAnonymous path="/UpdateEventComponent/:eventID" component={UpdateEventComponent} />
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />
@@ -107,7 +115,6 @@ export default class App extends React.Component {
                     </BrowserRouter>
                 </WishContext.Provider>
             </>);
-
     }
 }
 ReactDOM.render(<App />, document.querySelector('#container'));
