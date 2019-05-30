@@ -11,7 +11,7 @@ export default class LoginComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: field({ value: '', name: 'email'}),//, pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/ }),
+      email: field({ value: '', name: 'email',pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/ }),
       password: field({ value: '', name: 'password', minLength: 2 }),
       Users: [],
     };
@@ -20,9 +20,6 @@ export default class LoginComponent extends React.Component {
   }
   componentDidMount() {
     setTimeout(() => {
-      /*api.getUsers().then(({ data }) => {
-          this.setState({ users: data });
-      });*/
       const data = api.getUsers();
       this.setState({ Users: data }, () => console.log(this.state));
     }, 1000);

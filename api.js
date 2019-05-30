@@ -5,29 +5,29 @@ const events = [
     {
         ID: "1",
         title: "Ebraheem Birthday",
-        catagory: "Birthday",
-        date: "25/6/2019",
+        category: "Birthday",
+        date: "2019-06-25",
         where: "sakhnin"
     },
     {
         ID: "2",
         title: "Ebraheem New Born",
-        catagory: "New Born",
+        category: "New Born",
         date: "2019-06-25",
         where: "sakhnin"
     },
     {
         ID: "3",
         title: "Ebraheem Wedding",
-        catagory: "Wedding",
-        date: "25/6/2026",
+        category: "Wedding",
+        date: "2026-06-25",
         where: "sakhnin"
     },
     {
         ID: "4",
         title: "Ebraheem Grraduation",
-        catagory: "Party",
-        date: "25/6/2020",
+        category: "Party",
+        date: "2020-06-15",
         where: "sakhnin"
     }
 ];
@@ -179,23 +179,23 @@ const Users = [
             {
                 ID: "1",
                 title: "Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
             },
             {
                 ID: "2",
                 title: "Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
 
             },
             {
                 ID: "3",
                 title: "Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
             }]
     },
@@ -208,22 +208,22 @@ const Users = [
             {
                 ID: "1",
                 title: "Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
             },
             {
                 ID: "2",
                 title: "Ebraheem Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
             },
             {
                 ID: "3",
                 title: "Ebraheem Birthday",
-                catagory: "Birthday",
-                date: "25/6/2019",
+                category: "Birthday",
+                date: "2019-06-25",
                 where: "sakhnin"
             }]
     }
@@ -268,6 +268,14 @@ const getEvent = id => {
         }, 500);
     });
 }
+const getWish = id => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const wish = wishes.find(w => w.ID === id);
+            resolve(wish);
+        }, 500);
+    });
+}
 const getUsers = () => {
     return JSON.parse(localStorage.getItem('users'));
 }
@@ -278,5 +286,6 @@ export {
     getEvents,
     getEvent,
     getUserEventsByUserID,
-    getUserWishesByUserID
+    getUserWishesByUserID,
+    getWish
 };

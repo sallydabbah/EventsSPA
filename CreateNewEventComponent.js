@@ -13,8 +13,8 @@ export default class CreateNewEvent extends React.Component {
         super();
         this.state = {
             category: field({ value: '', name: 'category' }),
-            titleEvent: field({ value: '', name: 'titleEvent', minLength: 2 }),
-            at: field({ value: '', name: 'at' }),
+            title: field({ value: '', name: 'title', minLength: 2 }),
+            date: field({ value: '', name: 'date' }),
             where: field({ value: '', name: 'where', minLength: 2 }),
             userEvents: [],
             events: []
@@ -52,13 +52,13 @@ export default class CreateNewEvent extends React.Component {
             }
         }
         this.setState({ ...event });
-        if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
+        if (this.state.category.errors.length == 0 && this.state.title.errors.length == 0 && this.state.date.errors.length == 0 && this.state.where.errors.length == 0) {
             const myNewEvent = {
                 userID: this.context.userID,
                 ID: parseInt(this.state.events[this.state.events.length - 1].ID) + 1,
-                title: this.state.titleEvent.value,
-                catagory: this.state.category.value,
-                date: this.state.at.value,
+                title: this.state.title.value,
+                category: this.state.category.value,
+                date: this.state.date.value,
                 where: this.state.where.value
             }
             alert("added successfully");
@@ -115,13 +115,13 @@ export default class CreateNewEvent extends React.Component {
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
                             <Form.Control
-                                id="titleEvent"
-                                name="titleEvent"
+                                id="title"
+                                name="title"
                                 placeholder="Enter Title Event"
                                 onBlur={this.onInputChange}
                             />
                         </InputGroup>
-                        {this.state.titleEvent.errors.map((err, i) => (
+                        {this.state.title.errors.map((err, i) => (
                             <Form.Text key={i} className="text-danger">
                                 {err}
                             </Form.Text>
@@ -136,14 +136,14 @@ export default class CreateNewEvent extends React.Component {
                                 </InputGroup.Text>
                             </InputGroup.Prepend>
                             <Form.Control
-                                id="at"
-                                name="at"
+                                id="date"
+                                name="date"
                                 type="Date"
                                 placeholder="Enter Title Date"
                                 onBlur={this.onInputChange}
                             />
                         </InputGroup>
-                        {this.state.at.errors.map((err, i) => (
+                        {this.state.date.errors.map((err, i) => (
                             <Form.Text key={i} className="text-danger">
                                 {err}
                             </Form.Text>

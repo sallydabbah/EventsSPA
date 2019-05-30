@@ -19,6 +19,7 @@ import MyWishes from './MyWishes';
 import RedirectIfAnonymous from './RedirectIfAnonymous';
 import ShowUserEvents from './ShowUserEvents';
 import localStorageManager from './localstorage';
+import UpdateWishComponent from './UpdateWishComponent';
 
 export default class App extends React.Component {
     constructor() {
@@ -89,13 +90,13 @@ export default class App extends React.Component {
         }
     }
 
-    login(email,userId) {
-        const user = { name: email, userId };
+    login(email,userID) {
+        const user = { name: email, userID };
         this.setState(user);
         localStorageManager.login(user);
     }
     logout() {
-        this.setState({ name: '', userId: -1 });
+        this.setState({ name: '', userID: -1 });
         localStorageManager.logout();
         this.props.history.push("/");
     }
@@ -115,6 +116,7 @@ export default class App extends React.Component {
                                 <RedirectIfAnonymous path="/CreateNewEvent" component={CreateNewEvent} />
                                 <RedirectIfAnonymous path="/UserEvents/:userID" component={ShowUserEvents} />
                                 <RedirectIfAnonymous path="/UpdateEventComponent/:eventID" component={UpdateEventComponent} />
+                                <RedirectIfAnonymous path="/UpdateWishComponent/:wishID" component={UpdateWishComponent} />
                                 <Route path="/about" component={AboutComponent} />
                                 <Route path="/join" component={JoinComponent} />
                                 <Route path="/login" component={LoginComponent} />

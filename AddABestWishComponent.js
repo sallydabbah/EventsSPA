@@ -23,6 +23,11 @@ export default class AddABestWishComponent extends React.Component {
     componentDidMount() {
         api.getWishes()
             .then(wishes => this.setState({ wishes }));
+        setTimeout(() => {
+            const wish = Object.assign({}, this.state);
+            wish.from.value=this.context.name;
+            this.setState({...wish});
+        }, 500);
     }
     onInputChange({ target: { name, value } }) {
         this.setState({

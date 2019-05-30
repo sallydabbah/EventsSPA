@@ -56475,7 +56475,7 @@ module.exports = require('./lib/axios');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getUserWishesByUserID = exports.getUserEventsByUserID = exports.getEvent = exports.getEvents = exports.getWishes = exports.getUsers = void 0;
+exports.getWish = exports.getUserWishesByUserID = exports.getUserEventsByUserID = exports.getEvent = exports.getEvents = exports.getWishes = exports.getUsers = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -56486,26 +56486,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var events = [{
   ID: "1",
   title: "Ebraheem Birthday",
-  catagory: "Birthday",
-  date: "25/6/2019",
+  category: "Birthday",
+  date: "2019-06-25",
   where: "sakhnin"
 }, {
   ID: "2",
   title: "Ebraheem New Born",
-  catagory: "New Born",
+  category: "New Born",
   date: "2019-06-25",
   where: "sakhnin"
 }, {
   ID: "3",
   title: "Ebraheem Wedding",
-  catagory: "Wedding",
-  date: "25/6/2026",
+  category: "Wedding",
+  date: "2026-06-25",
   where: "sakhnin"
 }, {
   ID: "4",
   title: "Ebraheem Grraduation",
-  catagory: "Party",
-  date: "25/6/2020",
+  category: "Party",
+  date: "2020-06-15",
   where: "sakhnin"
 }];
 var wishes = [{
@@ -56636,20 +56636,20 @@ var Users = [{
   events: [{
     ID: "1",
     title: "Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }, {
     ID: "2",
     title: "Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }, {
     ID: "3",
     title: "Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }]
 }, {
@@ -56660,20 +56660,20 @@ var Users = [{
   events: [{
     ID: "1",
     title: "Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }, {
     ID: "2",
     title: "Ebraheem Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }, {
     ID: "3",
     title: "Ebraheem Birthday",
-    catagory: "Birthday",
-    date: "25/6/2019",
+    category: "Birthday",
+    date: "2019-06-25",
     where: "sakhnin"
   }]
 }];
@@ -56736,6 +56736,19 @@ var getEvent = function getEvent(id) {
 };
 
 exports.getEvent = getEvent;
+
+var getWish = function getWish(id) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      var wish = wishes.find(function (w) {
+        return w.ID === id;
+      });
+      resolve(wish);
+    }, 500);
+  });
+};
+
+exports.getWish = getWish;
 
 var getUsers = function getUsers() {
   return JSON.parse(localStorage.getItem('users'));
@@ -58817,7 +58830,7 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Card, {
         style: {
-          width: '18rem',
+          width: '19rem',
           marginBottom: "15px"
         }
       }, _react.default.createElement(_reactBootstrap.Card.Img, {
@@ -59296,19 +59309,19 @@ function (_React$Component) {
         activeClassName: "text-warning"
       }, "Home"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/UserEvents/" + this.context.userId,
+        to: "/UserEvents/" + this.context.userID,
         activeClassName: "text-warning"
       }, "Events")) : _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/UserEvents/" + this.context.userId,
+        to: "/UserEvents/" + this.context.userID,
         activeClassName: "text-warning"
       }, "MyEvents"), !this.context.name ? _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/wishes/" + this.context.userId,
+        to: "/wishes/" + this.context.userID,
         activeClassName: "text-warning"
       }, "Wishes")) : _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
-        to: "/wishes/" + this.context.userId,
+        to: "/wishes/" + this.context.userID,
         activeClassName: "text-warning"
       }, "MyWishes"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass",
@@ -59533,6 +59546,12 @@ function (_React$Component) {
           wishes: wishes
         });
       });
+      setTimeout(function () {
+        var wish = Object.assign({}, _this2.state);
+        wish.from.value = _this2.context.name;
+
+        _this2.setState(_objectSpread({}, wish));
+      }, 500);
     }
   }, {
     key: "onInputChange",
@@ -59751,14 +59770,14 @@ function (_React$Component) {
         value: '',
         name: 'category'
       }),
-      titleEvent: (0, _validator2.field)({
+      title: (0, _validator2.field)({
         value: '',
-        name: 'titleEvent',
+        name: 'title',
         minLength: 2
       }),
-      at: (0, _validator2.field)({
+      date: (0, _validator2.field)({
         value: '',
-        name: 'at'
+        name: 'date'
       }),
       where: (0, _validator2.field)({
         value: '',
@@ -59825,13 +59844,13 @@ function (_React$Component) {
 
       this.setState(_objectSpread({}, event));
 
-      if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
+      if (this.state.category.errors.length == 0 && this.state.title.errors.length == 0 && this.state.date.errors.length == 0 && this.state.where.errors.length == 0) {
         var myNewEvent = {
           userID: this.context.userID,
           ID: parseInt(this.state.events[this.state.events.length - 1].ID) + 1,
-          title: this.state.titleEvent.value,
-          catagory: this.state.category.value,
-          date: this.state.at.value,
+          title: this.state.title.value,
+          category: this.state.category.value,
+          date: this.state.date.value,
           where: this.state.where.value
         };
         alert("added successfully");
@@ -59904,11 +59923,11 @@ function (_React$Component) {
       }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faTag
       }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "titleEvent",
-        name: "titleEvent",
+        id: "title",
+        name: "title",
         placeholder: "Enter Title Event",
         onBlur: this.onInputChange
-      })), this.state.titleEvent.errors.map(function (err, i) {
+      })), this.state.title.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
           className: "text-danger"
@@ -59920,12 +59939,12 @@ function (_React$Component) {
       }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faCalendar
       }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "at",
-        name: "at",
+        id: "date",
+        name: "date",
         type: "Date",
         placeholder: "Enter Title Date",
         onBlur: this.onInputChange
-      })), this.state.at.errors.map(function (err, i) {
+      })), this.state.date.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
           className: "text-danger"
@@ -60041,9 +60060,9 @@ function (_React$Component) {
     _this.state = {
       email: (0, _validator2.field)({
         value: '',
-        name: 'email'
+        name: 'email',
+        pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/
       }),
-      //, pattern: /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/ }),
       password: (0, _validator2.field)({
         value: '',
         name: 'password',
@@ -60062,9 +60081,6 @@ function (_React$Component) {
       var _this2 = this;
 
       setTimeout(function () {
-        /*api.getUsers().then(({ data }) => {
-            this.setState({ users: data });
-        });*/
         var data = api.getUsers();
 
         _this2.setState({
@@ -60231,8 +60247,6 @@ var _reactBootstrap = require("react-bootstrap");
 
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 
-var _reactRouterDom = require("react-router-dom");
-
 var _validator2 = _interopRequireWildcard(require("./validator"));
 
 var _WishContext = _interopRequireDefault(require("./WishContext"));
@@ -60244,14 +60258,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -60289,25 +60295,20 @@ function (_React$Component) {
         value: '',
         name: 'category'
       }),
-      titleEvent: (0, _validator2.field)({
+      title: (0, _validator2.field)({
         value: '',
-        name: 'titleEvent',
+        name: 'title',
         minLength: 2
       }),
-      at: (0, _validator2.field)({
+      date: (0, _validator2.field)({
         value: '',
-        name: 'at'
+        name: 'date'
       }),
       where: (0, _validator2.field)({
         value: '',
         name: 'where',
         minLength: 2
-      }),
-      // userEvents: [],
-      // events: [],
-      event: {
-        catagory: ''
-      }
+      })
     };
     _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
     _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
@@ -60319,15 +60320,21 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // api.getEvents()
-      //     .then(events => this.setState({ events }));
-      // api.getUserEventsByUserID(this.context.userID)
-      //     .then(userEvents => this.setState({ userEvents }));
-      api.getEvent(this.props.match.params.eventID).then(function (event) {
-        return _this2.setState({
-          event: event
-        });
+      api.getEvent(this.props.match.params.eventID).then(function (userEvent) {
+        return localStorage.setItem("userEvent", JSON.stringify(userEvent));
       });
+      setTimeout(function () {
+        var userEvent = JSON.parse(localStorage.getItem('userEvent'));
+        var event = Object.assign({}, _this2.state);
+
+        for (var key in event) {
+          if (key != "userEvent") {
+            event[key].value = userEvent[key];
+          }
+        }
+
+        _this2.setState(_objectSpread({}, event));
+      }, 500);
     }
   }, {
     key: "onInputChange",
@@ -60347,7 +60354,7 @@ function (_React$Component) {
       var event = Object.assign({}, this.state);
 
       for (var key in event) {
-        if (key != "userEvents" && key != "events" && key != "event") {
+        if (key != "userEvent") {
           var _event$key = event[key],
               value = _event$key.value,
               validations = _event$key.validations;
@@ -60365,34 +60372,8 @@ function (_React$Component) {
 
       this.setState(_objectSpread({}, event));
 
-      if (this.state.category.errors.length == 0 && this.state.titleEvent.errors.length == 0 && this.state.at.errors.length == 0 && this.state.where.errors.length == 0) {
-        var myNewEvent = {
-          userID: this.context.userID,
-          ID: parseInt(this.state.events[this.state.events.length - 1].ID) + 1,
-          title: this.state.titleEvent.value,
-          catagory: this.state.category.value,
-          date: this.state.at.value,
-          where: this.state.where.value
-        };
-        alert("added successfully");
-        this.setState(function (prevState) {
-          return {
-            events: [].concat(_toConsumableArray(prevState.events), [myNewEvent])
-          };
-        }, function () {
-          this.state.events.map(function (item) {
-            console.log(item.ID);
-          });
-        });
-        this.setState(function (prevState) {
-          return {
-            userEvents: [].concat(_toConsumableArray(prevState.userEvents), [myNewEvent])
-          };
-        }, function () {
-          this.state.userEvents.map(function (item) {
-            console.log(item.ID);
-          });
-        });
+      if (this.state.category.errors.length == 0 && this.state.title.errors.length == 0 && this.state.date.errors.length == 0 && this.state.where.errors.length == 0) {
+        alert("successfully updated");
       }
     }
   }, {
@@ -60412,7 +60393,7 @@ function (_React$Component) {
         style: {
           color: "red"
         }
-      }, this.state.event.title)), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+      }, this.state.title.value)), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
         className: "font-weight-bold"
       }, "Category"), _react.default.createElement(_reactBootstrap.InputGroup, {
         className: "mb-3"
@@ -60422,7 +60403,7 @@ function (_React$Component) {
         as: "select",
         id: "category",
         name: "category",
-        value: this.state.event.catagory,
+        value: this.state.category.value,
         onChange: this.onInputChange
       }, _react.default.createElement("option", {
         value: ""
@@ -60446,29 +60427,29 @@ function (_React$Component) {
       }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faTag
       }))), _react.default.createElement(_reactBootstrap.Form.Control, {
-        id: "titleEvent",
-        name: "titleEvent",
+        id: "title",
+        name: "title",
         placeholder: "Enter Title Event",
         onBlur: this.onInputChange,
-        defaultValue: this.state.event.title
-      })), this.state.titleEvent.errors.map(function (err, i) {
+        defaultValue: this.state.title.value
+      })), this.state.title.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
           className: "text-danger"
         }, err);
       })), _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
         className: "font-weight-bold"
-      }, "At"), _react.default.createElement(_reactBootstrap.InputGroup, {
+      }, "Date"), _react.default.createElement(_reactBootstrap.InputGroup, {
         className: "mb-3"
       }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faCalendar
       }))), _react.default.createElement(_reactBootstrap.Form.Control, {
         name: "date",
         type: "date",
-        placeholder: "Enter Title Date",
+        placeholder: "Enter Event Date",
         onBlur: this.onInputChange,
-        defaultValue: this.state.event.date
-      })), this.state.at.errors.map(function (err, i) {
+        defaultValue: this.state.date.value
+      })), this.state.date.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
           className: "text-danger"
@@ -60484,7 +60465,7 @@ function (_React$Component) {
         name: "where",
         placeholder: "Enter Event Position",
         onBlur: this.onInputChange,
-        defaultValue: this.state.event.where
+        defaultValue: this.state.where.value
       })), this.state.where.errors.map(function (err, i) {
         return _react.default.createElement(_reactBootstrap.Form.Text, {
           key: i,
@@ -60506,7 +60487,7 @@ function (_React$Component) {
 
 exports.default = UpdateEventComponent;
 UpdateEventComponent.contextType = _WishContext.default;
-},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./validator":"validator.js","./WishContext":"WishContext.js","./api":"api.js"}],"MyEventsComponent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","./validator":"validator.js","./WishContext":"WishContext.js","./api":"api.js"}],"MyEventsComponent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -60556,8 +60537,12 @@ function (_React$Component) {
   _createClass(MyEventsComponent, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("tr", null, _react.default.createElement("td", null, this.props.ID), _react.default.createElement("td", null, this.props.catagory), _react.default.createElement("td", null, this.props.title), _react.default.createElement("td", null, this.props.date), _react.default.createElement("td", null, this.props.where), _react.default.createElement("td", null, _react.default.createElement(_reactBootstrap.Button, {
-        onClick: this.props.func
+        onClick: function onClick() {
+          return _this.props.func(_this.props.ID);
+        }
       }, "Show"), _react.default.createElement(_reactRouterDom.NavLink, {
         className: "navbarClass btn text-primary",
         to: "/UpdateEventComponent/" + this.props.ID,
@@ -60576,7 +60561,135 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = MyEventsComponent;
-},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css"}],"MyWishes.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./general.css":"general.css"}],"CardUserWishesComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var CardUserWishesComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CardUserWishesComponent, _React$Component);
+
+  function CardUserWishesComponent() {
+    var _this;
+
+    _classCallCheck(this, CardUserWishesComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CardUserWishesComponent).call(this));
+    _this.state = {
+      content: '',
+      seeflag: true,
+      text: "see more"
+    };
+    _this.seeMore = _this.seeMore.bind(_assertThisInitialized(_this));
+    _this.seeLess = _this.seeLess.bind(_assertThisInitialized(_this));
+    _this.handelText = _this.handelText.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CardUserWishesComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        content: "".concat(this.props.wishContent.substring(0, 70), "...")
+      });
+    }
+  }, {
+    key: "seeMore",
+    value: function seeMore() {
+      this.setState({
+        content: this.props.wishContent,
+        seeflag: false
+      });
+    }
+  }, {
+    key: "seeLess",
+    value: function seeLess() {
+      this.setState({
+        content: "".concat(this.props.wishContent.substring(0, 70), "..."),
+        seeflag: true
+      });
+    }
+  }, {
+    key: "handelText",
+    value: function handelText() {
+      if (this.state.seeflag) {
+        this.setState({
+          text: "see less"
+        });
+        this.seeMore();
+      } else {
+        this.setState({
+          text: "see more"
+        });
+        this.seeLess();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Card, {
+        style: {
+          width: '19rem',
+          marginBottom: "15px"
+        }
+      }, _react.default.createElement(_reactBootstrap.Card.Img, {
+        variant: "top",
+        width: "150px",
+        height: "150px",
+        src: this.props.imageURL
+      }), _react.default.createElement(_reactBootstrap.Card.Body, null, _react.default.createElement(_reactBootstrap.Card.Title, null, this.props.from), _react.default.createElement(_reactBootstrap.Card.Text, null, this.state.content), _react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: this.handelText
+      }, this.state.text), _react.default.createElement(_reactRouterDom.NavLink, {
+        className: "navbarClass btn text-primary",
+        to: "/UpdateWishComponent/" + this.props.id,
+        activeClassName: "text-warning"
+      }, "Update"), _react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: this.handelText,
+        style: {
+          border: "2px solid red"
+        }
+      }, "Delete")))));
+    }
+  }]);
+
+  return CardUserWishesComponent;
+}(_react.default.Component);
+
+exports.default = CardUserWishesComponent;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"MyWishes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -60590,7 +60703,7 @@ require("./general.css");
 
 var api = _interopRequireWildcard(require("./api"));
 
-var _CardComponent = _interopRequireDefault(require("./CardComponent"));
+var _CardUserWishesComponent = _interopRequireDefault(require("./CardUserWishesComponent"));
 
 var _reactBootstrap = require("react-bootstrap");
 
@@ -60648,12 +60761,14 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return _react.default.createElement(_reactBootstrap.Row, null, this.state.wishes.map(function (_ref, i) {
-        var eventID = _ref.eventID,
+        var ID = _ref.ID,
+            eventID = _ref.eventID,
             from = _ref.from,
             wishContent = _ref.wishContent,
             imageURL = _ref.imageURL;
-        return _react.default.createElement(_CardComponent.default, {
+        return _react.default.createElement(_CardUserWishesComponent.default, {
           key: i,
+          id: ID,
           eventID: eventID,
           from: from,
           wishContent: wishContent,
@@ -60667,7 +60782,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = MyWishes;
-},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardComponent":"CardComponent.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./general.css":"general.css","./api":"api.js","./CardUserWishesComponent":"CardUserWishesComponent.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"RedirectIfAnonymous.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -60798,8 +60913,8 @@ function (_React$Component) {
     }
   }, {
     key: "rowClick",
-    value: function rowClick() {
-      this.props.history.push("/wishes/2");
+    value: function rowClick(idOfEvent) {
+      this.props.history.push("/wishes/" + idOfEvent);
     }
   }, {
     key: "componentDidMount",
@@ -60906,7 +61021,229 @@ var localStorageManager = {
 };
 var _default = localStorageManager;
 exports.default = _default;
-},{}],"App.js":[function(require,module,exports) {
+},{}],"UpdateWishComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactFontawesome = require("@fortawesome/react-fontawesome");
+
+var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
+
+var _reactBootstrap = require("react-bootstrap");
+
+var api = _interopRequireWildcard(require("./api"));
+
+var _WishContext = _interopRequireDefault(require("./WishContext"));
+
+var _validator2 = _interopRequireWildcard(require("./validator"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var UpdateWishComponent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UpdateWishComponent, _React$Component);
+
+  function UpdateWishComponent() {
+    var _this;
+
+    _classCallCheck(this, UpdateWishComponent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateWishComponent).call(this));
+    _this.state = {
+      from: (0, _validator2.field)({
+        value: '',
+        name: 'from',
+        minLength: 2
+      }),
+      Wishing: (0, _validator2.field)({
+        value: '',
+        name: 'Wishing',
+        minLength: 2
+      }),
+      imageURL: (0, _validator2.field)({
+        value: '',
+        name: 'imageURL',
+        minLength: 10
+      })
+    };
+    _this.onSubmit = _this.onSubmit.bind(_assertThisInitialized(_this));
+    _this.onInputChange = _this.onInputChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UpdateWishComponent, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      api.getWish(this.props.match.params.wishID).then(function (userWish) {
+        return localStorage.setItem("userWish", JSON.stringify(userWish));
+      });
+      setTimeout(function () {
+        var userWish = JSON.parse(localStorage.getItem('userWish'));
+        var wish = Object.assign({}, _this2.state);
+        wish.from.value = userWish.from;
+        wish.Wishing.value = userWish.wishContent;
+        wish.imageURL.value = userWish.imageURL;
+
+        _this2.setState(_objectSpread({}, wish), console.log(_this2.state));
+      }, 500);
+    }
+  }, {
+    key: "onInputChange",
+    value: function onInputChange(_ref) {
+      var _ref$target = _ref.target,
+          name = _ref$target.name,
+          value = _ref$target.value;
+      this.setState(_defineProperty({}, name, _objectSpread({}, this.state[name], {
+        value: value
+      }, (0, _validator2.default)(value, name, this.state[name].validations))));
+    }
+  }, {
+    key: "onSubmit",
+    value: function onSubmit(e) {
+      e.preventDefault();
+      var wish = Object.assign({}, this.state);
+
+      for (var key in wish) {
+        var _wish$key = wish[key],
+            value = _wish$key.value,
+            validations = _wish$key.validations;
+
+        var _validator = (0, _validator2.default)(value, key, validations),
+            valid = _validator.valid,
+            errors = _validator.errors;
+
+        if (!valid) {
+          wish[key].valid = valid;
+          wish[key].errors = errors;
+        }
+      }
+
+      this.setState(_objectSpread({}, wish));
+
+      if (this.state.from.errors.length == 0 && this.state.Wishing.errors.length == 0 && this.state.imageURL.errors.length == 0) {
+        alert("wish updated successfully"); //  this.props.history.push("/event/" + this.props.match.params.eventID);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form, {
+        style: {
+          height: 250,
+          margin: "80px 300px  0px 300px"
+        },
+        onSubmit: this.onSubmit
+      }, _react.default.createElement("h1", {
+        style: {
+          color: "red"
+        },
+        className: "font-weight-bold"
+      }, "Update Wish"), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "From"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faUser
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        name: "from",
+        placeholder: "Enter your name",
+        "aria-label": "from",
+        id: "fromInput",
+        defaultValue: this.state.from.value,
+        onBlur: this.onInputChange
+      }))), this.state.from.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "Wishing you"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faList
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        as: "textarea",
+        rows: "5",
+        name: "Wishing",
+        "aria-label": "Wishing",
+        placeholder: "Enter your wish",
+        id: "wishInput",
+        onBlur: this.onInputChange,
+        defaultValue: this.state.Wishing.value
+      }))), this.state.Wishing.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Form.Group, null, _react.default.createElement(_reactBootstrap.Form.Label, {
+        className: "font-weight-bold"
+      }, "imageURL"), _react.default.createElement(_reactBootstrap.InputGroup, {
+        className: "mb-3"
+      }, _react.default.createElement(_reactBootstrap.InputGroup.Prepend, null, _react.default.createElement(_reactBootstrap.InputGroup.Text, null, _react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
+        icon: _freeSolidSvgIcons.faImage
+      }))), _react.default.createElement(_reactBootstrap.Form.Control, {
+        name: "imageURL",
+        placeholder: "Enter your imageURL",
+        "aria-label": "imageURL",
+        id: "idSrcImg",
+        defaultValue: this.state.imageURL.value,
+        onBlur: this.onInputChange
+      }))), this.state.imageURL.errors.map(function (err, i) {
+        return _react.default.createElement(_reactBootstrap.Form.Text, {
+          key: i,
+          className: "text-danger"
+        }, err);
+      }))), _react.default.createElement(_reactBootstrap.Button, {
+        style: {
+          border: "2px solid white"
+        },
+        className: "font-weight-bold",
+        variant: "primary",
+        type: "submit"
+      }, "Update Wish"))))));
+    }
+  }]);
+
+  return UpdateWishComponent;
+}(_react.default.Component);
+
+exports.default = UpdateWishComponent;
+UpdateWishComponent.contextType = _WishContext.default;
+},{"react":"node_modules/react/index.js","@fortawesome/react-fontawesome":"node_modules/@fortawesome/react-fontawesome/index.es.js","@fortawesome/free-solid-svg-icons":"node_modules/@fortawesome/free-solid-svg-icons/index.es.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","./api":"api.js","./WishContext":"WishContext.js","./validator":"validator.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -60953,6 +61290,8 @@ var _RedirectIfAnonymous = _interopRequireDefault(require("./RedirectIfAnonymous
 var _ShowUserEvents = _interopRequireDefault(require("./ShowUserEvents"));
 
 var _localstorage = _interopRequireDefault(require("./localstorage"));
+
+var _UpdateWishComponent = _interopRequireDefault(require("./UpdateWishComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -61052,10 +61391,10 @@ function (_React$Component) {
 
   _createClass(App, [{
     key: "login",
-    value: function login(email, userId) {
+    value: function login(email, userID) {
       var user = {
         name: email,
-        userId: userId
+        userID: userID
       };
       this.setState(user);
 
@@ -61066,7 +61405,7 @@ function (_React$Component) {
     value: function logout() {
       this.setState({
         name: '',
-        userId: -1
+        userID: -1
       });
 
       _localstorage.default.logout();
@@ -61103,6 +61442,9 @@ function (_React$Component) {
       }), _react.default.createElement(_RedirectIfAnonymous.default, {
         path: "/UpdateEventComponent/:eventID",
         component: _UpdateEventComponent.default
+      }), _react.default.createElement(_RedirectIfAnonymous.default, {
+        path: "/UpdateWishComponent/:wishID",
+        component: _UpdateWishComponent.default
       }), _react.default.createElement(_reactRouterDom.Route, {
         path: "/about",
         component: _AboutComponent.default
@@ -61122,7 +61464,7 @@ function (_React$Component) {
 exports.default = App;
 
 _reactDom.default.render(_react.default.createElement(App, null), document.querySelector('#container'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./UpdateEventComponent":"UpdateEventComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js","./localstorage":"localstorage.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./WishContext":"WishContext.js","./NavBarComponent":"NavBarComponent.js","./HomeComponent":"HomeComponent.js","./JoinComponent":"JoinComponent.js","./AboutComponent":"AboutComponent.js","./AddABestWishComponent":"AddABestWishComponent.js","./WishesComponent":"WishesComponent.js","./EventsComponent":"EventsComponent.js","./CreateNewEventComponent":"CreateNewEventComponent.js","./LoginComponent":"LoginComponent.js","./UpdateEventComponent":"UpdateEventComponent.js","./MyEventsComponent":"MyEventsComponent.js","./SearchedEventComponent":"SearchedEventComponent.js","./MyWishes":"MyWishes.js","./RedirectIfAnonymous":"RedirectIfAnonymous.js","./ShowUserEvents":"ShowUserEvents.js","./localstorage":"localstorage.js","./UpdateWishComponent":"UpdateWishComponent.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -61150,7 +61492,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57442" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62668" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

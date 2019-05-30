@@ -22,17 +22,17 @@ class NavBarComponent extends React.Component {
                             <NavLink className="navbarClass" to="/" exact activeClassName="text-warning">Home</NavLink>
                             {!this.context.name ?
                             <>
-                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userId} activeClassName="text-warning">Events</NavLink>
+                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userID} activeClassName="text-warning">Events</NavLink>
                             </>
                             :
-                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userId} activeClassName="text-warning">MyEvents</NavLink>
+                            <NavLink className="navbarClass" to={"/UserEvents/"+this.context.userID} activeClassName="text-warning">MyEvents</NavLink>
                             }
                             {!this.context.name ?
                             <>
-                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userId} activeClassName="text-warning">Wishes</NavLink>
+                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userID} activeClassName="text-warning">Wishes</NavLink>
                             </>
                             :
-                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userId} activeClassName="text-warning">MyWishes</NavLink>
+                            <NavLink className="navbarClass" to={"/wishes/"+this.context.userID} activeClassName="text-warning">MyWishes</NavLink>
                             }
                             
                             <NavLink className="navbarClass" to="/about" activeClassName="text-warning">About</NavLink>

@@ -16,8 +16,8 @@ export default class ShowUserEvents extends React.Component {
     buttonClick() {
         this.props.history.push("/wishes/1");
     }
-    rowClick() {
-        this.props.history.push("/wishes/2");
+    rowClick(idOfEvent) {
+        this.props.history.push("/wishes/"+idOfEvent);
     }
     componentDidMount() {
         const { match } = this.props;
